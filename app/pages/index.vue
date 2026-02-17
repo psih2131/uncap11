@@ -461,6 +461,257 @@
       </div>
     </div>
   </section>
+
+  <section class="process-sec">
+    <div class="container">
+      <div class="header-title-box">
+        <div class="header-title-box__subtitle-row">
+          <span class="header-title-box__subtitle-dot"></span>
+          <p class="header-title-box__subtitle-text">Plans & Pricing</p>
+        </div>
+
+        <h2 class="header-title-box__title">
+          How Our Managed
+          <b
+            >LinkedIn <span><br /></span> Access Service</b
+          >
+          Works
+        </h2>
+        <!-- 
+        <p class="header-title-box__description">
+          How we maintain long-term profile stability and reliable performance
+        </p> -->
+      </div>
+
+      <div class="process-sec__cards">
+        <div
+          v-for="(card, index) in processCards"
+          :key="index"
+          class="process-card"
+        >
+          <div class="process-card__img-wrapper">
+            <img
+              :src="card.image"
+              :alt="card.title"
+              class="process-card__img"
+            />
+          </div>
+          <div class="process-card__body">
+            <h3 class="process-card__title">
+              {{ card.title }}
+            </h3>
+            <p class="process-card__text">
+              {{ card.text }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-sec__btn-row">
+        <button class="predistable-sec__btn">
+          <span class="predistable-sec__btn-icon">
+            <svg
+              width="16"
+              height="18"
+              viewBox="0 0 16 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.891582 10.7995C0.723437 10.8001 0.558581 10.7524 0.416166 10.6618C0.27375 10.5713 0.159623 10.4417 0.0870427 10.2882C0.0144622 10.1346 -0.013592 9.96328 0.00613965 9.79419C0.0258713 9.62509 0.0925787 9.46514 0.198512 9.33291L8.99518 0.155304C9.06116 0.0781769 9.15108 0.0260579 9.25018 0.00750148C9.34927 -0.0110549 9.45165 0.00505383 9.54051 0.0531837C9.62937 0.101314 9.69943 0.178605 9.73919 0.27237C9.77896 0.366136 9.78606 0.470805 9.75933 0.569196L8.05331 5.98579C8.00301 6.12212 7.98611 6.26878 8.00408 6.41318C8.02205 6.55758 8.07434 6.69541 8.15647 6.81485C8.2386 6.93429 8.34811 7.03178 8.47562 7.09894C8.60313 7.1661 8.74482 7.20094 8.88855 7.20047H15.1084C15.2766 7.19989 15.4414 7.24763 15.5838 7.33815C15.7262 7.42867 15.8404 7.55826 15.913 7.71184C15.9855 7.86543 16.0136 8.03672 15.9939 8.20582C15.9741 8.37491 15.9074 8.53486 15.8015 8.66709L7.00482 17.8447C6.93884 17.9218 6.84892 17.9739 6.74982 17.9925C6.65073 18.0111 6.54835 17.9949 6.45949 17.9468C6.37063 17.8987 6.30057 17.8214 6.26081 17.7276C6.22104 17.6339 6.21394 17.5292 6.24067 17.4308L7.94669 12.0142C7.99699 11.8779 8.01389 11.7312 7.99592 11.5868C7.97795 11.4424 7.92566 11.3046 7.84353 11.1851C7.76141 11.0657 7.65189 10.9682 7.52438 10.9011C7.39687 10.8339 7.25518 10.7991 7.11145 10.7995H0.891582Z"
+                fill="#563AE3"
+              />
+            </svg>
+          </span>
+          <span class="predistable-sec__btn-text">Start Scaling Outreach</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="included-sec">
+    <div class="container">
+      <div class="included-sec__header">
+        <div class="header-title-box__subtitle-row">
+          <span class="header-title-box__subtitle-dot"></span>
+          <p class="header-title-box__subtitle-text">WHAT’S INCLUDED</p>
+        </div>
+
+        <h2 class="header-title-box__title">
+          <b>Outbound Done Right</b>
+        </h2>
+
+        <p class="header-title-box__description">
+          We provide hands-on guidance, operational safeguards, and proven best
+          practices to help you run LinkedIn outreach responsibly and
+          consistently — while protecting long-term profile stability
+        </p>
+      </div>
+
+      <div class="included-sec__cards">
+        <div
+          v-for="(card, index) in includedCards"
+          :key="index"
+          class="included-card"
+        >
+          <div class="included-card__wrapper">
+            <div class="included-card__icon-wrapper">
+              <img
+                :src="card.icon"
+                :alt="card.title"
+                class="included-card__icon"
+              />
+            </div>
+            <p class="included-card__title">
+              {{ card.title }}
+            </p>
+            <p class="included-card__subtitle">
+              {{ card.subtitle }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners-sec">
+    <div class="container">
+      <div class="partners-sec__header">
+        <div class="header-title-box__subtitle-row">
+          <span class="header-title-box__subtitle-dot"></span>
+          <p class="header-title-box__subtitle-text">
+            Run your accounts on the tools that fit your workflow
+          </p>
+        </div>
+      </div>
+
+      <div class="partners-sec__row">
+        <div class="partner-element">
+          <img src="@/assets/images/pr1.png" alt="" />
+        </div>
+
+        <div class="partner-element">
+          <img src="@/assets/images/pr2.png" alt="" />
+        </div>
+
+        <div class="partner-element">
+          <img src="@/assets/images/pr3.png" alt="" />
+        </div>
+
+        <div class="partner-element">
+          <img src="@/assets/images/pr4.png" alt="" />
+        </div>
+
+        <div class="partner-element">
+          <img src="@/assets/images/pr5.png" alt="" />
+        </div>
+
+        <div class="partner-element">
+          <img src="@/assets/images/pr6.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-sec">
+    <div class="container">
+      <div class="why-sec__wrapper">
+        <div class="why-sec__info">
+          <div class="header-title-box__subtitle-row">
+            <span class="header-title-box__subtitle-dot"></span>
+            <p class="header-title-box__subtitle-text">why us</p>
+          </div>
+
+          <h2 class="header-title-box__title">Accounts that build trust</h2>
+
+          <p class="header-title-box__description">
+            Thoroughly filled profiles, real photos, and authentic details make
+            every account ready for running outbound
+          </p>
+        </div>
+        <img
+          src="@/assets/images/why-card-1.png"
+          alt=""
+          class="why-sec__card-img-1"
+        />
+        <img
+          src="@/assets/images/why-card-2.png"
+          alt=""
+          class="why-sec__card-img-2"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-sec">
+    <div class="container">
+      <div class="faq-sec__header">
+        <div class="header-title-box__subtitle-row">
+          <span class="header-title-box__subtitle-dot"></span>
+          <p class="header-title-box__subtitle-text">FAQ</p>
+        </div>
+
+        <h2 class="header-title-box__title">
+          Frequently <span><br /></span> Asked <b>Questions</b>
+        </h2>
+      </div>
+
+      <div class="faq-sec__list-wrapper">
+        <FaqItem
+          v-for="(item, index) in faqItems"
+          :key="index"
+          :item="item"
+          :is-open="openFaqIndices.includes(index)"
+          @toggle="toggleFaq(index)"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="ready-sec">
+    <div class="container">
+      <div class="ready-sec__wrapper">
+        <div class="header-title-box">
+          <div class="header-title-box__subtitle-row">
+            <span class="header-title-box__subtitle-dot"></span>
+            <p class="header-title-box__subtitle-text">READY TO SCALE?</p>
+          </div>
+
+          <h2 class="header-title-box__title">
+            Turn LinkedIn Into a Predictable Outbound Channel
+          </h2>
+
+          <p class="header-title-box__description">
+            Scale your LinkedIn outreach with professionally managed profile
+            access assigned exclusively to your team. Built for sales teams,
+            agencies, and lead generation operations.
+          </p>
+        </div>
+
+        <div class="ready-sec__btn-row">
+          <button class="predistable-sec__btn">
+            <span class="predistable-sec__btn-icon">
+              <svg
+                width="16"
+                height="18"
+                viewBox="0 0 16 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.891582 10.7995C0.723437 10.8001 0.558581 10.7524 0.416166 10.6618C0.27375 10.5713 0.159623 10.4417 0.0870427 10.2882C0.0144622 10.1346 -0.013592 9.96328 0.00613965 9.79419C0.0258713 9.62509 0.0925787 9.46514 0.198512 9.33291L8.99518 0.155304C9.06116 0.0781769 9.15108 0.0260579 9.25018 0.00750148C9.34927 -0.0110549 9.45165 0.00505383 9.54051 0.0531837C9.62937 0.101314 9.69943 0.178605 9.73919 0.27237C9.77896 0.366136 9.78606 0.470805 9.75933 0.569196L8.05331 5.98579C8.00301 6.12212 7.98611 6.26878 8.00408 6.41318C8.02205 6.55758 8.07434 6.69541 8.15647 6.81485C8.2386 6.93429 8.34811 7.03178 8.47562 7.09894C8.60313 7.1661 8.74482 7.20094 8.88855 7.20047H15.1084C15.2766 7.19989 15.4414 7.24763 15.5838 7.33815C15.7262 7.42867 15.8404 7.55826 15.913 7.71184C15.9855 7.86543 16.0136 8.03672 15.9939 8.20582C15.9741 8.37491 15.9074 8.53486 15.8015 8.66709L7.00482 17.8447C6.93884 17.9218 6.84892 17.9739 6.74982 17.9925C6.65073 18.0111 6.54835 17.9949 6.45949 17.9468C6.37063 17.8987 6.30057 17.8214 6.26081 17.7276C6.22104 17.6339 6.21394 17.5292 6.24067 17.4308L7.94669 12.0142C7.99699 11.8779 8.01389 11.7312 7.99592 11.5868C7.97795 11.4424 7.92566 11.3046 7.84353 11.1851C7.76141 11.0657 7.65189 10.9682 7.52438 10.9011C7.39687 10.8339 7.25518 10.7991 7.11145 10.7995H0.891582Z"
+                  fill="#563AE3"
+                />
+              </svg>
+            </span>
+            <span class="predistable-sec__btn-text"
+              >Start Scaling Outreach</span
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup>
@@ -472,6 +723,15 @@ import own1 from "@/assets/images/ovn1.png";
 import own2 from "@/assets/images/ovn2.png";
 import own3 from "@/assets/images/ovn3.png";
 import own4 from "@/assets/images/ovn4.png";
+import proc1 from "@/assets/images/proc-1.jpg";
+import proc2 from "@/assets/images/proc-2.jpg";
+import proc3 from "@/assets/images/proc-3.jpg";
+import proc4 from "@/assets/images/proc-4.jpg";
+import inc1 from "@/assets/images/inc-1.svg";
+import inc2 from "@/assets/images/inc-2.svg";
+import inc3 from "@/assets/images/inc-3.svg";
+import inc4 from "@/assets/images/inc-4.svg";
+import inc5 from "@/assets/images/inc-5.svg";
 
 const cards = [
   {
@@ -623,6 +883,106 @@ const ownCards = [
     title: "Operational Control",
     description:
       "Manage outreach activity according to your internal processes and strategy",
+  },
+];
+
+const processCards = [
+  {
+    image: proc1,
+    title: "Choose Your Setup",
+    text: "Select your access tier, number of profiles, and service duration based on your outreach goals",
+  },
+  {
+    image: proc2,
+    title: "Secure Checkout",
+    text: "Confirm your details and complete payment through our secure payment provider",
+  },
+  {
+    image: proc3,
+    title: "Profile Provisioning",
+    text: "Your profiles are assigned, reviewed, and prepared for operational use within one business day",
+  },
+  {
+    image: proc4,
+    title: "Launch Outreach",
+    text: "Access your assigned profiles and begin running outbound within defined safety parameters",
+  },
+];
+
+const includedCards = [
+  {
+    icon: inc1,
+    title: "Defined Daily & Weekly Activity Guidelines",
+    subtitle:
+      "Clear activity thresholds tailored to each profile to support sustainable outreach performance",
+  },
+  {
+    icon: inc2,
+    title: "Structured Ramp-Up Framework",
+    subtitle:
+      "Gradual scaling approach designed to build activity over time in a controlled and predictable way",
+  },
+  {
+    icon: inc3,
+    title: "Natural Usage Patterns",
+    subtitle:
+      "Guidelines focused on maintaining authentic interaction rhythms and avoiding repetitive behavior",
+  },
+  {
+    icon: inc4,
+    title: "Clear Do's and Don'ts",
+    subtitle:
+      "Practical recommendations to reduce the risk of restrictions and minimize downtime",
+  },
+  {
+    icon: inc5,
+    title: "Ongoing Operational Support",
+    subtitle:
+      "Continuous guidance to help you scale outbound safely while maintaining profile integrity",
+  },
+];
+
+const openFaqIndices = ref([]);
+
+function toggleFaq(index) {
+  const open = openFaqIndices.value;
+  if (open.includes(index)) {
+    openFaqIndices.value = open.filter((i) => i !== index);
+  } else {
+    openFaqIndices.value = [...open, index];
+  }
+}
+
+const faqItems = [
+  {
+    question: "What is your LinkedIn profile access service?",
+    answer:
+      "We provide access to identity-verified LinkedIn profiles that are prepared for outbound use. You choose your access tier, number of profiles, and service duration to fit your outreach goals.",
+  },
+  {
+    question: "How are these profiles different from newly created profiles?",
+    answer:
+      "Our profiles complete a structured 4+ month preparation phase, with established activity history and gradual ramp-up. They are designed for sustainable outreach rather than cold, new accounts.",
+  },
+  {
+    question: "Is it safe to use assigned LinkedIn profiles for outreach?",
+    answer:
+      "We apply controlled activity guidelines and ramp-up frameworks to prioritize profile stability. While no activity is risk-free, our standards are designed to support responsible usage.",
+  },
+  {
+    question: "Will anyone else have access to my assigned profiles?",
+    answer:
+      "No. Once assigned to you, profiles are dedicated to your account only. Access is not shared with other clients or used for other purposes.",
+  },
+  {
+    question: "Can I connect the profiles to third-party tools?",
+    answer:
+      "Yes. Assigned profiles can be used with compatible outreach and sales tools, within the activity limits and best practices we provide to maintain profile health.",
+  },
+  {
+    question: "Can profiles be adjusted to match my brand positioning?",
+    answer:
+      "Profiles come with complete, professional setup. Customization options may be available depending on your plan; our team can outline what can be adjusted to align with your brand.",
   },
 ];
 </script>
