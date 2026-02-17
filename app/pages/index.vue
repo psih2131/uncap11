@@ -159,14 +159,319 @@
   </section>
 
   <section class="plans-sec">
-    <div class="container"></div>
+    <div class="container">
+      <div class="header-title-box">
+        <div class="header-title-box__subtitle-row">
+          <span class="header-title-box__subtitle-dot"></span>
+          <p class="header-title-box__subtitle-text">Plans & Pricing</p>
+        </div>
+
+        <h2 class="header-title-box__title">
+          Profiles Options <b>and Pricing</b>
+        </h2>
+        <!-- 
+        <p class="header-title-box__description">
+          How we maintain long-term profile stability and reliable performance
+        </p> -->
+      </div>
+
+      <div class="plans-sec__cards">
+        <div
+          v-for="plan in pricingPlans"
+          :key="plan.id"
+          :class="[
+            'plan-card',
+            { 'plan-card--premium': plan.id === 'premium' },
+          ]"
+        >
+          <div v-if="plan.id === 'premium'" class="plan-card__best-choice">
+            <svg
+              width="14"
+              height="18"
+              viewBox="0 0 14 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M2.7356 8.06862C2.30784 4.23349 4.54806 1.53611 8.74921 0C6.17678 3.33828 10.9424 6.95439 11.2055 10.4206C11.8214 9.36954 12.1713 7.96719 12.2404 6.09152C15.3905 11.0335 12.7784 19.111 5.84604 17.9497C5.20954 17.8439 4.59657 17.6425 4.03799 17.3426C1.50965 15.9932 0 13.0518 0 10.2427C0 8.45228 0.76585 6.85443 1.7566 5.58439C1.8889 6.82797 2.17113 7.75552 2.7356 8.06862Z"
+                fill="#E33A3A"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M4.97612 13.6078C4.26171 11.763 4.3602 8.78342 6.36082 7.73828C6.37552 11.1633 9.74908 11.5999 9.12435 15.2557C9.70057 14.603 9.99162 13.5593 10.0431 12.7347C10.9574 14.8279 10.24 16.5022 8.93619 17.3548C4.97171 19.9478 1.55845 14.6912 3.82807 11.8101C3.89716 12.4539 4.68506 13.4476 4.97612 13.6078Z"
+                fill="white"
+              />
+            </svg>
+            Best choice
+          </div>
+          <div class="plan-card__top">
+            <div class="plan-card__header">
+              <h3 class="plan-card__title">
+                {{ plan.title }}
+              </h3>
+              <p v-if="plan.subtitle" class="plan-card__subtitle">
+                {{ plan.subtitle }}
+              </p>
+              <div class="plan-card__price-row">
+                <div class="plan-card__price">
+                  <span class="plan-card__price-value">
+                    {{ plan.priceLabel }}
+                  </span>
+                  <span class="plan-card__price-period">
+                    {{ plan.period }}
+                  </span>
+                </div>
+
+                <div class="plan-card__counter">
+                  <div
+                    class="plan-card__counter-ar"
+                    @click="decrementProfiles(plan)"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 5L12 19M12 19L19 12M12 19L5 12"
+                        stroke="#0D0D0D"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+
+                  <input
+                    type="text"
+                    class="plan-card__counter-inp"
+                    readonly=""
+                    :value="plan.profiles"
+                  />
+
+                  <div
+                    class="plan-card__counter-ar"
+                    @click="incrementProfiles(plan)"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 19L12 5M12 5L5 12M12 5L19 12"
+                        stroke="#0D0D0D"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="plan-card__body">
+              <div class="plan-card__claster">
+                <p class="plan-card__claster-title">
+                  {{ plan.volumeTitle }}
+                </p>
+                <ul class="plan-card__claster-list">
+                  <li
+                    v-for="(volume, vIndex) in plan.volumeItems"
+                    :key="vIndex"
+                    class="plan-card__claster-list-element"
+                  >
+                    <span class="plan-card__claster-list-element-icon">
+                      <svg
+                        width="12"
+                        height="10"
+                        viewBox="0 0 12 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11 1L4.125 9L1 5.36364"
+                          stroke="#3F366C"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="plan-card__claster-list-element-text">
+                      {{ volume }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="plan-card__claster">
+                <p class="plan-card__claster-title">
+                  {{ plan.includesTitle }}
+                </p>
+                <ul class="plan-card__claster-list">
+                  <li
+                    v-for="(include, iIndex) in plan.includesItems"
+                    :key="iIndex"
+                    class="plan-card__claster-list-element"
+                  >
+                    <span class="plan-card__claster-list-element-icon">
+                      <svg
+                        width="12"
+                        height="10"
+                        viewBox="0 0 12 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11 1L4.125 9L1 5.36364"
+                          stroke="#3F366C"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="plan-card__claster-list-element-text">
+                      {{ include }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="plan-card__down">
+            <button class="plan-card__btn">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 12H19M19 12L12 5M19 12L12 19"
+                  stroke="#0D0D0D"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <span class="plan-card__btn-text">
+                {{ plan.buttonText }}
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="plans-sec__free-trial">
+        <div class="plans-sec__free-trial-row">
+          <p class="plans-sec__free-trial-title">
+            Make LinkedIn Your Most Predictable Growth Channel
+          </p>
+          <button class="plans-sec__free-trial-btn">
+            <span class="plans-sec__free-trial-btn-text"
+              >Start with a 7-Day Trial for $14
+            </span>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 21C13.78 21 15.5201 20.4722 17.0001 19.4832C18.4802 18.4943 19.6337 17.0887 20.3149 15.4442C20.9961 13.7996 21.1743 11.99 20.8271 10.2442C20.4798 8.49836 19.6226 6.89471 18.364 5.63604C17.1053 4.37737 15.5016 3.5202 13.7558 3.17294C12.01 2.82567 10.2004 3.0039 8.55585 3.68509C6.91131 4.36628 5.50571 5.51983 4.51677 6.99987C3.52784 8.47991 3 10.22 3 12C3.00258 14.3862 3.95162 16.6738 5.63889 18.3611C7.32616 20.0484 9.61384 20.9974 12 21ZM12 6.75C12.2225 6.75 12.44 6.81598 12.625 6.9396C12.81 7.06322 12.9542 7.23892 13.0394 7.44448C13.1245 7.65005 13.1468 7.87625 13.1034 8.09448C13.06 8.31271 12.9528 8.51316 12.7955 8.6705C12.6382 8.82783 12.4377 8.93498 12.2195 8.97839C12.0012 9.02179 11.775 8.99952 11.5695 8.91437C11.3639 8.82922 11.1882 8.68502 11.0646 8.50002C10.941 8.31501 10.875 8.09751 10.875 7.875C10.875 7.57663 10.9935 7.29049 11.2045 7.07951C11.4155 6.86853 11.7016 6.75 12 6.75ZM11.25 10.5H12C12.3978 10.5 12.7794 10.658 13.0607 10.9393C13.342 11.2206 13.5 11.6022 13.5 12V16.5C13.5 16.6989 13.421 16.8897 13.2803 17.0303C13.1397 17.171 12.9489 17.25 12.75 17.25C12.5511 17.25 12.3603 17.171 12.2197 17.0303C12.079 16.8897 12 16.6989 12 16.5V12H11.25C11.0511 12 10.8603 11.921 10.7197 11.7803C10.579 11.6397 10.5 11.4489 10.5 11.25C10.5 11.0511 10.579 10.8603 10.7197 10.7197C10.8603 10.579 11.0511 10.5 11.25 10.5Z"
+                fill="#3F366C"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="own-sec">
+    <div class="container">
+      <div class="own-sec__data">
+        <div class="own-sec__header">
+          <h2 class="header-title-box__title">
+            <b>Get Full</b> Profile Ownership
+          </h2>
+          <p class="header-title-box__description">
+            Secure long-term access by prepaying three months and transition the
+            profile into your dedicated outbound asset
+          </p>
+        </div>
+
+        <div class="own-sec__cards">
+          <div v-for="(card, index) in ownCards" :key="index" class="own-card">
+            <div class="own-card__icon">
+              <img
+                :src="card.image"
+                :alt="card.title"
+                class="own-card__icon-img"
+              />
+            </div>
+            <div class="own-card__data">
+              <p class="own-card__title">
+                {{ card.title }}
+              </p>
+              <p class="own-card__subtitle">
+                {{ card.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="own-sec__btn-wrapper">
+          <button class="predistable-sec__btn">
+            <span class="predistable-sec__btn-icon">
+              <svg
+                width="16"
+                height="18"
+                viewBox="0 0 16 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.891582 10.7995C0.723437 10.8001 0.558581 10.7524 0.416166 10.6618C0.27375 10.5713 0.159623 10.4417 0.0870427 10.2882C0.0144622 10.1346 -0.013592 9.96328 0.00613965 9.79419C0.0258713 9.62509 0.0925787 9.46514 0.198512 9.33291L8.99518 0.155304C9.06116 0.0781769 9.15108 0.0260579 9.25018 0.00750148C9.34927 -0.0110549 9.45165 0.00505383 9.54051 0.0531837C9.62937 0.101314 9.69943 0.178605 9.73919 0.27237C9.77896 0.366136 9.78606 0.470805 9.75933 0.569196L8.05331 5.98579C8.00301 6.12212 7.98611 6.26878 8.00408 6.41318C8.02205 6.55758 8.07434 6.69541 8.15647 6.81485C8.2386 6.93429 8.34811 7.03178 8.47562 7.09894C8.60313 7.1661 8.74482 7.20094 8.88855 7.20047H15.1084C15.2766 7.19989 15.4414 7.24763 15.5838 7.33815C15.7262 7.42867 15.8404 7.55826 15.913 7.71184C15.9855 7.86543 16.0136 8.03672 15.9939 8.20582C15.9741 8.37491 15.9074 8.53486 15.8015 8.66709L7.00482 17.8447C6.93884 17.9218 6.84892 17.9739 6.74982 17.9925C6.65073 18.0111 6.54835 17.9949 6.45949 17.9468C6.37063 17.8987 6.30057 17.8214 6.26081 17.7276C6.22104 17.6339 6.21394 17.5292 6.24067 17.4308L7.94669 12.0142C7.99699 11.8779 8.01389 11.7312 7.99592 11.5868C7.97795 11.4424 7.92566 11.3046 7.84353 11.1851C7.76141 11.0657 7.65189 10.9682 7.52438 10.9011C7.39687 10.8339 7.25518 10.7991 7.11145 10.7995H0.891582Z"
+                  fill="#563AE3"
+                />
+              </svg>
+            </span>
+            <span class="predistable-sec__btn-text"
+              >Start Scaling Outreach</span
+            >
+          </button>
+        </div>
+      </div>
+      <div class="own-sec__img-wrapper">
+        <img src="@/assets/images/ovn-cards.png" alt="" class="own-sec__img" />
+      </div>
+    </div>
   </section>
 </template>
 
 <script setup>
+import { ref } from "vue";
 import pred1 from "@/assets/images/pred1.png";
 import pred2 from "@/assets/images/pred2.png";
 import pred3 from "@/assets/images/pred3.png";
+import own1 from "@/assets/images/ovn1.png";
+import own2 from "@/assets/images/ovn2.png";
+import own3 from "@/assets/images/ovn3.png";
+import own4 from "@/assets/images/ovn4.png";
 
 const cards = [
   {
@@ -237,6 +542,87 @@ const fitCards = [
       "Entering new markets or verticals in parallel;",
       "Adding immediate outreach capacity without waiting for profile preparation.",
     ],
+  },
+];
+
+const pricingPlans = ref([
+  {
+    id: "core",
+    title: "Core Profile Access",
+    subtitle: "",
+    price: 26, // за профиль
+    priceLabel: "$26",
+    period: "/month",
+    profiles: 4,
+    volumeTitle: "Volume Discounts Available:",
+    volumeItems: ["5+ profiles - 5% discount", "10+ profiles - 7% discount"],
+    includesTitle: "Includes:",
+    includesItems: [
+      "200+ connection actions capacity per profile",
+      "Low monthly restriction rate (historically 2–5%)",
+      "Identity-verified profile source",
+      "Complete profile with established activity history",
+      "Minimum 4 months structured preparation period",
+      "24/7 human support for profile-related questions",
+      "Assistance in case of temporary restrictions",
+      "Best-practice guidance for safe outbound scaling",
+    ],
+    buttonText: "Get Core Access",
+  },
+  {
+    id: "premium",
+    title: "Premium Profile Access",
+    subtitle: "LinkedIn Premium subscription connected",
+    price: 49, // за профиль
+    priceLabel: "$49",
+    period: "/month",
+    profiles: 4,
+    volumeTitle: "Volume Discounts Available:",
+    volumeItems: ["5+ profiles - 5% discount", "10+ profiles - 7% discount"],
+    includesTitle: "Includes everything in Core, plus:",
+    includesItems: [
+      "Premium LinkedIn features enabled",
+      "Higher visibility and expanded outreach functionality",
+      "Enhanced profile positioning for outbound campaigns",
+    ],
+    buttonText: "Get Premium Access",
+  },
+]);
+
+const decrementProfiles = (plan) => {
+  if (plan.profiles > 1) {
+    plan.profiles--;
+  }
+};
+
+const incrementProfiles = (plan) => {
+  plan.profiles++;
+};
+
+const ownCards = [
+  {
+    image: own1,
+    title: "Keep Your Network",
+    description:
+      "Retain and continue growing all professional connections built over time",
+  },
+  {
+    image: own2,
+    title: "Maintain Lead Continuity",
+    description:
+      "Continue conversations and nurturing without interruptions or profile changes",
+  },
+  {
+    image: own3,
+    title: "Long-Term Stability",
+    description:
+      "Profile performance strengthens with consistent usage and history",
+  },
+  {
+    image: own4,
+    title: "Operational Control",
+    description:
+      "Manage outreach activity according to your internal processes and strategy",
   },
 ];
 </script>
