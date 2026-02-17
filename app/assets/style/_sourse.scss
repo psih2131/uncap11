@@ -1,0 +1,100 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+}
+
+a {
+	text-decoration: none;
+
+}
+
+li {
+	list-style-type: none;
+}
+
+button {
+	cursor: pointer;
+	outline: 0 none !important;
+
+}
+
+body::-webkit-scrollbar {
+	width: 5px;
+}
+
+
+body::-webkit-scrollbar-thumb {
+	background-color: darkgrey;
+	border-radius: 100px;
+
+}
+
+input {
+	outline: 0 none !important;
+
+}
+
+input[type=text] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input[type=tel] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input[type=email] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input[type=submit] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+select {
+	cursor: pointer;
+	outline: 0 none !important;
+
+}
+
+textarea {
+	outline: 0 none !important;
+
+}
+
+svg {
+	shape-rendering: geometricPrecision;
+}
+
+body {
+	font-family: $mainFont;
+}
+
+ul {
+	margin-bottom: 0;
+}
+
+
+.container {
+	width: 1560px;
+	margin: 0 auto;
+}
+
+@media only screen and (max-width: 1750px) {
+
+}
