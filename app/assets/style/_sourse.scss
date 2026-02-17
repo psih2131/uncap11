@@ -69,6 +69,7 @@ textarea {
 select {
 	cursor: pointer;
 	outline: 0 none !important;
+	overflow: hidden;
 
 }
 
@@ -82,7 +83,8 @@ svg {
 }
 
 body {
-	font-family: $mainFont;
+	font-family: $textFont;
+	color: $black1;
 }
 
 ul {
@@ -91,10 +93,24 @@ ul {
 
 
 .container {
-	width: 1560px;
+	width: 1350px;
 	margin: 0 auto;
 }
 
-@media only screen and (max-width: 1750px) {
+@media only screen and (max-width: 1400px) {
+	.container {
+		width: 1000px;
+	}
+}
 
+@media only screen and (max-width: 1050px) {
+	.container {
+		width: 750px;
+	}
+}
+
+@media only screen and (max-width: 765px) {
+	.container {
+		width: 340px;
+	}
 }
