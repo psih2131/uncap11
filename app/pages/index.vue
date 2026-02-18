@@ -1,4 +1,95 @@
 <template>
+  <section class="hero-sec">
+    <div class="container">
+      <div class="hero-sec__header">
+        <h1 class="hero-sec__title">
+          Stable <b>LinkedIn Profiles</b><span><br /></span> for Predictable
+          Outreach
+        </h1>
+        <p class="hero-sec__subtitle">
+          We provide professionally prepared and maintained LinkedIn profiles
+          that support consistent outbound activity — without adding operational
+          overhead to your team
+        </p>
+        <div class="hero-sec__btn-row">
+          <button class="predistable-sec__btn">
+            <span class="predistable-sec__btn-icon">
+              <svg
+                width="16"
+                height="18"
+                viewBox="0 0 16 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.891582 10.7995C0.723437 10.8001 0.558581 10.7524 0.416166 10.6618C0.27375 10.5713 0.159623 10.4417 0.0870427 10.2882C0.0144622 10.1346 -0.013592 9.96328 0.00613965 9.79419C0.0258713 9.62509 0.0925787 9.46514 0.198512 9.33291L8.99518 0.155304C9.06116 0.0781769 9.15108 0.0260579 9.25018 0.00750148C9.34927 -0.0110549 9.45165 0.00505383 9.54051 0.0531837C9.62937 0.101314 9.69943 0.178605 9.73919 0.27237C9.77896 0.366136 9.78606 0.470805 9.75933 0.569196L8.05331 5.98579C8.00301 6.12212 7.98611 6.26878 8.00408 6.41318C8.02205 6.55758 8.07434 6.69541 8.15647 6.81485C8.2386 6.93429 8.34811 7.03178 8.47562 7.09894C8.60313 7.1661 8.74482 7.20094 8.88855 7.20047H15.1084C15.2766 7.19989 15.4414 7.24763 15.5838 7.33815C15.7262 7.42867 15.8404 7.55826 15.913 7.71184C15.9855 7.86543 16.0136 8.03672 15.9939 8.20582C15.9741 8.37491 15.9074 8.53486 15.8015 8.66709L7.00482 17.8447C6.93884 17.9218 6.84892 17.9739 6.74982 17.9925C6.65073 18.0111 6.54835 17.9949 6.45949 17.9468C6.37063 17.8987 6.30057 17.8214 6.26081 17.7276C6.22104 17.6339 6.21394 17.5292 6.24067 17.4308L7.94669 12.0142C7.99699 11.8779 8.01389 11.7312 7.99592 11.5868C7.97795 11.4424 7.92566 11.3046 7.84353 11.1851C7.76141 11.0657 7.65189 10.9682 7.52438 10.9011C7.39687 10.8339 7.25518 10.7991 7.11145 10.7995H0.891582Z"
+                  fill="#563AE3"
+                />
+              </svg>
+            </span>
+            <span class="predistable-sec__btn-text">Request Access</span>
+          </button>
+
+          <button class="hero-sec__trial-btn">
+            <span class="hero-sec__trial-btn-text">
+              Try for 1 week for $14
+            </span>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 21C13.78 21 15.5201 20.4722 17.0001 19.4832C18.4802 18.4943 19.6337 17.0887 20.3149 15.4442C20.9961 13.7996 21.1743 11.99 20.8271 10.2442C20.4798 8.49836 19.6226 6.89471 18.364 5.63604C17.1053 4.37737 15.5016 3.5202 13.7558 3.17294C12.01 2.82567 10.2004 3.0039 8.55585 3.68509C6.91131 4.36628 5.50571 5.51983 4.51677 6.99987C3.52784 8.47991 3 10.22 3 12C3.00258 14.3862 3.95162 16.6738 5.63889 18.3611C7.32616 20.0484 9.61384 20.9974 12 21ZM12 6.75C12.2225 6.75 12.44 6.81598 12.625 6.9396C12.81 7.06322 12.9542 7.23892 13.0394 7.44448C13.1245 7.65005 13.1468 7.87625 13.1034 8.09448C13.06 8.31271 12.9528 8.51316 12.7955 8.6705C12.6382 8.82783 12.4377 8.93498 12.2195 8.97839C12.0012 9.02179 11.775 8.99952 11.5695 8.91437C11.3639 8.82922 11.1882 8.68502 11.0646 8.50002C10.941 8.31501 10.875 8.09751 10.875 7.875C10.875 7.57663 10.9935 7.29049 11.2045 7.07951C11.4155 6.86853 11.7016 6.75 12 6.75ZM11.25 10.5H12C12.3978 10.5 12.7794 10.658 13.0607 10.9393C13.342 11.2206 13.5 11.6022 13.5 12V16.5C13.5 16.6989 13.421 16.8897 13.2803 17.0303C13.1397 17.171 12.9489 17.25 12.75 17.25C12.5511 17.25 12.3603 17.171 12.2197 17.0303C12.079 16.8897 12 16.6989 12 16.5V12H11.25C11.0511 12 10.8603 11.921 10.7197 11.7803C10.579 11.6397 10.5 11.4489 10.5 11.25C10.5 11.0511 10.579 10.8603 10.7197 10.7197C10.8603 10.579 11.0511 10.5 11.25 10.5Z"
+                fill="#3F366C"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-sec__cards-wrapper">
+        <div
+          class="hero-sec__cards-img-container"
+          :class="{
+            'hero-sec__cards-img-container--active': isHeroCardsScrolled,
+          }"
+        >
+          <img
+            src="@/assets/images/hero-cards.png"
+            alt=""
+            class="hero-sec__cards"
+          />
+        </div>
+
+        <img
+          src="@/assets/images/hero-shadow.png"
+          alt=""
+          class="hero-sec__shadow"
+        />
+      </div>
+
+      <div class="hero-sec__cards-info-wrapper">
+        <div class="hero-card__empty"></div>
+        <div v-for="(card, index) in heroCards" :key="index" class="hero-card">
+          <div class="hero-card__wrapper">
+            <div class="hero-card__ic-wrapper">
+              <img :src="card.icon" :alt="card.title" class="hero-card__ic" />
+            </div>
+            <p class="hero-card__title">
+              {{ card.title }}
+            </p>
+            <p class="hero-card__subtitle">
+              {{ card.subtitle }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="predistable-sec">
     <div class="container">
       <div class="predictable-outreach">
@@ -715,7 +806,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import pred1 from "@/assets/images/pred1.png";
 import pred2 from "@/assets/images/pred2.png";
 import pred3 from "@/assets/images/pred3.png";
@@ -732,6 +823,57 @@ import inc2 from "@/assets/images/inc-2.svg";
 import inc3 from "@/assets/images/inc-3.svg";
 import inc4 from "@/assets/images/inc-4.svg";
 import inc5 from "@/assets/images/inc-5.svg";
+import heroIc1 from "@/assets/images/hero-ic-1.svg";
+import heroIc2 from "@/assets/images/hero-ic-2.svg";
+import heroIc3 from "@/assets/images/hero-ic-3.svg";
+import heroIc4 from "@/assets/images/hero-ic-4.svg";
+import heroIc5 from "@/assets/images/hero-ic-5.svg";
+
+const heroCards = [
+  {
+    icon: heroIc1,
+    title: "4+ months",
+    subtitle: "Structured preparation period per profile",
+  },
+  {
+    icon: heroIc2,
+    title: "100% verified",
+    subtitle: "All profiles pass verification by real users",
+  },
+  {
+    icon: heroIc3,
+    title: "730 ready",
+    subtitle: "Profiles available for assignment",
+  },
+  {
+    icon: heroIc4,
+    title: "6+ months",
+    subtitle: "Average profile history",
+  },
+  {
+    icon: heroIc5,
+    title: "24/7 support",
+    subtitle: "Always-On Human Support",
+  },
+];
+
+const isHeroCardsScrolled = ref(false);
+
+const SCROLL_THRESHOLD = 200;
+
+function updateHeroCardsActive() {
+  if (typeof window === "undefined") return;
+  isHeroCardsScrolled.value = window.scrollY > SCROLL_THRESHOLD;
+}
+
+onMounted(() => {
+  updateHeroCardsActive();
+  window.addEventListener("scroll", updateHeroCardsActive, { passive: true });
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", updateHeroCardsActive);
+});
 
 const cards = [
   {
