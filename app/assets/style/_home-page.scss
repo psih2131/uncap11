@@ -419,6 +419,32 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  transition: all ease 0.3s;
+
+  &:not(.plan-card--premium) {
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      transition: all ease 0.3s;
+      border-radius: 28px;
+      opacity: 0;
+      background: linear-gradient(140.95deg, #F7F6FF 26.83%, #CABFFF 114.78%);
+    }
+
+    &:hover {
+      border: solid 1px #D2C9FF;
+      transition: all ease 0.3s;
+
+      &::before {
+        opacity: 1;
+        transition: all ease 0.3s;
+      }
+    }
+  }
 }
 
 .plan-card__best-choice {
@@ -444,6 +470,7 @@
 }
 
 .plan-card__btn {
+
   width: 100%;
   display: flex;
   align-items: center;
@@ -499,11 +526,15 @@
 .plan-card__down {
   padding: 30px;
   padding-top: 36px;
+  position: relative;
+  z-index: 2;
 }
 
 .plan-card__header {
   padding: 30px;
   border-bottom: solid 1px rgba(63, 54, 108, 0.16);
+  position: relative;
+  z-index: 2;
 }
 
 .plan-card__title {
@@ -583,6 +614,8 @@
 
 .plan-card__claster {
   padding: 30px;
+  position: relative;
+  z-index: 2;
   border-bottom: solid 1px rgba(63, 54, 108, 0.16);
 
   &:last-child {
@@ -2700,5 +2733,9 @@
   .hero-sec {
     padding-bottom: 60px;
     padding-top: 140px;
+  }
+
+  .plan-card:not(.plan-card--premium)::before {
+    border-radius: 18px;
   }
 }
