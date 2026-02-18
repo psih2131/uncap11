@@ -71,7 +71,7 @@
       </nav>
 
       <div class="header__right">
-        <button class="header__btn">
+        <NuxtLink to="/payment" class="header__btn">
           <span class="header__btn-text"> Get started </span>
           <svg
             width="24"
@@ -88,7 +88,7 @@
               stroke-linejoin="round"
             />
           </svg>
-        </button>
+        </NuxtLink>
 
         <div
           ref="burgerRef"

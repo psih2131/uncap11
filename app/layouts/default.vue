@@ -1,10 +1,6 @@
 <template>
   <div class="app-wrapper">
-    <componentHeader />
-
     <slot />
-
-    <componentFooter />
   </div>
 </template>
 
