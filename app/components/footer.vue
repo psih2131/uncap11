@@ -13,19 +13,44 @@
         <nav class="footer__nav">
           <ul class="footer__nav-ul">
             <li class="footer__nav-li">
-              <a href="" class="footer__nav-link">About</a>
+              <a
+                href="#about"
+                class="footer__nav-link"
+                @click.prevent="scrollToAnchor('#about')"
+                >About</a
+              >
             </li>
             <li class="footer__nav-li">
-              <a href="" class="footer__nav-link">Pricing</a>
+              <a
+                href="#pricing"
+                class="footer__nav-link"
+                @click.prevent="scrollToAnchor('#pricing')"
+                >Pricing</a
+              >
             </li>
             <li class="footer__nav-li">
-              <a href="" class="footer__nav-link">How it works</a>
+              <a
+                href="#how-it-works"
+                class="footer__nav-link"
+                @click.prevent="scrollToAnchor('#how-it-works')"
+                >How it works</a
+              >
             </li>
             <li class="footer__nav-li">
-              <a href="" class="footer__nav-link">Trial</a>
+              <a
+                href="#trial"
+                class="footer__nav-link"
+                @click.prevent="scrollToAnchor('#trial')"
+                >Trial</a
+              >
             </li>
             <li class="footer__nav-li">
-              <a href="" class="footer__nav-link">FAQ</a>
+              <a
+                href="#faq"
+                class="footer__nav-link"
+                @click.prevent="scrollToAnchor('#faq')"
+                >FAQ</a
+              >
             </li>
           </ul>
         </nav>
@@ -46,7 +71,11 @@
             </li>
           </ul>
         </nav>
-        <a href="" class="footer__top-nav">
+        <a
+          href="#hero"
+          class="footer__top-nav"
+          @click.prevent="scrollToAnchor('#hero')"
+        >
           <svg
             width="16"
             height="18"
@@ -64,3 +93,14 @@
     </div>
   </footer>
 </template>
+
+<script setup>
+function scrollToAnchor(href) {
+  if (!href || !href.startsWith("#")) return;
+  const id = href.slice(1);
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+</script>

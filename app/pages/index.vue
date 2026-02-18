@@ -1,5 +1,5 @@
 <template>
-  <section class="hero-sec">
+  <section class="hero-sec" id="hero">
     <div class="container">
       <div class="hero-sec__header">
         <h1 class="hero-sec__title">
@@ -90,7 +90,7 @@
     </div>
   </section>
 
-  <section class="predistable-sec">
+  <section class="predistable-sec" id="about">
     <div class="container">
       <div class="predictable-outreach">
         <div class="header-title-box">
@@ -251,221 +251,223 @@
 
   <section class="plans-sec">
     <div class="container">
-      <div class="header-title-box">
-        <div class="header-title-box__subtitle-row">
-          <span class="header-title-box__subtitle-dot"></span>
-          <p class="header-title-box__subtitle-text">Plans & Pricing</p>
-        </div>
+      <div class="plans-sec__price-wrapper" id="pricing">
+        <div class="header-title-box">
+          <div class="header-title-box__subtitle-row">
+            <span class="header-title-box__subtitle-dot"></span>
+            <p class="header-title-box__subtitle-text">Plans & Pricing</p>
+          </div>
 
-        <h2 class="header-title-box__title">
-          Profiles Options <b>and Pricing</b>
-        </h2>
-        <!-- 
+          <h2 class="header-title-box__title">
+            Profiles Options <b>and Pricing</b>
+          </h2>
+          <!-- 
         <p class="header-title-box__description">
           How we maintain long-term profile stability and reliable performance
         </p> -->
-      </div>
+        </div>
 
-      <div class="plans-sec__cards">
-        <div
-          v-for="plan in pricingPlans"
-          :key="plan.id"
-          :class="[
-            'plan-card',
-            { 'plan-card--premium': plan.id === 'premium' },
-          ]"
-        >
-          <div v-if="plan.id === 'premium'" class="plan-card__best-choice">
-            <svg
-              width="14"
-              height="18"
-              viewBox="0 0 14 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M2.7356 8.06862C2.30784 4.23349 4.54806 1.53611 8.74921 0C6.17678 3.33828 10.9424 6.95439 11.2055 10.4206C11.8214 9.36954 12.1713 7.96719 12.2404 6.09152C15.3905 11.0335 12.7784 19.111 5.84604 17.9497C5.20954 17.8439 4.59657 17.6425 4.03799 17.3426C1.50965 15.9932 0 13.0518 0 10.2427C0 8.45228 0.76585 6.85443 1.7566 5.58439C1.8889 6.82797 2.17113 7.75552 2.7356 8.06862Z"
-                fill="#E33A3A"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M4.97612 13.6078C4.26171 11.763 4.3602 8.78342 6.36082 7.73828C6.37552 11.1633 9.74908 11.5999 9.12435 15.2557C9.70057 14.603 9.99162 13.5593 10.0431 12.7347C10.9574 14.8279 10.24 16.5022 8.93619 17.3548C4.97171 19.9478 1.55845 14.6912 3.82807 11.8101C3.89716 12.4539 4.68506 13.4476 4.97612 13.6078Z"
-                fill="white"
-              />
-            </svg>
-            Best choice
-          </div>
-          <div class="plan-card__top">
-            <div class="plan-card__header">
-              <h3 class="plan-card__title">
-                {{ plan.title }}
-              </h3>
-              <p v-if="plan.subtitle" class="plan-card__subtitle">
-                {{ plan.subtitle }}
-              </p>
-              <div class="plan-card__price-row">
-                <div class="plan-card__price">
-                  <span class="plan-card__price-value">
-                    {{ plan.priceLabel }}
-                  </span>
-                  <span class="plan-card__price-period">
-                    {{ plan.period }}
-                  </span>
-                </div>
-
-                <div class="plan-card__counter">
-                  <div
-                    class="plan-card__counter-ar"
-                    @click="decrementProfiles(plan)"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 5L12 19M12 19L19 12M12 19L5 12"
-                        stroke="#0D0D0D"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-
-                  <input
-                    type="text"
-                    class="plan-card__counter-inp"
-                    readonly=""
-                    :value="plan.profiles"
-                  />
-
-                  <div
-                    class="plan-card__counter-ar"
-                    @click="incrementProfiles(plan)"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 19L12 5M12 5L5 12M12 5L19 12"
-                        stroke="#0D0D0D"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="plan-card__body">
-              <div class="plan-card__claster">
-                <p class="plan-card__claster-title">
-                  {{ plan.volumeTitle }}
-                </p>
-                <ul class="plan-card__claster-list">
-                  <li
-                    v-for="(volume, vIndex) in plan.volumeItems"
-                    :key="vIndex"
-                    class="plan-card__claster-list-element"
-                  >
-                    <span class="plan-card__claster-list-element-icon">
-                      <svg
-                        width="12"
-                        height="10"
-                        viewBox="0 0 12 10"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 1L4.125 9L1 5.36364"
-                          stroke="#3F366C"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </span>
-                    <span class="plan-card__claster-list-element-text">
-                      {{ volume }}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="plan-card__claster">
-                <p class="plan-card__claster-title">
-                  {{ plan.includesTitle }}
-                </p>
-                <ul class="plan-card__claster-list">
-                  <li
-                    v-for="(include, iIndex) in plan.includesItems"
-                    :key="iIndex"
-                    class="plan-card__claster-list-element"
-                  >
-                    <span class="plan-card__claster-list-element-icon">
-                      <svg
-                        width="12"
-                        height="10"
-                        viewBox="0 0 12 10"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11 1L4.125 9L1 5.36364"
-                          stroke="#3F366C"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </span>
-                    <span class="plan-card__claster-list-element-text">
-                      {{ include }}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="plan-card__down">
-            <button class="plan-card__btn">
+        <div class="plans-sec__cards">
+          <div
+            v-for="plan in pricingPlans"
+            :key="plan.id"
+            :class="[
+              'plan-card',
+              { 'plan-card--premium': plan.id === 'premium' },
+            ]"
+          >
+            <div v-if="plan.id === 'premium'" class="plan-card__best-choice">
               <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
+                width="14"
+                height="18"
+                viewBox="0 0 14 18"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M5 12H19M19 12L12 5M19 12L12 19"
-                  stroke="#0D0D0D"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M2.7356 8.06862C2.30784 4.23349 4.54806 1.53611 8.74921 0C6.17678 3.33828 10.9424 6.95439 11.2055 10.4206C11.8214 9.36954 12.1713 7.96719 12.2404 6.09152C15.3905 11.0335 12.7784 19.111 5.84604 17.9497C5.20954 17.8439 4.59657 17.6425 4.03799 17.3426C1.50965 15.9932 0 13.0518 0 10.2427C0 8.45228 0.76585 6.85443 1.7566 5.58439C1.8889 6.82797 2.17113 7.75552 2.7356 8.06862Z"
+                  fill="#E33A3A"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M4.97612 13.6078C4.26171 11.763 4.3602 8.78342 6.36082 7.73828C6.37552 11.1633 9.74908 11.5999 9.12435 15.2557C9.70057 14.603 9.99162 13.5593 10.0431 12.7347C10.9574 14.8279 10.24 16.5022 8.93619 17.3548C4.97171 19.9478 1.55845 14.6912 3.82807 11.8101C3.89716 12.4539 4.68506 13.4476 4.97612 13.6078Z"
+                  fill="white"
                 />
               </svg>
+              Best choice
+            </div>
+            <div class="plan-card__top">
+              <div class="plan-card__header">
+                <h3 class="plan-card__title">
+                  {{ plan.title }}
+                </h3>
+                <p v-if="plan.subtitle" class="plan-card__subtitle">
+                  {{ plan.subtitle }}
+                </p>
+                <div class="plan-card__price-row">
+                  <div class="plan-card__price">
+                    <span class="plan-card__price-value">
+                      {{ plan.priceLabel }}
+                    </span>
+                    <span class="plan-card__price-period">
+                      {{ plan.period }}
+                    </span>
+                  </div>
 
-              <span class="plan-card__btn-text">
-                {{ plan.buttonText }}
-              </span>
-            </button>
+                  <div class="plan-card__counter">
+                    <div
+                      class="plan-card__counter-ar"
+                      @click="decrementProfiles(plan)"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 5L12 19M12 19L19 12M12 19L5 12"
+                          stroke="#0D0D0D"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+
+                    <input
+                      type="text"
+                      class="plan-card__counter-inp"
+                      readonly=""
+                      :value="plan.profiles"
+                    />
+
+                    <div
+                      class="plan-card__counter-ar"
+                      @click="incrementProfiles(plan)"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 19L12 5M12 5L5 12M12 5L19 12"
+                          stroke="#0D0D0D"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="plan-card__body">
+                <div class="plan-card__claster">
+                  <p class="plan-card__claster-title">
+                    {{ plan.volumeTitle }}
+                  </p>
+                  <ul class="plan-card__claster-list">
+                    <li
+                      v-for="(volume, vIndex) in plan.volumeItems"
+                      :key="vIndex"
+                      class="plan-card__claster-list-element"
+                    >
+                      <span class="plan-card__claster-list-element-icon">
+                        <svg
+                          width="12"
+                          height="10"
+                          viewBox="0 0 12 10"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 1L4.125 9L1 5.36364"
+                            stroke="#3F366C"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </span>
+                      <span class="plan-card__claster-list-element-text">
+                        {{ volume }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="plan-card__claster">
+                  <p class="plan-card__claster-title">
+                    {{ plan.includesTitle }}
+                  </p>
+                  <ul class="plan-card__claster-list">
+                    <li
+                      v-for="(include, iIndex) in plan.includesItems"
+                      :key="iIndex"
+                      class="plan-card__claster-list-element"
+                    >
+                      <span class="plan-card__claster-list-element-icon">
+                        <svg
+                          width="12"
+                          height="10"
+                          viewBox="0 0 12 10"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 1L4.125 9L1 5.36364"
+                            stroke="#3F366C"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </span>
+                      <span class="plan-card__claster-list-element-text">
+                        {{ include }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="plan-card__down">
+              <button class="plan-card__btn">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                    stroke="#0D0D0D"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <span class="plan-card__btn-text">
+                  {{ plan.buttonText }}
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="plans-sec__free-trial">
+      <div class="plans-sec__free-trial" id="trial">
         <div class="plans-sec__free-trial-row">
           <p class="plans-sec__free-trial-title">
             Make LinkedIn Your Most Predictable Growth Channel
@@ -553,12 +555,12 @@
     </div>
   </section>
 
-  <section class="process-sec">
+  <section class="process-sec" id="how-it-works">
     <div class="container">
       <div class="header-title-box">
         <div class="header-title-box__subtitle-row">
           <span class="header-title-box__subtitle-dot"></span>
-          <p class="header-title-box__subtitle-text">Plans & Pricing</p>
+          <p class="header-title-box__subtitle-text">PROCESS OVERVIEW</p>
         </div>
 
         <h2 class="header-title-box__title">
@@ -734,7 +736,7 @@
     </div>
   </section>
 
-  <section class="faq-sec">
+  <section class="faq-sec" id="faq">
     <div class="container">
       <div class="faq-sec__header">
         <div class="header-title-box__subtitle-row">
@@ -1127,6 +1129,18 @@ const faqItems = [
       "Profiles come with complete, professional setup. Customization options may be available depending on your plan; our team can outline what can be adjusted to align with your brand.",
   },
 ];
+
+const requestURL = useRequestURL();
+
+useSeoMeta({
+  title: "uncap11 - Stable LinkedIn Profiles for Predictable Outreach",
+  description:
+    "We provide professionally prepared and maintained LinkedIn profiles that support consistent outbound activity — without adding operational overhead to your team",
+  ogTitle: "uncap11 - Stable LinkedIn Profiles for Predictable Outreach",
+  ogDescription:
+    "We provide professionally prepared and maintained LinkedIn profiles that support consistent outbound activity — without adding operational overhead to your team",
+  ogImage: `${requestURL.origin}/images/og-default.jpg`,
+});
 </script>
 
 <style scoped></style>
