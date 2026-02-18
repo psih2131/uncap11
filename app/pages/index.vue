@@ -15,7 +15,7 @@
             operational overhead to your team
           </p>
           <div class="hero-sec__btn-row">
-            <button class="predistable-sec__btn">
+            <NuxtLink to="/payment" class="predistable-sec__btn">
               <span class="predistable-sec__btn-icon">
                 <svg
                   width="16"
@@ -31,7 +31,7 @@
                 </svg>
               </span>
               <span class="predistable-sec__btn-text">Request Access</span>
-            </button>
+            </NuxtLink>
 
             <button class="hero-sec__trial-btn">
               <span class="hero-sec__trial-btn-text">
@@ -167,7 +167,7 @@
           </div>
 
           <div class="predistable-sec__btn-row">
-            <button class="predistable-sec__btn">
+            <NuxtLink to="/payment" class="predistable-sec__btn">
               <span class="predistable-sec__btn-icon">
                 <svg
                   width="16"
@@ -185,7 +185,7 @@
               <span class="predistable-sec__btn-text"
                 >Start Scaling Outreach</span
               >
-            </button>
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -203,7 +203,7 @@
             <b>LinkedIn Profiles</b> for Different Outbound Goals
           </h2>
 
-          <button class="predistable-sec__btn">
+          <NuxtLink to="/payment" class="predistable-sec__btn">
             <span class="predistable-sec__btn-icon">
               <svg
                 width="16"
@@ -221,7 +221,7 @@
             <span class="predistable-sec__btn-text"
               >Start Scaling Outreach</span
             >
-          </button>
+          </NuxtLink>
         </div>
         <div class="fit-sec__cards">
           <div
@@ -465,7 +465,10 @@
                 </div>
               </div>
               <div class="plan-card__down">
-                <button class="plan-card__btn">
+                <button
+                  class="plan-card__btn"
+                  @click="payPageGo(plan.profiles, plan.id)"
+                >
                   <svg
                     width="24"
                     height="24"
@@ -556,7 +559,7 @@
           </div>
 
           <div class="own-sec__btn-wrapper">
-            <button class="predistable-sec__btn">
+            <NuxtLink to="/payment" class="predistable-sec__btn">
               <span class="predistable-sec__btn-icon">
                 <svg
                   width="16"
@@ -574,7 +577,7 @@
               <span class="predistable-sec__btn-text"
                 >Start Scaling Outreach</span
               >
-            </button>
+            </NuxtLink>
           </div>
         </div>
         <div class="own-sec__img-wrapper">
@@ -633,7 +636,7 @@
         </div>
 
         <div class="process-sec__btn-row">
-          <button class="predistable-sec__btn">
+          <NuxtLink to="/payment" class="predistable-sec__btn">
             <span class="predistable-sec__btn-icon">
               <svg
                 width="16"
@@ -651,7 +654,7 @@
             <span class="predistable-sec__btn-text"
               >Start Scaling Outreach</span
             >
-          </button>
+          </NuxtLink>
         </div>
       </div>
     </section>
@@ -816,7 +819,7 @@
           </div>
 
           <div class="ready-sec__btn-row">
-            <button class="predistable-sec__btn">
+            <NuxtLink to="/payment" class="predistable-sec__btn">
               <span class="predistable-sec__btn-icon">
                 <svg
                   width="16"
@@ -834,7 +837,7 @@
               <span class="predistable-sec__btn-text"
                 >Start Scaling Outreach</span
               >
-            </button>
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -871,6 +874,10 @@ import heroIc5 from "@/assets/images/hero-ic-5.svg";
 import componentHeader from "@/components/header.vue";
 
 import componentFooter from "@/components/footer.vue";
+
+import { useCounterStore } from "@/stores/counter";
+
+const store = useCounterStore();
 
 const heroCards = [
   {
@@ -912,6 +919,9 @@ function updateHeroCardsActive() {
 onMounted(() => {
   updateHeroCardsActive();
   window.addEventListener("scroll", updateHeroCardsActive, { passive: true });
+
+  store.counterValue.count = 0;
+  store.counterValue.type = null;
 });
 
 onUnmounted(() => {
@@ -998,7 +1008,7 @@ const pricingPlans = ref([
     price: 26, // за профиль
     priceLabel: "$26",
     period: "/month",
-    profiles: 4,
+    profiles: 1,
     volumeTitle: "Volume Discounts Available:",
     volumeItems: ["5+ profiles - 5% discount", "10+ profiles - 7% discount"],
     includesTitle: "Includes:",
@@ -1021,7 +1031,7 @@ const pricingPlans = ref([
     price: 49, // за профиль
     priceLabel: "$49",
     period: "/month",
-    profiles: 4,
+    profiles: 1,
     volumeTitle: "Volume Discounts Available:",
     volumeItems: ["5+ profiles - 5% discount", "10+ profiles - 7% discount"],
     includesTitle: "Includes everything in Core, plus:",
@@ -1170,6 +1180,13 @@ const faqItems = [
       "Profiles come with complete, professional setup. Customization options may be available depending on your plan; our team can outline what can be adjusted to align with your brand.",
   },
 ];
+
+const payPageGo = (count, id) => {
+  store.counterValue.count = +count;
+  store.counterValue.type = id;
+  console.log(store.counterValue);
+  navigateTo("/payment");
+};
 
 const requestURL = useRequestURL();
 

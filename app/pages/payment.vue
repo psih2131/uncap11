@@ -3,7 +3,7 @@
     <div class="container">
       <div class="payment-sec__wrapper">
         <div class="payment-sec__back-row">
-          <NuxtLink to="/" class="payment-sec__back" aria-label="На главную">
+          <NuxtLink to="/" class="payment-sec__back" aria-label="to Home">
             <svg
               width="24"
               height="24"
@@ -19,7 +19,7 @@
                 stroke-linejoin="round"
               />
             </svg>
-            <span class="payment-sec__back-text">На главную</span>
+            <span class="payment-sec__back-text">Back to Home</span>
           </NuxtLink>
         </div>
         <div class="payment-sec__title-row">
@@ -84,7 +84,11 @@
           </div>
 
           <div class="payment-sec__btn-row">
-            <button type="submit" class="header__btn">
+            <button
+              type="submit"
+              class="header__btn"
+              @click="openPopup('pay-confirm')"
+            >
               <span class="header__btn-text"> Pay in Crypto </span>
               <svg
                 width="24"
@@ -118,14 +122,19 @@
       </div>
     </div>
   </section>
+
 </template>
 
 <script setup>
-import { reactive, computed, ref } from "vue";
+import { reactive, computed, ref, onMounted } from "vue";
 
-const form = reactive({
+import { useCounterStore } from "@/stores/counter";
+
+const store = useCounterStore();
+
+const form = ref({
   gender: "",
-  quantity: 6,
+  quantity: 1,
   email: "",
   accountType: "",
   profileLocation: "",
@@ -133,7 +142,7 @@ const form = reactive({
   otherDetails: "",
 });
 
-const errors = reactive({
+const errors = ref({
   gender: "",
   quantity: "",
   email: "",
@@ -155,19 +164,25 @@ function validateEmail(value) {
 
 function validate() {
   generalError.value = "";
-  errors.gender = !form.gender ? "Select gender" : "";
-  errors.quantity =
-    form.quantity === "" || form.quantity === null || Number(form.quantity) < 1
+  errors.value.gender = !form.value.gender ? "Select gender" : "";
+  errors.value.quantity =
+    form.value.quantity === "" ||
+    form.value.quantity === null ||
+    Number(form.value.quantity) < 1
       ? "Enter quantity"
       : "";
-  errors.email = validateEmail(form.email);
-  errors.accountType = !form.accountType ? "Select account type" : "";
-  errors.profileLocation = !form.profileLocation
+  errors.value.email = validateEmail(form.value.email);
+  errors.value.accountType = !form.value.accountType
+    ? "Select account type"
+    : "";
+  errors.value.profileLocation = !form.value.profileLocation
     ? "Select profile location"
     : "";
-  errors.periodOfUse = !form.periodOfUse ? "Select period of use" : "";
+  errors.value.periodOfUse = !form.value.periodOfUse
+    ? "Select period of use"
+    : "";
 
-  const hasErrors = Object.values(errors).some(Boolean);
+  const hasErrors = Object.values(errors.value).some(Boolean);
   if (hasErrors) {
     generalError.value = "Please fill in all required fields.";
   }
@@ -201,7 +216,7 @@ const periodOfUseOptions = [
 ];
 
 const accountsAmount = computed(() => {
-  const q = form.quantity;
+  const q = form.value.quantity;
   return q === "" || q === null ? 0 : Number(q);
 });
 
@@ -210,5 +225,19 @@ const totalFixed = computed(() => {
   return amount.toFixed(2);
 });
 
-const formJson = computed(() => JSON.stringify(form, null, 2));
+const formJson = computed(() => JSON.stringify(form.value, null, 2));
+
+const openPopup = (name) => {
+  store.modalController.status = true;
+  store.modalController.name = name;
+};
+
+onMounted(() => {
+  if (store?.counterValue?.count != null) {
+    form.value.quantity = store.counterValue.count;
+  }
+  if (store?.counterValue?.type) {
+    form.value.accountType = store.counterValue.type;
+  }
+});
 </script>
