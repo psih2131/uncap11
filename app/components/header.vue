@@ -1,13 +1,13 @@
 <template>
   <header class="header" :class="{ active: isHeaderHidden }">
     <div class="header__container">
-      <a href="" class="header__logo">
+      <NuxtLink to="/" class="header__logo">
         <img
           src="@/assets/images/header-logo.png"
           alt=""
           class="header__logo-img"
         />
-      </a>
+      </NuxtLink>
 
       <nav class="header__header-nav">
         <ul class="header__header-nav-list">

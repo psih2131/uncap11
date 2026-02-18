@@ -2,13 +2,13 @@
   <footer class="footer">
     <div class="footer__top">
       <div class="container">
-        <a href="" class="footer__logo">
+        <NuxtLink to="/" class="footer__logo">
           <img
             src="@/assets/images/footer-logo.png"
             alt=""
             class="footer__logo-img"
           />
-        </a>
+        </NuxtLink>
 
         <nav class="footer__nav">
           <ul class="footer__nav-ul">
@@ -61,13 +61,19 @@
         <nav class="footer__down-nav">
           <ul class="footer__down-ul">
             <li class="footer__down-ul-element">
-              <a href="" class="footer__down-ul-link">Refund Policy</a>
+              <NuxtLink to="/docs/refund-policy" class="footer__down-ul-link"
+                >Refund Policy</NuxtLink
+              >
             </li>
             <li class="footer__down-ul-element">
-              <a href="" class="footer__down-ul-link">Terms of Use</a>
+              <NuxtLink to="/docs/terms-of-use" class="footer__down-ul-link"
+                >Terms of Use</NuxtLink
+              >
             </li>
             <li class="footer__down-ul-element">
-              <a href="" class="footer__down-ul-link">Privacy Policy</a>
+              <NuxtLink to="/docs/privacy-policy" class="footer__down-ul-link"
+                >Privacy Policy</NuxtLink
+              >
             </li>
           </ul>
         </nav>
