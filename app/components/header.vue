@@ -71,7 +71,7 @@
       </nav>
 
       <div class="header__right">
-        <NuxtLink to="/payment" class="header__btn">
+        <NuxtLink to="/sing-up" class="header__btn">
           <span class="header__btn-text"> Get started </span>
           <svg
             width="24"

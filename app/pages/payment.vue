@@ -84,11 +84,7 @@
           </div>
 
           <div class="payment-sec__btn-row">
-            <button
-              type="submit"
-              class="header__btn"
-              @click="openPopup('pay-confirm')"
-            >
+            <button type="submit" class="header__btn">
               <span class="header__btn-text"> Pay in Crypto </span>
               <svg
                 width="24"
@@ -122,7 +118,6 @@
       </div>
     </div>
   </section>
-
 </template>
 
 <script setup>
@@ -192,6 +187,12 @@ function validate() {
 function onSubmit() {
   if (!validate()) return;
   // form is valid, proceed
+
+  paymentRequest();
+}
+
+async function paymentRequest() {
+  openPopup("pay-confirm");
 }
 
 const genderOptions = [

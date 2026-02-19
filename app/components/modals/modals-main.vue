@@ -7,6 +7,12 @@
     <Transition name="modal-pay" appear>
       <modalError v-if="store.modalController.name == 'pay-error'" />
     </Transition>
+
+    <Transition name="modal-pay" appear>
+      <modalRegistrConfirm
+        v-if="store.modalController.name == 'registr-confirm'"
+      />
+    </Transition>
   </div>
 </template>
 
@@ -20,4 +26,6 @@ const store = useCounterStore();
 import modalConfirm from "@/components/modals/pay-confirm.vue";
 
 import modalError from "@/components/modals/pay-error.vue";
+
+import modalRegistrConfirm from "@/components/modals/registr-confirm.vue";
 </script>

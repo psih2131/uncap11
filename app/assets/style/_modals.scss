@@ -16,6 +16,7 @@
 .modals-bg-leave-active {
     transition: opacity 0.3s ease;
 }
+
 .modals-bg-enter-from,
 .modals-bg-leave-to {
     opacity: 0;
@@ -38,10 +39,12 @@
 .modal-pay-leave-active {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
 .modal-pay-enter-from {
     opacity: 0;
     transform: translateY(24px);
 }
+
 .modal-pay-leave-to {
     opacity: 0;
     transform: translateY(24px);
@@ -143,6 +146,33 @@
     line-height: 1;
     font-weight: 700;
     transition: all ease 0.3s;
+}
+
+.modal-pay--registr-confirm {
+    width: 664px;
+}
+
+.modal-pay__sub-info {
+    margin-top: 25px;
+    padding: 15px 12px;
+    background: #F1EEF8;
+    border-radius: 16px;
+}
+
+.modal-pay__sub-info-title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+
+}
+
+.modal-pay__sub-info-subtitle {
+    line-height: 1.2;
+    margin-top: 12px;
+    font-size: 16px;
+    color: $violet1;
+    text-align: center;
 }
 
 @media only screen and (max-width: 765px) {
