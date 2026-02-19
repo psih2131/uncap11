@@ -84,8 +84,14 @@
           </div>
 
           <div class="payment-sec__btn-row">
-            <button type="submit" class="header__btn">
-              <span class="header__btn-text"> Pay in Crypto </span>
+            <button
+              type="submit"
+              class="header__btn"
+              :disabled="paymentLoading"
+            >
+              <span class="header__btn-text">
+                {{ paymentLoading ? "Creating…" : "Pay in Crypto" }}
+              </span>
               <svg
                 width="24"
                 height="24"
@@ -102,6 +108,10 @@
                 />
               </svg>
             </button>
+
+            <!-- <a href="https://nowpayments.io/payment/?iid=4561889400&source=button" target="_blank" rel="noreferrer noopener">
+              <img src="https://nowpayments.io/images/embeds/payment-button-white.svg" alt="Cryptocurrency & Bitcoin payment button by NOWPayments">
+            </a> -->
           </div>
 
           <p v-if="generalError" class="payment-sec__form-general-error">
@@ -113,6 +123,16 @@
               >Form data (object):</span
             >
             <pre class="payment-sec__form-data-json">{{ formJson }}</pre>
+            <template v-if="lastPayment">
+              <span
+                class="payment-sec__form-data-label"
+                style="margin-top: 16px; display: block"
+                >Last payment response:</span
+              >
+              <pre class="payment-sec__form-data-json">{{
+                JSON.stringify(lastPayment, null, 2)
+              }}</pre>
+            </template>
           </div>
         </form>
       </div>
@@ -122,10 +142,14 @@
 
 <script setup>
 import { reactive, computed, ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
 
+const route = useRoute();
 import { useCounterStore } from "@/stores/counter";
 
 const store = useCounterStore();
+
+const currentOneAccountPtice = ref(29);
 
 const form = ref({
   gender: "",
@@ -147,6 +171,8 @@ const errors = ref({
 });
 
 const generalError = ref("");
+const paymentLoading = ref(false);
+const lastPayment = ref(null);
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -192,7 +218,47 @@ function onSubmit() {
 }
 
 async function paymentRequest() {
-  openPopup("pay-confirm");
+  paymentLoading.value = true;
+  generalError.value = "";
+  lastPayment.value = null;
+
+  const orderId = `test-${Date.now()}`;
+
+  try {
+    const response = await $fetch("/api/nowpayments/pay-cripto", {
+      method: "POST",
+      body: {
+        orderId,
+        gender: form.value.gender,
+        quantity: form.value.quantity,
+        email: form.value.email,
+        accountType: form.value.accountType,
+        profileLocation: form.value.profileLocation,
+        periodOfUse: form.value.periodOfUse,
+        otherDetails: form.value.otherDetails,
+        amount: Number(totalFixed.value),
+        currency: "usd",
+      },
+    });
+    // lastPayment.value = response;
+
+    if (response?.invoice_url && response.invoice_url !== "") {
+      window.open(response.invoice_url, "_blank", "noopener,noreferrer");
+    } else {
+      openPopup("pay-cancel");
+      console.log("cancel");
+    }
+
+    console.log(response);
+  } catch (e) {
+    openPopup("pay-cancel");
+    console.log("cancel");
+
+    generalError.value =
+      e?.data?.message || e?.message || "Payment request failed.";
+  } finally {
+    paymentLoading.value = false;
+  }
 }
 
 const genderOptions = [
@@ -222,7 +288,7 @@ const accountsAmount = computed(() => {
 });
 
 const totalFixed = computed(() => {
-  const amount = accountsAmount.value * 31.5;
+  const amount = accountsAmount.value * +currentOneAccountPtice.value;
   return amount.toFixed(2);
 });
 
@@ -234,11 +300,18 @@ const openPopup = (name) => {
 };
 
 onMounted(() => {
-  if (store?.counterValue?.count != null) {
-    form.value.quantity = store.counterValue.count;
-  }
+  const count = store?.counterValue?.count;
+  form.value.quantity = count != null && Number(count) >= 1 ? Number(count) : 1;
   if (store?.counterValue?.type) {
     form.value.accountType = store.counterValue.type;
+  }
+  if (route.query.success) {
+    openPopup("pay-confirm");
+    console.log("success");
+  }
+  if (route.query.cancel) {
+    openPopup("pay-cancel");
+    console.log("cancel");
   }
 });
 </script>

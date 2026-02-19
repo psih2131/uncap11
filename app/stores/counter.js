@@ -9,7 +9,7 @@ export const useCounterStore = defineStore('counter', () => {
     // const defaultUrlOgImage = ref('https://red-angels-server.ru/wp-content/uploads/2025/12/og-image.jpg')
 
     const counterValue = ref({
-        'count': 0,
+        'count': 1,
         'type': null,
     })
 

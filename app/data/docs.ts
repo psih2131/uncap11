@@ -242,4 +242,76 @@ export const DOCS: Record<string, DocItem> = {
 <p>Email: support@goscale.com</p>
 `,
   },
+  'replacement-policy': {
+    id: 'replacement-policy',
+    title: 'Replacement Policy',
+    dateUpdate: '19 February 2026',
+    text: `
+<p>This Replacement Policy forms part of the Terms of Use of <strong>Uncap11</strong> ("Company", "we", "us", or "our").</p>
+<p>By purchasing or using our managed LinkedIn profile access service (the "Service"), you agree to this Replacement Policy.</p>
+
+<h2>1. Purpose of Replacement</h2>
+<p>Uncap11 provides time-based access to managed LinkedIn profiles.</p>
+<p>If a profile becomes unavailable during your active service period due to circumstances beyond your control, we may, at our discretion, provide a replacement profile instead of issuing a refund.</p>
+<p>Replacement is the primary remedy for service interruptions where applicable.</p>
+
+<h2>2. Eligibility for Replacement</h2>
+<p>You may be eligible for a replacement profile if:</p>
+<ul>
+<li>The assigned profile becomes permanently restricted by a third-party platform during your active service period;</li>
+<li>Access is lost due to internal technical issues on our side;</li>
+<li>The profile becomes inaccessible for operational reasons not caused by your actions.</li>
+</ul>
+<p>Replacement eligibility is determined solely by Uncap11 after review.</p>
+
+<h2>3. Non-Eligible Circumstances</h2>
+<p>Replacement will not be provided if:</p>
+<ul>
+<li>The restriction or issue resulted from your misuse, automation abuse, policy violations, or failure to follow operational guidelines;</li>
+<li>You shared access credentials with unauthorized third parties;</li>
+<li>You violated LinkedIn or other third-party platform rules;</li>
+<li>The service period has already expired;</li>
+<li>You initiated a chargeback or payment dispute.</li>
+</ul>
+<p>In such cases, access may be suspended or terminated without replacement.</p>
+
+<h2>4. Replacement Conditions</h2>
+<p>If approved:</p>
+<ul>
+<li>A new profile will be assigned within a commercially reasonable timeframe;</li>
+<li>The remaining service period will continue from the original subscription term;</li>
+<li>Replacement does not reset or extend the original billing cycle;</li>
+<li>Replacement may be limited to one profile per billing period unless otherwise determined by Uncap11.</li>
+</ul>
+<p>We reserve the right to deny excessive or abusive replacement requests.</p>
+
+<h2>5. Temporary Restrictions</h2>
+<p>If a profile experiences a temporary limitation imposed by a third-party platform, Uncap11 may:</p>
+<ul>
+<li>Monitor the account until resolution;</li>
+<li>Provide operational guidance;</li>
+<li>Determine whether replacement is appropriate.</li>
+</ul>
+<p>Temporary platform actions do not automatically qualify for immediate replacement.</p>
+
+<h2>6. No Guarantee Against Third-Party Actions</h2>
+<p>You acknowledge that third-party platforms operate independently and may impose restrictions at their discretion.</p>
+<p>Uncap11 does not guarantee immunity from platform enforcement actions.</p>
+<p>Replacement is provided as an operational solution and not as a guarantee of uninterrupted service.</p>
+
+<h2>7. Relationship to Refund Policy</h2>
+<p>Replacement is the primary remedy in cases of profile unavailability during an active service period.</p>
+<p>Refunds are governed separately by our Refund Policy and are issued only in the circumstances described therein.</p>
+<p>Approval of a replacement request does not entitle you to a refund.</p>
+
+<h2>8. Modifications</h2>
+<p>We may update this Replacement Policy at any time. Changes will be reflected by the "Last updated" date above.</p>
+<p>Continued use of the Service constitutes acceptance of the revised policy.</p>
+
+<h2>9. Contact Information</h2>
+<p>For replacement requests, please contact:</p>
+<p><strong>Uncap11</strong></p>
+<p>Email: support@uncap11.com</p>
+`,
+  },
 }

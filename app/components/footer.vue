@@ -75,6 +75,11 @@
                 >Privacy Policy</NuxtLink
               >
             </li>
+            <li class="footer__down-ul-element">
+              <NuxtLink to="/docs/replacement-policy" class="footer__down-ul-link"
+                >Replacement Policy</NuxtLink
+              >
+            </li>
           </ul>
         </nav>
         <a
