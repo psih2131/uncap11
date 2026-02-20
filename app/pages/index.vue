@@ -2,17 +2,47 @@
   <componentHeader />
 
   <main class="main">
+    <section class="banner-sec">
+      <div class="container">
+        <span class="banner-sec__offer">Limited offer</span>
+        <NuxtLink to="/payment" class="banner-sec__link">
+          <p class="banner-sec__text">
+            Save $300/year — Get Profile with Premium for <b>$29.99/month</b>.
+            March 2026 only.
+          </p>
+
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 10H15M15 10L10 5M15 10L10 15"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </NuxtLink>
+      </div>
+    </section>
+
     <section class="hero-sec" id="hero">
       <div class="container">
         <div class="hero-sec__header">
+          <div class="hero-sec__teg">
+            Year of free LinkedIn Premium included
+          </div>
           <h1 class="hero-sec__title">
-            Stable <b>LinkedIn Profiles</b><span><br /></span> for Predictable
-            Outreach
+            Get LinkedIn profiles <span><br /></span>
+            <b>at $29.99/month</b>
           </h1>
           <p class="hero-sec__subtitle">
-            We provide professionally prepared and maintained LinkedIn profiles
-            that support consistent outbound activity — without adding
-            operational overhead to your team
+            Scale outbound volume, lower per-profile costs, and generate more
+            leads — with LinkedIn profiles at 62% off, including a full year of
+            LinkedIn Premium.
           </p>
           <div class="hero-sec__btn-row">
             <NuxtLink to="/payment" class="predistable-sec__btn">
@@ -74,99 +104,13 @@
           />
         </div>
 
-        <div class="hero-sec__cards-info-wrapper">
-          <div class="hero-card__empty"></div>
-          <div
-            v-for="(card, index) in heroCards"
-            :key="index"
-            class="hero-card"
-          >
-            <div class="hero-card__wrapper">
-              <div class="hero-card__ic-wrapper">
-                <img :src="card.icon" :alt="card.title" class="hero-card__ic" />
-              </div>
-              <p class="hero-card__title">
-                {{ card.title }}
-              </p>
-              <p class="hero-card__subtitle">
-                {{ card.subtitle }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="predistable-sec" id="about">
-      <div class="container">
-        <div class="predictable-outreach">
-          <div class="header-title-box">
-            <div class="header-title-box__subtitle-row">
-              <span class="header-title-box__subtitle-dot"></span>
-              <p class="header-title-box__subtitle-text">
-                Predictable outreach
-              </p>
-            </div>
-
+        <div class="hero-sec__cards-info-sub-sec">
+          <div class="hero-sec__cards-info-sub-sec-header">
             <h2 class="header-title-box__title">
-              Stable <b>LinkedIn Profile Environments</b> Are
-              <span><br /></span> the Foundation of Consistent Outbound
+              Lifetime founding rates <b>for early partners</b> — March
+              allocation only
             </h2>
 
-            <p class="header-title-box__description">
-              How we maintain long-term profile stability and reliable
-              performance
-            </p>
-          </div>
-
-          <div class="predictable-outreach__cards">
-            <article
-              v-for="(card, index) in cards"
-              :key="index"
-              class="po-card"
-            >
-              <div class="po-card__top">
-                <img
-                  :src="card.image"
-                  :alt="card.title"
-                  class="po-card__image"
-                />
-              </div>
-              <div class="po-card__body">
-                <h3 class="po-card__title">
-                  {{ card.title }}
-                </h3>
-                <ul class="po-card__list">
-                  <li
-                    v-for="(item, i) in card.items"
-                    :key="i"
-                    class="po-card__list-element"
-                  >
-                    <span class="po-card__list-element-icon">
-                      <svg
-                        width="10"
-                        height="11"
-                        viewBox="0 0 10 11"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.542702 6.57363C0.440353 6.57398 0.340006 6.54492 0.253318 6.48982C0.166631 6.43472 0.0971619 6.35585 0.0529825 6.26236C0.00880307 6.16887 -0.00827337 6.0646 0.00373718 5.96168C0.0157477 5.85875 0.0563522 5.76139 0.120833 5.6809L5.47533 0.0945326C5.51549 0.0475859 5.57023 0.0158613 5.63054 0.00456612C5.69086 -0.00672909 5.75318 0.00307625 5.80727 0.0323727C5.86136 0.0616691 5.904 0.108716 5.92821 0.165791C5.95241 0.222865 5.95673 0.286577 5.94046 0.346467L4.90202 3.64352C4.8714 3.72651 4.86111 3.81578 4.87205 3.90368C4.88298 3.99157 4.91481 4.07547 4.96481 4.14817C5.0148 4.22087 5.08146 4.28021 5.15907 4.32109C5.23669 4.36198 5.32294 4.38318 5.41042 4.38289H9.19643C9.29878 4.38254 9.39913 4.4116 9.48581 4.4667C9.5725 4.5218 9.64197 4.60068 9.68615 4.69417C9.73033 4.78766 9.7474 4.89192 9.73539 4.99484C9.72338 5.09777 9.68278 5.19513 9.6183 5.27562L4.2638 10.862C4.22364 10.9089 4.16891 10.9407 4.10859 10.952C4.04827 10.9633 3.98595 10.9534 3.93186 10.9242C3.87777 10.8949 3.83513 10.8478 3.81093 10.7907C3.78672 10.7337 3.7824 10.6699 3.79867 10.6101L4.83711 7.313C4.86773 7.23001 4.87802 7.14074 4.86708 7.05285C4.85615 6.96495 4.82432 6.88105 4.77433 6.80835C4.72433 6.73565 4.65767 6.67631 4.58006 6.63543C4.50244 6.59455 4.41619 6.57334 4.32871 6.57363H0.542702Z"
-                          fill="#3F366C"
-                        />
-                      </svg>
-                    </span>
-
-                    <span class="po-card__list-element-text">
-                      {{ item }}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </article>
-          </div>
-
-          <div class="predistable-sec__btn-row">
             <NuxtLink to="/payment" class="predistable-sec__btn">
               <span class="predistable-sec__btn-icon">
                 <svg
@@ -183,69 +127,182 @@
                 </svg>
               </span>
               <span class="predistable-sec__btn-text"
-                >Start Scaling Outreach</span
+                >Learn our profile replacement policy</span
               >
             </NuxtLink>
+          </div>
+          <div class="hero-sec__cards-info-sub-sec-data">
+            <div
+              v-for="(card, index) in heroCards"
+              :key="index"
+              class="hero-card"
+            >
+              <div class="hero-card__wrapper">
+                <div class="hero-card__ic-wrapper">
+                  <img
+                    :src="card.icon"
+                    :alt="card.title"
+                    class="hero-card__ic"
+                  />
+                </div>
+                <p class="hero-card__title">
+                  {{ card.title }}
+                </p>
+                <p class="hero-card__subtitle">
+                  {{ card.subtitle }}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="fit-sec">
+    <section class="plans-sec-v2">
       <div class="container">
-        <div class="fit-sec__header">
-          <div class="header-title-box__subtitle-row">
-            <span class="header-title-box__subtitle-dot"></span>
-            <p class="header-title-box__subtitle-text">FIT OVERVIEW</p>
+        <div class="plans-sec-v2__trial-banner" id="trial">
+          <div class="plans-sec-v2__trial-banner-wrapper">
+            <p class="plans-sec-v2__subtitle">
+              <span class="plans-sec-v2__subtitle-dot"></span>
+              March Launch Window
+            </p>
+            <h3 class="plans-sec-v2__trial-title">
+              First 250 Profiles at Founding Rates — 62% Off
+              <div class="plans-sec-v2__trial-title-info">
+                <div class="plans-sec-v2__trial-title-info-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 21C13.78 21 15.5201 20.4722 17.0001 19.4832C18.4802 18.4943 19.6337 17.0887 20.3149 15.4442C20.9961 13.7996 21.1743 11.99 20.8271 10.2442C20.4798 8.49836 19.6226 6.89471 18.364 5.63604C17.1053 4.37737 15.5016 3.5202 13.7558 3.17294C12.01 2.82567 10.2004 3.0039 8.55585 3.68509C6.91131 4.36628 5.50571 5.51983 4.51677 6.99987C3.52784 8.47991 3 10.22 3 12C3.00258 14.3862 3.95162 16.6738 5.63889 18.3611C7.32616 20.0484 9.61384 20.9974 12 21V21ZM12 6.75C12.2225 6.75 12.44 6.81598 12.625 6.9396C12.81 7.06322 12.9542 7.23892 13.0394 7.44448C13.1245 7.65005 13.1468 7.87625 13.1034 8.09448C13.06 8.31271 12.9528 8.51316 12.7955 8.6705C12.6382 8.82783 12.4377 8.93498 12.2195 8.97839C12.0012 9.02179 11.775 8.99952 11.5695 8.91437C11.3639 8.82922 11.1882 8.68502 11.0646 8.50002C10.941 8.31501 10.875 8.09751 10.875 7.875C10.875 7.57663 10.9935 7.29049 11.2045 7.07951C11.4155 6.86853 11.7016 6.75 12 6.75ZM11.25 10.5H12C12.3978 10.5 12.7794 10.658 13.0607 10.9393C13.342 11.2206 13.5 11.6022 13.5 12V16.5C13.5 16.6989 13.421 16.8897 13.2803 17.0303C13.1397 17.171 12.9489 17.25 12.75 17.25C12.5511 17.25 12.3603 17.171 12.2197 17.0303C12.079 16.8897 12 16.6989 12 16.5V12H11.25C11.0511 12 10.8603 11.921 10.7197 11.7803C10.579 11.6397 10.5 11.4489 10.5 11.25C10.5 11.0511 10.579 10.8603 10.7197 10.7197C10.8603 10.579 11.0511 10.5 11.25 10.5V10.5Z"
+                      fill="white"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </h3>
+            <div class="plans-sec-v2__btn-wrapper">
+              <NuxtLink to="" class="plans-sec-v2__btn-v1">
+                <span class="plans-sec-v2__btn-v1-text"
+                  >Lock In Founding Pricing</span
+                >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 8L14.6569 12.6569L10 17.3137"
+                    stroke="#0D0D0D"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </NuxtLink>
+            </div>
           </div>
-
-          <h2 class="header-title-box__title">
-            <b>LinkedIn Profiles</b> for Different Outbound Goals
-          </h2>
-
-          <NuxtLink to="/payment" class="predistable-sec__btn">
-            <span class="predistable-sec__btn-icon">
-              <svg
-                width="16"
-                height="18"
-                viewBox="0 0 16 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.891582 10.7995C0.723437 10.8001 0.558581 10.7524 0.416166 10.6618C0.27375 10.5713 0.159623 10.4417 0.0870427 10.2882C0.0144622 10.1346 -0.013592 9.96328 0.00613965 9.79419C0.0258713 9.62509 0.0925787 9.46514 0.198512 9.33291L8.99518 0.155304C9.06116 0.0781769 9.15108 0.0260579 9.25018 0.00750148C9.34927 -0.0110549 9.45165 0.00505383 9.54051 0.0531837C9.62937 0.101314 9.69943 0.178605 9.73919 0.27237C9.77896 0.366136 9.78606 0.470805 9.75933 0.569196L8.05331 5.98579C8.00301 6.12212 7.98611 6.26878 8.00408 6.41318C8.02205 6.55758 8.07434 6.69541 8.15647 6.81485C8.2386 6.93429 8.34811 7.03178 8.47562 7.09894C8.60313 7.1661 8.74482 7.20094 8.88855 7.20047H15.1084C15.2766 7.19989 15.4414 7.24763 15.5838 7.33815C15.7262 7.42867 15.8404 7.55826 15.913 7.71184C15.9855 7.86543 16.0136 8.03672 15.9939 8.20582C15.9741 8.37491 15.9074 8.53486 15.8015 8.66709L7.00482 17.8447C6.93884 17.9218 6.84892 17.9739 6.74982 17.9925C6.65073 18.0111 6.54835 17.9949 6.45949 17.9468C6.37063 17.8987 6.30057 17.8214 6.26081 17.7276C6.22104 17.6339 6.21394 17.5292 6.24067 17.4308L7.94669 12.0142C7.99699 11.8779 8.01389 11.7312 7.99592 11.5868C7.97795 11.4424 7.92566 11.3046 7.84353 11.1851C7.76141 11.0657 7.65189 10.9682 7.52438 10.9011C7.39687 10.8339 7.25518 10.7991 7.11145 10.7995H0.891582Z"
-                  fill="#563AE3"
-                />
-              </svg>
-            </span>
-            <span class="predistable-sec__btn-text"
-              >Start Scaling Outreach</span
-            >
-          </NuxtLink>
         </div>
-        <div class="fit-sec__cards">
-          <div
-            v-for="(fitCard, index) in fitCards"
-            :key="index"
-            class="fit-card"
-          >
-            <div class="fit-card__header">
-              <h3 class="fit-card__title">
-                {{ fitCard.title }}
-              </h3>
-              <p class="fit-card__subtitle">
-                {{ fitCard.subtitle }}
+
+        <div class="plans-sec-v2__price-wrapper" id="pricing">
+          <div class="plans-sec-v2__price-main-info">
+            <div class="plans-sec-v2__price-main-info-top">
+              <p class="plans-sec-v2__price-main-info-title">
+                Premium LinkedIn Profile Access
+              </p>
+              <div class="plans-sec-v2__price-main-info-old-price-row">
+                <p class="plans-sec-v2__price-main-info-old-price">$79</p>
+              </div>
+
+              <p class="plans-sec-v2__price-main-info-new-price">
+                <span class="plans-sec-v2__price-main-info-new-price-value"
+                  >$29.99</span
+                >
+                <span class="plans-sec-v2__price-main-info-new-price-period"
+                  >/month</span
+                >
               </p>
             </div>
-            <div class="fit-card__body">
-              <div class="fit-card__body-title">Best for:</div>
-              <ul class="fit-card__list">
+            <div class="plans-sec-v2__price-main-info-down">
+              <p class="plans-sec-v2__price-main-info-down__text">
+                12-Month LinkedIn Premium Included
+                <span class="plans-sec-v2__price-main-info-down-info">
+                  <span class="plans-sec-v2__price-main-info-down-info-icon">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 21C13.78 21 15.5201 20.4722 17.0001 19.4832C18.4802 18.4943 19.6337 17.0887 20.3149 15.4442C20.9961 13.7996 21.1743 11.99 20.8271 10.2442C20.4798 8.49836 19.6226 6.89471 18.364 5.63604C17.1053 4.37737 15.5016 3.5202 13.7558 3.17294C12.01 2.82567 10.2004 3.0039 8.55585 3.68509C6.91131 4.36628 5.50571 5.51983 4.51677 6.99987C3.52784 8.47991 3 10.22 3 12C3.00258 14.3862 3.95162 16.6738 5.63889 18.3611C7.32616 20.0484 9.61384 20.9974 12 21V21ZM12 6.75C12.2225 6.75 12.44 6.81598 12.625 6.9396C12.81 7.06322 12.9542 7.23892 13.0394 7.44448C13.1245 7.65005 13.1468 7.87625 13.1034 8.09448C13.06 8.31271 12.9528 8.51316 12.7955 8.6705C12.6382 8.82783 12.4377 8.93498 12.2195 8.97839C12.0012 9.02179 11.775 8.99952 11.5695 8.91437C11.3639 8.82922 11.1882 8.68502 11.0646 8.50002C10.941 8.31501 10.875 8.09751 10.875 7.875C10.875 7.57663 10.9935 7.29049 11.2045 7.07951C11.4155 6.86853 11.7016 6.75 12 6.75ZM11.25 10.5H12C12.3978 10.5 12.7794 10.658 13.0607 10.9393C13.342 11.2206 13.5 11.6022 13.5 12V16.5C13.5 16.6989 13.421 16.8897 13.2803 17.0303C13.1397 17.171 12.9489 17.25 12.75 17.25C12.5511 17.25 12.3603 17.171 12.2197 17.0303C12.079 16.8897 12 16.6989 12 16.5V12H11.25C11.0511 12 10.8603 11.921 10.7197 11.7803C10.579 11.6397 10.5 11.4489 10.5 11.25C10.5 11.0511 10.579 10.8603 10.7197 10.7197C10.8603 10.579 11.0511 10.5 11.25 10.5V10.5Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </p>
+              <div class="plans-sec-v2__price-main-info-btn-wrapper">
+                <NuxtLink to="" class="plans-sec-v2__btn-v1">
+                  <span class="plans-sec-v2__btn-v1-text"
+                    >Free replacement guarantee</span
+                  >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 8L14.6569 12.6569L10 17.3137"
+                      stroke="#0D0D0D"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </NuxtLink>
+
+                <NuxtLink to="" class="plans-sec-v2__btn-v2">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 12H19M19 12L12 5M19 12L12 19"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                  <span class="plans-sec-v2__btn-v2-text">Get 62% Off Now</span>
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
+          <div class="plans-sec-v2__price-dop-info">
+            <div class="plans-sec-v2__price-dop-info-wrapper">
+              <p class="plans-sec-v2__price-dop-info-title">What’s Included</p>
+              <ul class="plans-sec-v2__price-dop-info-ul">
                 <li
-                  v-for="(item, i) in fitCard.items"
+                  v-for="(item, i) in plansPriceDopInfoList"
                   :key="i"
-                  class="fit-card__list-element"
+                  class="plans-sec-v2__price-dop-info-li"
                 >
-                  <span class="fit-card__list-element-icon">
+                  <span class="plans-sec-v2__price-dop-info-li-icon">
                     <svg
                       width="12"
                       height="10"
@@ -255,16 +312,16 @@
                     >
                       <path
                         d="M11 1L4.125 9L1 5.36364"
-                        stroke="#B3A3FF"
+                        stroke="#3F366C"
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                       />
                     </svg>
                   </span>
-                  <span class="fit-card__list-element-text">
-                    {{ item }}
-                  </span>
+                  <span class="plans-sec-v2__price-dop-info-li-text">{{
+                    item
+                  }}</span>
                 </li>
               </ul>
             </div>
@@ -273,7 +330,7 @@
       </div>
     </section>
 
-    <section class="plans-sec">
+    <!-- <section class="plans-sec">
       <div class="container">
         <div class="plans-sec__price-wrapper" id="pricing">
           <div class="header-title-box">
@@ -285,10 +342,7 @@
             <h2 class="header-title-box__title">
               Profiles Options <b>and Pricing</b>
             </h2>
-            <!-- 
-        <p class="header-title-box__description">
-          How we maintain long-term profile stability and reliable performance
-        </p> -->
+
           </div>
 
           <div class="plans-sec__cards">
@@ -516,6 +570,347 @@
                 />
               </svg>
             </button>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- <section class="predistable-sec" id="about">
+      <div class="container">
+        <div class="predictable-outreach">
+          <div class="header-title-box">
+            <div class="header-title-box__subtitle-row">
+              <span class="header-title-box__subtitle-dot"></span>
+              <p class="header-title-box__subtitle-text">
+                Predictable outreach
+              </p>
+            </div>
+
+            <h2 class="header-title-box__title">
+              Stable <b>LinkedIn Profile Environments</b> Are
+              <span><br /></span> the Foundation of Consistent Outbound
+            </h2>
+
+            <p class="header-title-box__description">
+              How we maintain long-term profile stability and reliable
+              performance
+            </p>
+          </div>
+
+          <div class="predictable-outreach__cards">
+            <article
+              v-for="(card, index) in cards"
+              :key="index"
+              class="po-card"
+            >
+              <div class="po-card__top">
+                <img
+                  :src="card.image"
+                  :alt="card.title"
+                  class="po-card__image"
+                />
+              </div>
+              <div class="po-card__body">
+                <h3 class="po-card__title">
+                  {{ card.title }}
+                </h3>
+                <ul class="po-card__list">
+                  <li
+                    v-for="(item, i) in card.items"
+                    :key="i"
+                    class="po-card__list-element"
+                  >
+                    <span class="po-card__list-element-icon">
+                      <svg
+                        width="10"
+                        height="11"
+                        viewBox="0 0 10 11"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.542702 6.57363C0.440353 6.57398 0.340006 6.54492 0.253318 6.48982C0.166631 6.43472 0.0971619 6.35585 0.0529825 6.26236C0.00880307 6.16887 -0.00827337 6.0646 0.00373718 5.96168C0.0157477 5.85875 0.0563522 5.76139 0.120833 5.6809L5.47533 0.0945326C5.51549 0.0475859 5.57023 0.0158613 5.63054 0.00456612C5.69086 -0.00672909 5.75318 0.00307625 5.80727 0.0323727C5.86136 0.0616691 5.904 0.108716 5.92821 0.165791C5.95241 0.222865 5.95673 0.286577 5.94046 0.346467L4.90202 3.64352C4.8714 3.72651 4.86111 3.81578 4.87205 3.90368C4.88298 3.99157 4.91481 4.07547 4.96481 4.14817C5.0148 4.22087 5.08146 4.28021 5.15907 4.32109C5.23669 4.36198 5.32294 4.38318 5.41042 4.38289H9.19643C9.29878 4.38254 9.39913 4.4116 9.48581 4.4667C9.5725 4.5218 9.64197 4.60068 9.68615 4.69417C9.73033 4.78766 9.7474 4.89192 9.73539 4.99484C9.72338 5.09777 9.68278 5.19513 9.6183 5.27562L4.2638 10.862C4.22364 10.9089 4.16891 10.9407 4.10859 10.952C4.04827 10.9633 3.98595 10.9534 3.93186 10.9242C3.87777 10.8949 3.83513 10.8478 3.81093 10.7907C3.78672 10.7337 3.7824 10.6699 3.79867 10.6101L4.83711 7.313C4.86773 7.23001 4.87802 7.14074 4.86708 7.05285C4.85615 6.96495 4.82432 6.88105 4.77433 6.80835C4.72433 6.73565 4.65767 6.67631 4.58006 6.63543C4.50244 6.59455 4.41619 6.57334 4.32871 6.57363H0.542702Z"
+                          fill="#3F366C"
+                        />
+                      </svg>
+                    </span>
+
+                    <span class="po-card__list-element-text">
+                      {{ item }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="predistable-sec__btn-row">
+            <NuxtLink to="/payment" class="predistable-sec__btn">
+              <span class="predistable-sec__btn-icon">
+                <svg
+                  width="16"
+                  height="18"
+                  viewBox="0 0 16 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.891582 10.7995C0.723437 10.8001 0.558581 10.7524 0.416166 10.6618C0.27375 10.5713 0.159623 10.4417 0.0870427 10.2882C0.0144622 10.1346 -0.013592 9.96328 0.00613965 9.79419C0.0258713 9.62509 0.0925787 9.46514 0.198512 9.33291L8.99518 0.155304C9.06116 0.0781769 9.15108 0.0260579 9.25018 0.00750148C9.34927 -0.0110549 9.45165 0.00505383 9.54051 0.0531837C9.62937 0.101314 9.69943 0.178605 9.73919 0.27237C9.77896 0.366136 9.78606 0.470805 9.75933 0.569196L8.05331 5.98579C8.00301 6.12212 7.98611 6.26878 8.00408 6.41318C8.02205 6.55758 8.07434 6.69541 8.15647 6.81485C8.2386 6.93429 8.34811 7.03178 8.47562 7.09894C8.60313 7.1661 8.74482 7.20094 8.88855 7.20047H15.1084C15.2766 7.19989 15.4414 7.24763 15.5838 7.33815C15.7262 7.42867 15.8404 7.55826 15.913 7.71184C15.9855 7.86543 16.0136 8.03672 15.9939 8.20582C15.9741 8.37491 15.9074 8.53486 15.8015 8.66709L7.00482 17.8447C6.93884 17.9218 6.84892 17.9739 6.74982 17.9925C6.65073 18.0111 6.54835 17.9949 6.45949 17.9468C6.37063 17.8987 6.30057 17.8214 6.26081 17.7276C6.22104 17.6339 6.21394 17.5292 6.24067 17.4308L7.94669 12.0142C7.99699 11.8779 8.01389 11.7312 7.99592 11.5868C7.97795 11.4424 7.92566 11.3046 7.84353 11.1851C7.76141 11.0657 7.65189 10.9682 7.52438 10.9011C7.39687 10.8339 7.25518 10.7991 7.11145 10.7995H0.891582Z"
+                    fill="#563AE3"
+                  />
+                </svg>
+              </span>
+              <span class="predistable-sec__btn-text"
+                >Start Scaling Outreach</span
+              >
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section class="bandle-sec">
+      <img
+        class="bandle-sec__img bandle-sec__img--1"
+        src="@/assets/images/bundle-card-1.png"
+        alt=""
+      />
+      <img
+        class="bandle-sec__img bandle-sec__img--2"
+        src="@/assets/images/bundle-card-2.png"
+        alt=""
+      />
+      <div class="container">
+        <div class="bandle-sec__wrapper">
+          <h2 class="bandle-sec__title">
+            <b>Agency Bundle —</b> 5 Accounts Free for 1 Month
+          </h2>
+          <div class="bandle-sec__text-banner">
+            Apply to receive 5 LinkedIn accounts free for 30 days (worth $400)
+            in exchange for a short video testimonial and honest feedback about
+            our service.
+          </div>
+          <p class="bandle-sec__subtitle">
+            This offer is designed for agencies ready to actively use the
+            accounts and share real insights about their experience.
+          </p>
+          <div class="bandle-sec__btn-wrapper">
+            <NuxtLink to="/payment" class="predistable-sec__btn">
+              <span class="predistable-sec__btn-icon">
+                <svg
+                  width="16"
+                  height="18"
+                  viewBox="0 0 16 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.891582 10.7995C0.723437 10.8001 0.558581 10.7524 0.416166 10.6618C0.27375 10.5713 0.159623 10.4417 0.0870427 10.2882C0.0144622 10.1346 -0.013592 9.96328 0.00613965 9.79419C0.0258713 9.62509 0.0925787 9.46514 0.198512 9.33291L8.99518 0.155304C9.06116 0.0781769 9.15108 0.0260579 9.25018 0.00750148C9.34927 -0.0110549 9.45165 0.00505383 9.54051 0.0531837C9.62937 0.101314 9.69943 0.178605 9.73919 0.27237C9.77896 0.366136 9.78606 0.470805 9.75933 0.569196L8.05331 5.98579C8.00301 6.12212 7.98611 6.26878 8.00408 6.41318C8.02205 6.55758 8.07434 6.69541 8.15647 6.81485C8.2386 6.93429 8.34811 7.03178 8.47562 7.09894C8.60313 7.1661 8.74482 7.20094 8.88855 7.20047H15.1084C15.2766 7.19989 15.4414 7.24763 15.5838 7.33815C15.7262 7.42867 15.8404 7.55826 15.913 7.71184C15.9855 7.86543 16.0136 8.03672 15.9939 8.20582C15.9741 8.37491 15.9074 8.53486 15.8015 8.66709L7.00482 17.8447C6.93884 17.9218 6.84892 17.9739 6.74982 17.9925C6.65073 18.0111 6.54835 17.9949 6.45949 17.9468C6.37063 17.8987 6.30057 17.8214 6.26081 17.7276C6.22104 17.6339 6.21394 17.5292 6.24067 17.4308L7.94669 12.0142C7.99699 11.8779 8.01389 11.7312 7.99592 11.5868C7.97795 11.4424 7.92566 11.3046 7.84353 11.1851C7.76141 11.0657 7.65189 10.9682 7.52438 10.9011C7.39687 10.8339 7.25518 10.7991 7.11145 10.7995H0.891582Z"
+                    fill="#563AE3"
+                  />
+                </svg>
+              </span>
+              <span class="predistable-sec__btn-text">Apply Now</span>
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="referal-sec">
+      <div class="container">
+        <div class="referal-sec__header">
+          <div class="header-title-box__subtitle-row">
+            <span class="header-title-box__subtitle-dot"></span>
+            <p class="header-title-box__subtitle-text">
+              Join Our Referral Program
+            </p>
+          </div>
+
+          <h2 class="header-title-box__title">
+            <b>Earn up to 30%</b><span><br /></span> recurring commission on
+            every user you refer
+          </h2>
+
+          <p class="header-title-box__description">
+            Simple structure. Transparent tracking. Long-term payouts.
+          </p>
+        </div>
+        <div class="referal-sec__wrapper">
+          <div class="referal-sec__info-box">
+            <p class="referal-sec__info-box-title">
+              Here’s how the commission works. You earn:
+            </p>
+            <ul class="referal-sec__info-box-list">
+              <li class="referal-sec__info-box-list-element">
+                <span class="referal-sec__info-box-list-element-icon">
+                  <svg
+                    width="10"
+                    height="11"
+                    viewBox="0 0 10 11"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.542702 6.57363C0.440353 6.57398 0.340006 6.54492 0.253318 6.48982C0.166631 6.43472 0.0971619 6.35585 0.0529825 6.26236C0.00880307 6.16887 -0.00827337 6.0646 0.00373718 5.96168C0.0157477 5.85875 0.0563522 5.76139 0.120833 5.6809L5.47533 0.0945326C5.51549 0.0475859 5.57023 0.0158613 5.63054 0.00456612C5.69086 -0.00672909 5.75318 0.00307625 5.80727 0.0323727C5.86136 0.0616691 5.904 0.108716 5.92821 0.165791C5.95241 0.222865 5.95673 0.286577 5.94046 0.346467L4.90202 3.64352C4.8714 3.72651 4.86111 3.81578 4.87205 3.90368C4.88298 3.99157 4.91481 4.07547 4.96481 4.14817C5.0148 4.22087 5.08146 4.28021 5.15907 4.32109C5.23669 4.36198 5.32294 4.38318 5.41042 4.38289H9.19643C9.29878 4.38254 9.39913 4.4116 9.48581 4.4667C9.5725 4.5218 9.64197 4.60068 9.68615 4.69417C9.73033 4.78766 9.7474 4.89192 9.73539 4.99484C9.72338 5.09777 9.68278 5.19513 9.6183 5.27562L4.2638 10.862C4.22364 10.9089 4.16891 10.9407 4.10859 10.952C4.04827 10.9633 3.98595 10.9534 3.93186 10.9242C3.87777 10.8949 3.83513 10.8478 3.81093 10.7907C3.78672 10.7337 3.7824 10.6699 3.79867 10.6101L4.83711 7.313C4.86773 7.23001 4.87802 7.14074 4.86708 7.05285C4.85615 6.96495 4.82432 6.88105 4.77433 6.80835C4.72433 6.73565 4.65767 6.67631 4.58006 6.63543C4.50244 6.59455 4.41619 6.57334 4.32871 6.57363H0.542702Z"
+                      fill="#3F366C"
+                    />
+                  </svg>
+                </span>
+                <span class="referal-sec__info-box-list-element-text"
+                  >Up to 30% recurring revenue on yearly subscriptions</span
+                >
+              </li>
+
+              <li class="referal-sec__info-box-list-element">
+                <span class="referal-sec__info-box-list-element-icon">
+                  <svg
+                    width="10"
+                    height="11"
+                    viewBox="0 0 10 11"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.542702 6.57363C0.440353 6.57398 0.340006 6.54492 0.253318 6.48982C0.166631 6.43472 0.0971619 6.35585 0.0529825 6.26236C0.00880307 6.16887 -0.00827337 6.0646 0.00373718 5.96168C0.0157477 5.85875 0.0563522 5.76139 0.120833 5.6809L5.47533 0.0945326C5.51549 0.0475859 5.57023 0.0158613 5.63054 0.00456612C5.69086 -0.00672909 5.75318 0.00307625 5.80727 0.0323727C5.86136 0.0616691 5.904 0.108716 5.92821 0.165791C5.95241 0.222865 5.95673 0.286577 5.94046 0.346467L4.90202 3.64352C4.8714 3.72651 4.86111 3.81578 4.87205 3.90368C4.88298 3.99157 4.91481 4.07547 4.96481 4.14817C5.0148 4.22087 5.08146 4.28021 5.15907 4.32109C5.23669 4.36198 5.32294 4.38318 5.41042 4.38289H9.19643C9.29878 4.38254 9.39913 4.4116 9.48581 4.4667C9.5725 4.5218 9.64197 4.60068 9.68615 4.69417C9.73033 4.78766 9.7474 4.89192 9.73539 4.99484C9.72338 5.09777 9.68278 5.19513 9.6183 5.27562L4.2638 10.862C4.22364 10.9089 4.16891 10.9407 4.10859 10.952C4.04827 10.9633 3.98595 10.9534 3.93186 10.9242C3.87777 10.8949 3.83513 10.8478 3.81093 10.7907C3.78672 10.7337 3.7824 10.6699 3.79867 10.6101L4.83711 7.313C4.86773 7.23001 4.87802 7.14074 4.86708 7.05285C4.85615 6.96495 4.82432 6.88105 4.77433 6.80835C4.72433 6.73565 4.65767 6.67631 4.58006 6.63543C4.50244 6.59455 4.41619 6.57334 4.32871 6.57363H0.542702Z"
+                      fill="#3F366C"
+                    />
+                  </svg>
+                </span>
+                <span class="referal-sec__info-box-list-element-text"
+                  >12% recurring revenue on monthly subscriptions</span
+                >
+              </li>
+
+              <li class="referal-sec__info-box-list-element">
+                <span class="referal-sec__info-box-list-element-icon">
+                  <svg
+                    width="10"
+                    height="11"
+                    viewBox="0 0 10 11"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.542702 6.57363C0.440353 6.57398 0.340006 6.54492 0.253318 6.48982C0.166631 6.43472 0.0971619 6.35585 0.0529825 6.26236C0.00880307 6.16887 -0.00827337 6.0646 0.00373718 5.96168C0.0157477 5.85875 0.0563522 5.76139 0.120833 5.6809L5.47533 0.0945326C5.51549 0.0475859 5.57023 0.0158613 5.63054 0.00456612C5.69086 -0.00672909 5.75318 0.00307625 5.80727 0.0323727C5.86136 0.0616691 5.904 0.108716 5.92821 0.165791C5.95241 0.222865 5.95673 0.286577 5.94046 0.346467L4.90202 3.64352C4.8714 3.72651 4.86111 3.81578 4.87205 3.90368C4.88298 3.99157 4.91481 4.07547 4.96481 4.14817C5.0148 4.22087 5.08146 4.28021 5.15907 4.32109C5.23669 4.36198 5.32294 4.38318 5.41042 4.38289H9.19643C9.29878 4.38254 9.39913 4.4116 9.48581 4.4667C9.5725 4.5218 9.64197 4.60068 9.68615 4.69417C9.73033 4.78766 9.7474 4.89192 9.73539 4.99484C9.72338 5.09777 9.68278 5.19513 9.6183 5.27562L4.2638 10.862C4.22364 10.9089 4.16891 10.9407 4.10859 10.952C4.04827 10.9633 3.98595 10.9534 3.93186 10.9242C3.87777 10.8949 3.83513 10.8478 3.81093 10.7907C3.78672 10.7337 3.7824 10.6699 3.79867 10.6101L4.83711 7.313C4.86773 7.23001 4.87802 7.14074 4.86708 7.05285C4.85615 6.96495 4.82432 6.88105 4.77433 6.80835C4.72433 6.73565 4.65767 6.67631 4.58006 6.63543C4.50244 6.59455 4.41619 6.57334 4.32871 6.57363H0.542702Z"
+                      fill="#3F366C"
+                    />
+                  </svg>
+                </span>
+                <span class="referal-sec__info-box-list-element-text"
+                  >Paid monthly</span
+                >
+              </li>
+
+              <li class="referal-sec__info-box-list-element">
+                <span class="referal-sec__info-box-list-element-icon">
+                  <svg
+                    width="10"
+                    height="11"
+                    viewBox="0 0 10 11"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.542702 6.57363C0.440353 6.57398 0.340006 6.54492 0.253318 6.48982C0.166631 6.43472 0.0971619 6.35585 0.0529825 6.26236C0.00880307 6.16887 -0.00827337 6.0646 0.00373718 5.96168C0.0157477 5.85875 0.0563522 5.76139 0.120833 5.6809L5.47533 0.0945326C5.51549 0.0475859 5.57023 0.0158613 5.63054 0.00456612C5.69086 -0.00672909 5.75318 0.00307625 5.80727 0.0323727C5.86136 0.0616691 5.904 0.108716 5.92821 0.165791C5.95241 0.222865 5.95673 0.286577 5.94046 0.346467L4.90202 3.64352C4.8714 3.72651 4.86111 3.81578 4.87205 3.90368C4.88298 3.99157 4.91481 4.07547 4.96481 4.14817C5.0148 4.22087 5.08146 4.28021 5.15907 4.32109C5.23669 4.36198 5.32294 4.38318 5.41042 4.38289H9.19643C9.29878 4.38254 9.39913 4.4116 9.48581 4.4667C9.5725 4.5218 9.64197 4.60068 9.68615 4.69417C9.73033 4.78766 9.7474 4.89192 9.73539 4.99484C9.72338 5.09777 9.68278 5.19513 9.6183 5.27562L4.2638 10.862C4.22364 10.9089 4.16891 10.9407 4.10859 10.952C4.04827 10.9633 3.98595 10.9534 3.93186 10.9242C3.87777 10.8949 3.83513 10.8478 3.81093 10.7907C3.78672 10.7337 3.7824 10.6699 3.79867 10.6101L4.83711 7.313C4.86773 7.23001 4.87802 7.14074 4.86708 7.05285C4.85615 6.96495 4.82432 6.88105 4.77433 6.80835C4.72433 6.73565 4.65767 6.67631 4.58006 6.63543C4.50244 6.59455 4.41619 6.57334 4.32871 6.57363H0.542702Z"
+                      fill="#3F366C"
+                    />
+                  </svg>
+                </span>
+                <span class="referal-sec__info-box-list-element-text"
+                  >No caps, no limits</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="referal-sec__banner">
+            <p class="referal-sec__banner-text">
+              For example — if you refer 50 users on a $29/month plan, you earn
+              $435 every month, as long as they stay active.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fit-sec">
+      <div class="container">
+        <div class="fit-sec__header">
+          <div class="header-title-box__subtitle-row">
+            <span class="header-title-box__subtitle-dot"></span>
+            <p class="header-title-box__subtitle-text">FIT OVERVIEW</p>
+          </div>
+
+          <h2 class="header-title-box__title">
+            <b>LinkedIn Profiles</b> for Different Outbound Goals
+          </h2>
+
+          <NuxtLink to="/payment" class="predistable-sec__btn">
+            <span class="predistable-sec__btn-icon">
+              <svg
+                width="16"
+                height="18"
+                viewBox="0 0 16 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.891582 10.7995C0.723437 10.8001 0.558581 10.7524 0.416166 10.6618C0.27375 10.5713 0.159623 10.4417 0.0870427 10.2882C0.0144622 10.1346 -0.013592 9.96328 0.00613965 9.79419C0.0258713 9.62509 0.0925787 9.46514 0.198512 9.33291L8.99518 0.155304C9.06116 0.0781769 9.15108 0.0260579 9.25018 0.00750148C9.34927 -0.0110549 9.45165 0.00505383 9.54051 0.0531837C9.62937 0.101314 9.69943 0.178605 9.73919 0.27237C9.77896 0.366136 9.78606 0.470805 9.75933 0.569196L8.05331 5.98579C8.00301 6.12212 7.98611 6.26878 8.00408 6.41318C8.02205 6.55758 8.07434 6.69541 8.15647 6.81485C8.2386 6.93429 8.34811 7.03178 8.47562 7.09894C8.60313 7.1661 8.74482 7.20094 8.88855 7.20047H15.1084C15.2766 7.19989 15.4414 7.24763 15.5838 7.33815C15.7262 7.42867 15.8404 7.55826 15.913 7.71184C15.9855 7.86543 16.0136 8.03672 15.9939 8.20582C15.9741 8.37491 15.9074 8.53486 15.8015 8.66709L7.00482 17.8447C6.93884 17.9218 6.84892 17.9739 6.74982 17.9925C6.65073 18.0111 6.54835 17.9949 6.45949 17.9468C6.37063 17.8987 6.30057 17.8214 6.26081 17.7276C6.22104 17.6339 6.21394 17.5292 6.24067 17.4308L7.94669 12.0142C7.99699 11.8779 8.01389 11.7312 7.99592 11.5868C7.97795 11.4424 7.92566 11.3046 7.84353 11.1851C7.76141 11.0657 7.65189 10.9682 7.52438 10.9011C7.39687 10.8339 7.25518 10.7991 7.11145 10.7995H0.891582Z"
+                  fill="#563AE3"
+                />
+              </svg>
+            </span>
+            <span class="predistable-sec__btn-text"
+              >Start Scaling Outreach</span
+            >
+          </NuxtLink>
+        </div>
+        <div class="fit-sec__cards">
+          <div
+            v-for="(fitCard, index) in fitCards"
+            :key="index"
+            class="fit-card"
+          >
+            <div class="fit-card__header">
+              <h3 class="fit-card__title">
+                {{ fitCard.title }}
+              </h3>
+              <p class="fit-card__subtitle">
+                {{ fitCard.subtitle }}
+              </p>
+            </div>
+            <div class="fit-card__body">
+              <div class="fit-card__body-title">Best for:</div>
+              <ul class="fit-card__list">
+                <li
+                  v-for="(item, i) in fitCard.items"
+                  :key="i"
+                  class="fit-card__list-element"
+                >
+                  <span class="fit-card__list-element-icon">
+                    <svg
+                      width="12"
+                      height="10"
+                      viewBox="0 0 12 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11 1L4.125 9L1 5.36364"
+                        stroke="#B3A3FF"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  <span class="fit-card__list-element-text">
+                    {{ item }}
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -1102,6 +1497,18 @@ const processCards = [
     title: "Launch Outreach",
     text: "Access your assigned profiles and begin running outbound within defined safety parameters",
   },
+];
+
+const plansPriceDopInfoList = [
+  "LinkedIn Premium subscription",
+  "Enhanced profile positioning for outbound campaigns",
+  "200+ connection actions capacity per profile",
+  "Low monthly restriction rate (historically 2-5%)",
+  "Identity-verified profile source",
+  "Complete profile with established activity history",
+  "Minimum 4 months structured preparation period",
+  "24/7 human support",
+  "Assistance in case of temporary restrictions",
 ];
 
 const includedCards = [

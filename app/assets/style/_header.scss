@@ -3,12 +3,16 @@
     z-index: 100;
     width: 100%;
     left: 0;
-    top: 0;
-    padding-top: 30px;
-    transition: transform 0.3s ease;
+    top: 63px;
+
+    transition: all 0.3s ease;
 
     &.active {
-        transform: translateY(-110px);
+        transform: translateY(-150px);
+    }
+
+    &.scrolled {
+        top: 30px;
     }
 }
 
@@ -168,7 +172,7 @@
     backdrop-filter: blur(7px);
     border-radius: 20px;
     padding: 20px;
-    transform: translateY(-440px);
+    transform: translateY(-480px);
     transition: all ease 0.5s;
 
 
@@ -177,8 +181,21 @@
 @media only screen and (max-width: 1400px) {}
 
 @media only screen and (max-width: 1050px) {
+    .header__mob-meny {
+        top: 140px;
+    }
+
     .header {
-        padding-top: 20px;
+        // padding-top: 20px;
+
+
+        &.scrolled {
+            top: 20px;
+
+            .header__mob-meny {
+                top: 98px;
+            }
+        }
     }
 
     .header__container {
@@ -248,4 +265,5 @@
     .header__mob-meny {
         right: calc(50% - 175px);
     }
+
 }

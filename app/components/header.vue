@@ -1,5 +1,8 @@
 <template>
-  <header class="header" :class="{ active: isHeaderHidden }">
+  <header
+    class="header"
+    :class="{ active: isHeaderHidden, scrolled: isScrolledPast }"
+  >
     <div class="header__container">
       <NuxtLink to="/" class="header__logo">
         <img
@@ -196,6 +199,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 const activeAnchor = ref("");
 const activMobHeader = ref(false);
 const isHeaderHidden = ref(false);
+const isScrolledPast = ref(false);
 const mobMenuRef = ref(null);
 const burgerRef = ref(null);
 let lastScrollY = 0;
@@ -203,6 +207,7 @@ let lastScrollY = 0;
 const ANCHOR_IDS = ["about", "pricing", "how-it-works", "trial", "faq"];
 const VIEWPORT_OFFSET = 150;
 const SCROLL_HIDE_THRESHOLD = 200;
+const SCROLL_PAST_PX = 60;
 
 function updateActiveAnchor() {
   if (typeof window === "undefined") return;
@@ -237,6 +242,9 @@ function updateHeaderVisibility() {
 }
 
 function onScroll() {
+  if (typeof window !== "undefined") {
+    isScrolledPast.value = window.scrollY > SCROLL_PAST_PX;
+  }
   updateActiveAnchor();
   updateHeaderVisibility();
 }
@@ -265,6 +273,7 @@ function scrollToAnchor(href) {
 
 onMounted(() => {
   lastScrollY = window.scrollY ?? 0;
+  isScrolledPast.value = lastScrollY > SCROLL_PAST_PX;
   updateActiveAnchor();
   updateHeaderVisibility();
   window.addEventListener("scroll", onScroll, { passive: true });
