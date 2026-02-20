@@ -12,14 +12,14 @@
 
         <nav class="footer__nav">
           <ul class="footer__nav-ul">
-            <li class="footer__nav-li">
+            <!-- <li class="footer__nav-li">
               <a
                 href="#about"
                 class="footer__nav-link"
                 @click.prevent="scrollToAnchor('#about')"
                 >About</a
               >
-            </li>
+            </li> -->
             <li class="footer__nav-li">
               <a
                 href="#pricing"

@@ -69,7 +69,14 @@
                 <span class="signup-checkbox__mark" />
               </span>
               <span class="signup-checkbox__label">
-                I agree to the Terms of Service
+                I agree to the
+                <NuxtLink
+                  to="/docs/terms-of-use"
+                  class="signup-checkbox__link"
+                  @click.stop
+                >
+                  Terms of Service
+                </NuxtLink>
               </span>
             </label>
             <span v-if="errors.terms" class="signup-checkbox__error">
@@ -89,7 +96,14 @@
                 <span class="signup-checkbox__mark" />
               </span>
               <span class="signup-checkbox__label">
-                I agree to the Refund Policy
+                I agree to the
+                <NuxtLink
+                  to="/docs/refund-policy"
+                  class="signup-checkbox__link"
+                  @click.stop
+                >
+                  Refund Policy
+                </NuxtLink>
               </span>
             </label>
             <span v-if="errors.refundPolicy" class="signup-checkbox__error">

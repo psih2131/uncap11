@@ -267,18 +267,22 @@ const genderOptions = [
 ];
 
 const accountTypeOptions = [
-  { value: "core", label: "Core Profile Access", price: "26" },
-  { value: "premium", label: "Premium Profile Access", price: "49" },
+  { value: "premium", label: "Premium LinkedIn Profile Access", price: "26" },
+  { value: "trial", label: "Trial Profile", price: "12" },
 ];
 
 const profileLocationOptions = [
   { value: "us", label: "United States" },
   { value: "eu", label: "Europe" },
+  { value: "ua", label: "Ukraine" },
 ];
 
 const periodOfUseOptions = [
   { value: "1m", label: "1 month" },
+  { value: "2m", label: "2 month" },
   { value: "3m", label: "3 months" },
+  { value: "4m", label: "4 month" },
+  { value: "5m", label: "5 month" },
   { value: "6m", label: "6 months" },
 ];
 

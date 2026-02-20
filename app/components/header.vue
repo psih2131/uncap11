@@ -14,7 +14,7 @@
 
       <nav class="header__header-nav">
         <ul class="header__header-nav-list">
-          <li class="header__header-nav-element">
+          <!-- <li class="header__header-nav-element">
             <a
               href="#about"
               class="header__header-nav-link"
@@ -24,7 +24,7 @@
               @click.prevent="scrollToAnchor('#about')"
               >About</a
             >
-          </li>
+          </li> -->
           <li class="header__header-nav-element">
             <a
               href="#pricing"
@@ -125,7 +125,7 @@
     >
       <nav class="header__header-nav">
         <ul class="header__header-nav-list">
-          <li class="header__header-nav-element">
+          <!-- <li class="header__header-nav-element">
             <a
               href="#about"
               class="header__header-nav-link"
@@ -135,7 +135,7 @@
               @click.prevent="scrollToAnchor('#about')"
               >About</a
             >
-          </li>
+          </li> -->
           <li class="header__header-nav-element">
             <a
               href="#pricing"

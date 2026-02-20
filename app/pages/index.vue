@@ -5,9 +5,9 @@
     <section class="banner-sec">
       <div class="container">
         <span class="banner-sec__offer">Limited offer</span>
-        <NuxtLink to="/payment" class="banner-sec__link">
+        <a href="#pricing" class="banner-sec__link" @click.prevent="scrollToAnchor('#pricing')">
           <p class="banner-sec__text">
-            Save $300/year — Get Profile with Premium for <b>$29.99/month</b>.
+            Save 400$/year — Get Profile with Premium for <b>$29.99/month</b>.
             March 2026 only.
           </p>
 
@@ -25,20 +25,20 @@
               stroke-linejoin="round"
             />
           </svg>
-        </NuxtLink>
+        </a>
       </div>
     </section>
 
     <section class="hero-sec" id="hero">
       <div class="container">
         <div class="hero-sec__header">
+          <h1 class="hero-sec__title">
+            <b>Get LinkedIn profiles</b> <span><br /></span>
+            at $29.99/month
+          </h1>
           <div class="hero-sec__teg">
             Year of free LinkedIn Premium included
           </div>
-          <h1 class="hero-sec__title">
-            Get LinkedIn profiles <span><br /></span>
-            <b>at $29.99/month</b>
-          </h1>
           <p class="hero-sec__subtitle">
             Scale outbound volume, lower per-profile costs, and generate more
             leads — with LinkedIn profiles at 62% off, including a full year of
@@ -111,7 +111,7 @@
               allocation only
             </h2>
 
-            <NuxtLink to="/payment" class="predistable-sec__btn">
+            <NuxtLink to="/docs/replacement-policy" class="predistable-sec__btn">
               <span class="predistable-sec__btn-icon">
                 <svg
                   width="16"
@@ -183,10 +183,15 @@
                     />
                   </svg>
                 </div>
+                <div class="plans-sec-v2__trial-title-info-tooltip">
+                  You get an active Premium subscription connected to the
+                  profile — already included in the price. No separate Premium
+                  payments. No hidden upgrade costs.
+                </div>
               </div>
             </h3>
             <div class="plans-sec-v2__btn-wrapper">
-              <NuxtLink to="" class="plans-sec-v2__btn-v1">
+              <NuxtLink to="/payment" class="plans-sec-v2__btn-v1">
                 <span class="plans-sec-v2__btn-v1-text"
                   >Lock In Founding Pricing</span
                 >
@@ -230,10 +235,10 @@
               </p>
             </div>
             <div class="plans-sec-v2__price-main-info-down">
-              <p class="plans-sec-v2__price-main-info-down__text">
+              <div class="plans-sec-v2__price-main-info-down__text">
                 12-Month LinkedIn Premium Included
-                <span class="plans-sec-v2__price-main-info-down-info">
-                  <span class="plans-sec-v2__price-main-info-down-info-icon">
+                <div class="plans-sec-v2__trial-title-info">
+                  <div class="plans-sec-v2__trial-title-info-icon">
                     <svg
                       width="24"
                       height="24"
@@ -246,11 +251,14 @@
                         fill="white"
                       />
                     </svg>
-                  </span>
-                </span>
-              </p>
+                  </div>
+                  <div class="plans-sec-v2__trial-title-info-tooltip">
+                    You get an active Premium subscription connected to the profile — already included in the price. No separate Premium payments. No hidden upgrade costs.
+                  </div>
+                </div>
+              </div>
               <div class="plans-sec-v2__price-main-info-btn-wrapper">
-                <NuxtLink to="" class="plans-sec-v2__btn-v1">
+                <NuxtLink to="/docs/replacement-policy" class="plans-sec-v2__btn-v1">
                   <span class="plans-sec-v2__btn-v1-text"
                     >Free replacement guarantee</span
                   >
@@ -271,7 +279,7 @@
                   </svg>
                 </NuxtLink>
 
-                <NuxtLink to="" class="plans-sec-v2__btn-v2">
+                <NuxtLink to="/payment" class="plans-sec-v2__btn-v2">
                   <svg
                     width="24"
                     height="24"
@@ -695,7 +703,7 @@
             accounts and share real insights about their experience.
           </p>
           <div class="bandle-sec__btn-wrapper">
-            <NuxtLink to="/payment" class="predistable-sec__btn">
+            <NuxtLink to="/agency-bundle" class="predistable-sec__btn">
               <span class="predistable-sec__btn-icon">
                 <svg
                   width="16"
@@ -1596,6 +1604,15 @@ const faqItems = [
       "Profiles come with complete, professional setup. Customization options may be available depending on your plan; our team can outline what can be adjusted to align with your brand.",
   },
 ];
+
+function scrollToAnchor(href) {
+  if (!href || !href.startsWith("#")) return;
+  const id = href.slice(1);
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
 
 const payPageGo = (count, id) => {
   store.counterValue.count = +count;

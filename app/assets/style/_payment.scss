@@ -341,6 +341,14 @@
     line-height: 1.4;
 }
 
+.signup-checkbox__link {
+    color: $blue1;
+    text-decoration: underline;
+    &:hover {
+        color: $violet1;
+    }
+}
+
 .signup-checkbox__error {
     font-family: $textFont;
     font-size: 12px;

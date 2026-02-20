@@ -1570,18 +1570,19 @@
 .hero-sec__teg {
   display: inline-block;
   padding: 8px 32px;
-  background: linear-gradient(117.91deg, rgba(255, 255, 255, 0.36) 31.52%, #FFFFFF 111.29%);
-  /* white */
-  border: 1px solid #FFFFFF;
-  backdrop-filter: blur(7px);
-  /* Note: backdrop-filter has minimal browser support */
+  background: $blue1;
+
   border-radius: 100px;
   margin-bottom: 24px;
   font-size: 34px;
   font-family: $titleFont;
   font-weight: 600;
-  color: $blue1;
+  color: $white;
   text-align: center;
+  transform: rotate(-3.2deg);
+  margin-top: -3px;
+
+
 }
 
 .hero-sec__title {
@@ -1804,6 +1805,11 @@
   /* Gradient_blue */
   background: linear-gradient(161.01deg, #563AE3 1.2%, #462DC1 107.75%);
   padding: 7px 0;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99;
 
   .container {
     display: flex;
@@ -1915,6 +1921,7 @@
 
 .plans-sec-v2__trial-title-info {
   position: relative;
+  display: inline-block;
   width: 24px;
   margin-left: 16px;
 
@@ -1923,6 +1930,43 @@
     width: 100%;
     height: auto;
   }
+}
+
+.plans-sec-v2__trial-title-info-tooltip {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 10px);
+  z-index: 20;
+  min-width: 260px;
+  max-width: 320px;
+  padding: 14px 16px;
+  background: #E0D1F0;
+  border-radius: 12px;
+  font-family: $textFont;
+  font-size: 14px;
+  line-height: 1.45;
+  color: $black1;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+  pointer-events: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-bottom-color: #E0D1F0;
+  }
+}
+
+.plans-sec-v2__trial-title-info:hover .plans-sec-v2__trial-title-info-tooltip {
+  opacity: 1;
+  visibility: visible;
 }
 
 .plans-sec-v2__btn-wrapper {
@@ -2082,11 +2126,50 @@
 }
 
 .plans-sec-v2__price-main-info-down-info {
+  position: relative;
+  display: inline-block;
   margin-left: 16px;
 
   svg {
     display: block;
   }
+}
+
+.plans-sec-v2__price-main-info-down-info-tooltip {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 10px);
+  z-index: 100;
+  min-width: 260px;
+  max-width: 320px;
+  padding: 14px 16px;
+  background: #E7DFFB;
+  border-radius: 16px;
+  font-family: $textFont;
+  font-size: 14px;
+  line-height: 1.45;
+  color: $black1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+  pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-bottom-color: #E7DFFB;
+  }
+}
+
+.plans-sec-v2__price-main-info-down-info:hover .plans-sec-v2__price-main-info-down-info-tooltip {
+  opacity: 1;
+  visibility: visible;
 }
 
 .plans-sec-v2__price-main-info-btn-wrapper {
@@ -3575,7 +3658,7 @@
 
   .hero-sec {
     padding-bottom: 60px;
-    padding-top: 140px;
+    padding-top: 170px;
   }
 
   .plan-card:not(.plan-card--premium)::before {
@@ -3605,7 +3688,9 @@
   }
 
   .hero-sec__teg {
-    font-size: 18px;
+    font-size: 14px;
+    margin-top: -2px;
+    margin-bottom: 10px;
   }
 
   .hero-sec__cards-info-sub-sec {
