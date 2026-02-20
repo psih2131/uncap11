@@ -175,6 +175,64 @@
     text-align: center;
 }
 
+
+.modal-pay--home-sale {
+    background: url('../images/bg-modal-1.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 664px;
+
+    .modal-pay__title {
+        color: $white;
+    }
+
+    .modal-pay__subtitle {
+        color: $violet2;
+        max-width: 364px;
+        margin: 0 auto;
+        margin-top: 16px;
+    }
+}
+
+.modal-pay__btn-row-sale {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .plans-sec-v2__btn-v2 {
+        width: 342px;
+    }
+
+}
+
+.modal-pay--home-sale__row-hot {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.modal-pay--home-sale__hot {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: #D2C9FF;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 8px;
+    line-height: 1;
+
+    svg {
+        display: block;
+    }
+}
+
+
+
+
 @media only screen and (max-width: 765px) {
     .modal-pay {
         width: 350px;

@@ -717,7 +717,7 @@
       </div>
     </section>
 
-    <section class="referal-sec">
+    <section class="referal-sec" id="affiliatе">
       <div class="container">
         <div class="referal-sec__header">
           <div class="header-title-box__subtitle-row">
@@ -1311,12 +1311,21 @@ function updateHeroCardsActive() {
   isHeroCardsScrolled.value = window.scrollY > SCROLL_THRESHOLD;
 }
 
+const openPopup = (name) => {
+  store.modalController.status = true;
+  store.modalController.name = name;
+};
+
 onMounted(() => {
   updateHeroCardsActive();
   window.addEventListener("scroll", updateHeroCardsActive, { passive: true });
 
   store.counterValue.count = 0;
   store.counterValue.type = null;
+
+  setTimeout(() => {
+    openPopup("home-sale");
+  }, 3000);
 });
 
 onUnmounted(() => {

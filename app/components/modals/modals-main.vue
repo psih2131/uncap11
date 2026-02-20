@@ -13,6 +13,10 @@
         v-if="store.modalController.name == 'registr-confirm'"
       />
     </Transition>
+
+    <Transition name="modal-pay" appear>
+      <modalHomeSale v-if="store.modalController.name == 'home-sale'" />
+    </Transition>
   </div>
 </template>
 
@@ -28,4 +32,6 @@ import modalConfirm from "@/components/modals/pay-confirm.vue";
 import modalError from "@/components/modals/pay-error.vue";
 
 import modalRegistrConfirm from "@/components/modals/registr-confirm.vue";
+
+import modalHomeSale from "@/components/modals/home-sale.vue";
 </script>

@@ -36,6 +36,19 @@
               >Pricing</a
             >
           </li>
+
+          <li class="header__header-nav-element">
+            <a
+              href="#affiliatе"
+              class="header__header-nav-link"
+              :class="{
+                'header__header-nav-link--active': activeAnchor === 'affiliatе',
+              }"
+              @click.prevent="scrollToAnchor('#affiliatе')"
+              >Affiliatе</a
+            >
+          </li>
+
           <li class="header__header-nav-element">
             <a
               href="#how-it-works"
@@ -136,6 +149,18 @@
           </li>
           <li class="header__header-nav-element">
             <a
+              href="#affiliatе"
+              class="header__header-nav-link"
+              :class="{
+                'header__header-nav-link--active': activeAnchor === 'affiliatе',
+              }"
+              @click.prevent="scrollToAnchor('#pricing')"
+              >Affiliatе</a
+            >
+          </li>
+
+          <li class="header__header-nav-element">
+            <a
               href="#how-it-works"
               class="header__header-nav-link"
               :class="{
@@ -204,7 +229,14 @@ const mobMenuRef = ref(null);
 const burgerRef = ref(null);
 let lastScrollY = 0;
 
-const ANCHOR_IDS = ["about", "pricing", "how-it-works", "trial", "faq"];
+const ANCHOR_IDS = [
+  "about",
+  "pricing",
+  "affiliatе",
+  "how-it-works",
+  "trial",
+  "faq",
+];
 const VIEWPORT_OFFSET = 150;
 const SCROLL_HIDE_THRESHOLD = 200;
 const SCROLL_PAST_PX = 60;
