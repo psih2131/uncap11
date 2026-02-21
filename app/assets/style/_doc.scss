@@ -87,6 +87,12 @@
     strong {
         font-weight: 700;
     }
+    a{
+        text-decoration: underline;
+        color: $blue1;
+        
+        font-weight: 500;
+    }
 }
 
 .doc-sec__back {
@@ -121,7 +127,7 @@
 
 @media only screen and (max-width: 765px) {
     .doc-sec {
-        padding-top: 140px;
+        padding-top: 160px;
         padding-bottom: 80px;
     }
 

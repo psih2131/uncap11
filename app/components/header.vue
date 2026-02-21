@@ -196,7 +196,7 @@
         </ul>
       </nav>
 
-      <button class="header__btn">
+      <NuxtLink to="/sing-up" class="header__btn">
         <span class="header__btn-text"> Get started </span>
         <svg
           width="24"
@@ -213,7 +213,7 @@
             stroke-linejoin="round"
           />
         </svg>
-      </button>
+      </NuxtLink>
     </div>
   </header>
 </template>
@@ -294,7 +294,9 @@ function handleClickOutside(e) {
   activMobHeader.value = false;
 }
 
-const SCROLL_ANCHOR_OFFSET = 100;
+const SCROLL_ANCHOR_OFFSET_DESKTOP = 100;
+const SCROLL_ANCHOR_OFFSET_MOBILE = 50;
+const MOBILE_BREAKPOINT = 765;
 
 function handleAnchorClick(e, hash) {
   if (route.path === "/" || route.path === "") {
@@ -310,7 +312,11 @@ function scrollToAnchor(href) {
   const id = href.slice(1);
   const el = document.getElementById(id);
   if (el) {
-    const top = el.getBoundingClientRect().top + window.scrollY - SCROLL_ANCHOR_OFFSET;
+    const offset =
+      typeof window !== "undefined" && window.innerWidth <= MOBILE_BREAKPOINT
+        ? SCROLL_ANCHOR_OFFSET_MOBILE
+        : SCROLL_ANCHOR_OFFSET_DESKTOP;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: "smooth" });
   }
 }

@@ -29,14 +29,14 @@
               >
             </li>
 
-            <li class="footer__nav-li">
+            <!-- <li class="footer__nav-li">
               <a
                 href="/#affiliatе"
                 class="footer__nav-link"
                 @click="handleAnchorClick($event, '#affiliatе')"
                 >Affiliatе</a
               >
-            </li>
+            </li> -->
 
             <li class="footer__nav-li">
               <a
@@ -194,7 +194,9 @@
 import { useRoute } from "vue-router";
 
 const route = useRoute();
-const SCROLL_ANCHOR_OFFSET = 100;
+const SCROLL_ANCHOR_OFFSET_DESKTOP = 100;
+const SCROLL_ANCHOR_OFFSET_MOBILE = 50;
+const MOBILE_BREAKPOINT = 765;
 
 function handleAnchorClick(e, hash) {
   if (route.path === "/" || route.path === "") {
@@ -208,8 +210,12 @@ function scrollToAnchor(href) {
   const id = href.slice(1);
   const el = document.getElementById(id);
   if (el) {
+    const offset =
+      typeof window !== "undefined" && window.innerWidth <= MOBILE_BREAKPOINT
+        ? SCROLL_ANCHOR_OFFSET_MOBILE
+        : SCROLL_ANCHOR_OFFSET_DESKTOP;
     const top =
-      el.getBoundingClientRect().top + window.scrollY - SCROLL_ANCHOR_OFFSET;
+      el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: "smooth" });
   }
 }

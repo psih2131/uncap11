@@ -214,11 +214,15 @@
     }
 
     .footer__nav-ul {
-        display: block;
-        columns: 3;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
 
-        li {
+
+        li {width: 33.333%;
             margin: 0;
+            text-align: center;
             margin-bottom: 15px;
             font-size: 16px;
             text-align: center;

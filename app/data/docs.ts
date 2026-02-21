@@ -57,7 +57,7 @@ export const DOCS: Record<string, DocItem> = {
 
 <h2>11. Contact Information</h2>
 <p><strong>Uncap11</strong></p>
-<p>Email: contact@uncap11.com</p>
+<p>Email: <a href="mailto:contact@uncap11.com">contact@uncap11.com</a></p>
 `,
   },
   'terms-of-use': {
@@ -152,7 +152,7 @@ export const DOCS: Record<string, DocItem> = {
 
 <h2>13. Contact</h2>
 <p><strong>Uncap11</strong></p>
-<p>Email: contact@uncap11.com</p>
+<p>Email: <a href="mailto:contact@uncap11.com">contact@uncap11.com</a></p>
 `,
   },
   'refund-policy': {
@@ -239,7 +239,7 @@ export const DOCS: Record<string, DocItem> = {
 <h2>9. Contact Information</h2>
 <p>For refund requests or questions about this policy, please contact us.</p>
 <p><strong>Uncap11</strong></p>
-<p>Email: contact@uncap11.com</p>
+<p>Email: <a href="mailto:contact@uncap11.com">contact@uncap11.com</a></p>
 `,
   },
   'replacement-policy': {

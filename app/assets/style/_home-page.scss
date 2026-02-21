@@ -2837,6 +2837,10 @@
   .bandle-sec__title {
     font-size: 38px;
   }
+
+  .bandle-sec__img--2{
+    right: calc(50% + 150px);
+  }
 }
 
 @media only screen and (max-width: 1050px) {
@@ -3305,14 +3309,15 @@
   }
 
   .bandle-sec__img--1 {
-    top: -160px;
-    left: calc(50% + 227px);
+    top: -100px;
+    left: calc(50% + 100px);
+    width: 350px;
   }
 
   .bandle-sec__img--2 {
     width: 430px;
     bottom: -140px;
-    right: calc(50% + 150px);
+    right: calc(50% + 50px);
   }
 
   .plans-sec-v2__trial-title-info-tooltip {
@@ -3714,7 +3719,7 @@
   }
 
   .hero-sec__cards-info-sub-sec {
-    margin-top: 80px;
+    margin-top: 30px;
   }
 
   .hero-sec__cards-info-sub-sec-header .predistable-sec__btn {
@@ -3738,14 +3743,25 @@
 
   .plans-sec-v2__trial-title {
     font-size: 22px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: block;
+    text-align: center;
   }
 
   .plans-sec-v2__trial-title-info {
-    margin-left: 0;
-    margin-top: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+    margin-top: 0;
+  }
+
+  .plans-sec-v2__price-main-info-down__text {
+    display: block;
+    text-align: center;
+  }
+
+  .plans-sec-v2__price-main-info-down__text .plans-sec-v2__trial-title-info {
+    margin-left: 4px;
+    margin-top: 0;
   }
 
   .plans-sec-v2__price-wrapper {
@@ -3848,21 +3864,24 @@
   }
 
   .plans-sec-v2__trial-banner {
-    .plans-sec-v2__trial-title-info-tooltip {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: calc(100% + 10px);
-      right: auto;
+    // .plans-sec-v2__trial-title-info-tooltip {
+    //   position: absolute;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    //   top: calc(100% + 10px);
+    //   right: auto;
 
-      &::before {
+    //   &::before {
 
-        left: 50%;
-        right: auto;
-        bottom: 100%;
-        transform: translateX(-50%);
+    //     left: 50%;
+    //     right: auto;
+    //     bottom: 100%;
+    //     transform: translateX(-50%);
 
-      }
-    }
+    //   }
+    // }
+  }
+  .own-sec__img-wrapper{
+    display: none;
   }
 }

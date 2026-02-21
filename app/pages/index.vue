@@ -71,7 +71,10 @@
               <span class="hero-sec__trial-btn-text">
                 Try for 1 week for $12.99
               </span>
-              <div class="plans-sec-v2__trial-title-info">
+              <div
+                class="plans-sec-v2__trial-title-info"
+                @click.stop
+              >
                 <div class="plans-sec-v2__trial-title-info-icon">
                   <svg
                     width="24"
@@ -1641,15 +1644,21 @@ const faqItems = [
   },
 ];
 
-const SCROLL_ANCHOR_OFFSET = 100;
+const SCROLL_ANCHOR_OFFSET_DESKTOP = 100;
+const SCROLL_ANCHOR_OFFSET_MOBILE = 50;
+const MOBILE_BREAKPOINT = 765;
 
 function scrollToAnchor(href) {
   if (!href || !href.startsWith("#")) return;
   const id = href.slice(1);
   const el = document.getElementById(id);
   if (el) {
+    const offset =
+      typeof window !== "undefined" && window.innerWidth <= MOBILE_BREAKPOINT
+        ? SCROLL_ANCHOR_OFFSET_MOBILE
+        : SCROLL_ANCHOR_OFFSET_DESKTOP;
     const top =
-      el.getBoundingClientRect().top + window.scrollY - SCROLL_ANCHOR_OFFSET;
+      el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: "smooth" });
   }
 }

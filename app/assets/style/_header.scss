@@ -257,6 +257,10 @@
     .header__container {
         width: 350px;
     }
+    .header__mob-meny{
+        width: 350px;
+        right: calc(50% - 175px);
+    }
 
     .header__logo {
         width: 120px;
@@ -264,6 +268,12 @@
 
     .header__mob-meny {
         right: calc(50% - 175px);
+    }
+    .header__header-nav{
+        width: 100%;
+    }
+    .header__mob-meny .header__header-nav-element{
+        text-align: center;
     }
 
 }
