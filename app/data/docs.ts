@@ -11,7 +11,7 @@ export const DOCS: Record<string, DocItem> = {
     title: 'Privacy Policy',
     dateUpdate: '11 February 2026',
     text: `
-<p>This Privacy Policy describes how <strong>Goscale</strong> ("Company", "we", "us", or "our") collects, uses, and protects your information when you use our managed LinkedIn profile access service.</p>
+<p>This Privacy Policy describes how <strong>Uncap11</strong> ("Company", "we", "us", or "our") collects, uses, and protects your information when you use our managed LinkedIn profile access service.</p>
 
 <h2>1. Information We Collect</h2>
 <h3>1.1 Information You Provide</h3>
@@ -56,8 +56,8 @@ export const DOCS: Record<string, DocItem> = {
 <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top indicates when the policy was last revised.</p>
 
 <h2>11. Contact Information</h2>
-<p><strong>Goscale</strong></p>
-<p>Email: support@goscale.com</p>
+<p><strong>Uncap11</strong></p>
+<p>Email: contact@uncap11.com</p>
 `,
   },
   'terms-of-use': {
@@ -65,12 +65,12 @@ export const DOCS: Record<string, DocItem> = {
     title: 'Terms of Use',
     dateUpdate: '11 February 2026',
     text: `
-<p>These Terms of Use ("Terms") govern your access to and use of the services provided by <strong>Goscale</strong> ("Company", "we", "us", or "our").</p>
+<p>These Terms of Use ("Terms") govern your access to and use of the services provided by <strong>Uncap11</strong> ("Company", "we", "us", or "our").</p>
 <p>By accessing or using our managed LinkedIn profile access service (the "Service"), you agree to be bound by these Terms.</p>
 <p>If you do not agree, you must not use the Service.</p>
 
 <h2>1. Description of Service</h2>
-<p><strong>Goscale</strong> provides time-based access to professionally prepared LinkedIn profiles intended to support outbound communication and business development activities.</p>
+<p><strong>Uncap11</strong> provides time-based access to professionally prepared LinkedIn profiles intended to support outbound communication and business development activities.</p>
 <p>We reserve the right to modify, suspend, or discontinue any part of the Service at any time.</p>
 
 <h2>2. Eligibility</h2>
@@ -88,10 +88,10 @@ export const DOCS: Record<string, DocItem> = {
 <ul>
 <li>Not to share access credentials with unauthorized third parties;</li>
 <li>Not to resell, sublicense, or redistribute access;</li>
-<li>To follow all operational and usage guidelines provided by Goscale;</li>
+<li>To follow all operational and usage guidelines provided by Uncap11;</li>
 <li>To use third-party tools responsibly and in accordance with platform policies.</li>
 </ul>
-<p>Goscale reserves the right to suspend or terminate access if misuse, abuse, or policy violations are detected.</p>
+<p>Uncap11 reserves the right to suspend or terminate access if misuse, abuse, or policy violations are detected.</p>
 
 <h2>4. Payments and Billing</h2>
 <p>All payments must be made in advance for the selected service period.</p>
@@ -99,7 +99,7 @@ export const DOCS: Record<string, DocItem> = {
 <p>Failure to complete payment may result in suspension or cancellation of access.</p>
 
 <h2>5. Service Availability</h2>
-<p>While we aim to provide stable and continuous access, Goscale does not guarantee uninterrupted or error-free operation.</p>
+<p>While we aim to provide stable and continuous access, Uncap11 does not guarantee uninterrupted or error-free operation.</p>
 <p>Service availability may be affected by:</p>
 <ul>
 <li>Third-party platform changes;</li>
@@ -109,7 +109,7 @@ export const DOCS: Record<string, DocItem> = {
 </ul>
 
 <h2>6. No Performance Guarantees</h2>
-<p>Goscale provides infrastructure and operational support. We do not guarantee:</p>
+<p>Uncap11 provides infrastructure and operational support. We do not guarantee:</p>
 <ul>
 <li>Specific outreach results;</li>
 <li>Lead generation outcomes;</li>
@@ -119,15 +119,15 @@ export const DOCS: Record<string, DocItem> = {
 <p>You acknowledge that business results depend on multiple external factors beyond our control.</p>
 
 <h2>7. Intellectual Property</h2>
-<p>All content, branding, materials, and systems associated with Goscale remain the exclusive property of the Company.</p>
+<p>All content, branding, materials, and systems associated with Uncap11 remain the exclusive property of the Company.</p>
 <p>You may not copy, reproduce, or distribute proprietary materials without prior written consent.</p>
 
 <h2>8. Limitation of Liability</h2>
-<p>To the maximum extent permitted by law, Goscale shall not be liable for indirect, incidental, consequential, or special damages, including lost profits, lost business opportunities, or reputational harm.</p>
+<p>To the maximum extent permitted by law, Uncap11 shall not be liable for indirect, incidental, consequential, or special damages, including lost profits, lost business opportunities, or reputational harm.</p>
 <p>Our total liability shall not exceed the amount paid by you for the Service during the preceding 30 days.</p>
 
 <h2>9. Indemnification</h2>
-<p>You agree to indemnify and hold Goscale harmless from any claims, damages, liabilities, or expenses arising from:</p>
+<p>You agree to indemnify and hold Uncap11 harmless from any claims, damages, liabilities, or expenses arising from:</p>
 <ul>
 <li>Your misuse of the Service;</li>
 <li>Your violation of these Terms;</li>
@@ -145,14 +145,14 @@ export const DOCS: Record<string, DocItem> = {
 <p>Termination does not entitle you to a refund unless explicitly stated in the Refund Policy.</p>
 
 <h2>11. Governing Law</h2>
-<p>These Terms shall be governed by and interpreted in accordance with the laws of the applicable jurisdiction in which Goscale is registered, without regard to conflict of law principles.</p>
+<p>These Terms shall be governed by and interpreted in accordance with the laws of the applicable jurisdiction in which Uncap11 is registered, without regard to conflict of law principles.</p>
 
 <h2>12. Modifications</h2>
 <p>We may update these Terms at any time. Continued use of the Service constitutes acceptance of the revised Terms.</p>
 
 <h2>13. Contact</h2>
-<p><strong>Goscale</strong></p>
-<p>Email: support@goscale.com</p>
+<p><strong>Uncap11</strong></p>
+<p>Email: contact@uncap11.com</p>
 `,
   },
   'refund-policy': {
@@ -160,11 +160,11 @@ export const DOCS: Record<string, DocItem> = {
     title: 'Refund Policy',
     dateUpdate: '11 February 2026',
     text: `
-<p>This Refund Policy forms part of the Terms of Service of <strong>Goscale</strong> ("Company", "we", "us", or "our").</p>
+<p>This Refund Policy forms part of the Terms of Service of <strong>Uncap11</strong> ("Company", "we", "us", or "our").</p>
 <p>By purchasing or using our managed LinkedIn profile access service, you agree to this Refund Policy.</p>
 
 <h2>1. Nature of the Service</h2>
-<p><strong>Goscale</strong> provides time-based access to digital LinkedIn profiles. Due to the digital nature of the service, refunds are limited to the circumstances described below.</p>
+<p><strong>Uncap11</strong> provides time-based access to digital LinkedIn profiles. Due to the digital nature of the service, refunds are limited to the circumstances described below.</p>
 <p>Once access is delivered and used, the service is considered consumed.</p>
 
 <h2>2. Eligibility for Refunds</h2>
@@ -238,8 +238,8 @@ export const DOCS: Record<string, DocItem> = {
 
 <h2>9. Contact Information</h2>
 <p>For refund requests or questions about this policy, please contact us.</p>
-<p><strong>Goscale</strong></p>
-<p>Email: support@goscale.com</p>
+<p><strong>Uncap11</strong></p>
+<p>Email: contact@uncap11.com</p>
 `,
   },
   'replacement-policy': {

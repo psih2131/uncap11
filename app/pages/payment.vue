@@ -38,6 +38,7 @@
             label="Quantity"
             :placeholder="''"
             :error="errors.quantity"
+            :disabled="form.accountType === 'trial'"
           />
           <FormFieldEmail
             v-model="form.email"
@@ -63,7 +64,7 @@
             v-model="form.periodOfUse"
             label="Period of Use"
             placeholder="Select Period"
-            :options="periodOfUseOptions"
+            :options="periodOfUseOptionsComputed"
             :error="errors.periodOfUse"
           />
           <FormFieldTextarea
@@ -108,10 +109,29 @@
                 />
               </svg>
             </button>
-
-            <!-- <a href="https://nowpayments.io/payment/?iid=4561889400&source=button" target="_blank" rel="noreferrer noopener">
-              <img src="https://nowpayments.io/images/embeds/payment-button-white.svg" alt="Cryptocurrency & Bitcoin payment button by NOWPayments">
-            </a> -->
+            <button
+              type="button"
+              class="header__btn payment-sec__btn-card"
+              :disabled="paymentLoading"
+              @click="onPayByCard"
+            >
+              <span class="header__btn-text">Pay by card</span>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 8L14.6569 12.6569L10 17.3137"
+                  stroke="#0D0D0D"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
 
           <p v-if="generalError" class="payment-sec__form-general-error">
@@ -141,7 +161,7 @@
 </template>
 
 <script setup>
-import { reactive, computed, ref, onMounted } from "vue";
+import { reactive, computed, ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
@@ -212,9 +232,11 @@ function validate() {
 
 function onSubmit() {
   if (!validate()) return;
-  // form is valid, proceed
-
   paymentRequest();
+}
+
+function onPayByCard() {
+  openPopup("pay-coming-soon");
 }
 
 async function paymentRequest() {
@@ -267,7 +289,7 @@ const genderOptions = [
 ];
 
 const accountTypeOptions = [
-  { value: "premium", label: "Premium LinkedIn Profile Access", price: "26" },
+  { value: "premium", label: "Premium LinkedIn Profile", price: "26" },
   { value: "trial", label: "Trial Profile", price: "12" },
 ];
 
@@ -277,7 +299,7 @@ const profileLocationOptions = [
   { value: "ua", label: "Ukraine" },
 ];
 
-const periodOfUseOptions = [
+const periodOfUseOptionsPremium = [
   { value: "1m", label: "1 month" },
   { value: "2m", label: "2 month" },
   { value: "3m", label: "3 months" },
@@ -286,12 +308,22 @@ const periodOfUseOptions = [
   { value: "6m", label: "6 months" },
 ];
 
+const periodOfUseOptionsTrial = [{ value: "1w", label: "1 week" }];
+
+const periodOfUseOptionsComputed = computed(() => {
+  return form.value.accountType === "trial"
+    ? periodOfUseOptionsTrial
+    : periodOfUseOptionsPremium;
+});
+
 const accountsAmount = computed(() => {
+  if (form.value.accountType === "trial") return 1;
   const q = form.value.quantity;
   return q === "" || q === null ? 0 : Number(q);
 });
 
 const totalFixed = computed(() => {
+  if (form.value.accountType === "trial") return "12.99";
   const amount = accountsAmount.value * +currentOneAccountPtice.value;
   return amount.toFixed(2);
 });
@@ -303,12 +335,34 @@ const openPopup = (name) => {
   store.modalController.name = name;
 };
 
+watch(
+  () => form.value.accountType,
+  (type) => {
+    if (type === "trial") {
+      form.value.quantity = 1;
+      form.value.periodOfUse = "1w";
+    } else if (type === "premium" && form.value.periodOfUse === "1w") {
+      form.value.periodOfUse = "1m";
+    }
+  }
+);
+
 onMounted(() => {
-  const count = store?.counterValue?.count;
-  form.value.quantity = count != null && Number(count) >= 1 ? Number(count) : 1;
   if (store?.counterValue?.type) {
     form.value.accountType = store.counterValue.type;
+  } else {
+    form.value.accountType = "premium";
   }
+
+  if (form.value.accountType === "trial") {
+    form.value.quantity = 1;
+    form.value.periodOfUse = "1w";
+  } else {
+    const count = store?.counterValue?.count;
+    form.value.quantity =
+      count != null && Number(count) >= 1 ? Number(count) : 1;
+  }
+
   if (route.query.success) {
     openPopup("pay-confirm");
     console.log("success");

@@ -101,7 +101,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, onMounted, onBeforeUnmount } from "vue";
 import { useCounterStore } from "@/stores/counter";
 
 const store = useCounterStore();
@@ -165,6 +165,7 @@ function validate() {
 
 function onSubmit() {
   if (!validate()) return;
+  store.agencyBundleFormDraft = null;
   openPopup("registr-confirm");
 }
 
@@ -172,6 +173,16 @@ const openPopup = (name) => {
   store.modalController.status = true;
   store.modalController.name = name;
 };
+
+onMounted(() => {
+  if (store.agencyBundleFormDraft && typeof store.agencyBundleFormDraft === "object") {
+    Object.assign(form.value, store.agencyBundleFormDraft);
+  }
+});
+
+onBeforeUnmount(() => {
+  store.agencyBundleFormDraft = { ...form.value };
+});
 
 const formJson = computed(() => JSON.stringify(form.value, null, 2));
 </script>

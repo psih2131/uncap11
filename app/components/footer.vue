@@ -22,47 +22,51 @@
             </li> -->
             <li class="footer__nav-li">
               <a
-                href="#pricing"
+                href="/#pricing"
                 class="footer__nav-link"
-                @click.prevent="scrollToAnchor('#pricing')"
+                @click="handleAnchorClick($event, '#pricing')"
                 >Pricing</a
               >
             </li>
 
             <li class="footer__nav-li">
               <a
-                href="#affiliatе"
+                href="/#affiliatе"
                 class="footer__nav-link"
-                @click.prevent="scrollToAnchor('#affiliatе')"
+                @click="handleAnchorClick($event, '#affiliatе')"
                 >Affiliatе</a
               >
             </li>
 
             <li class="footer__nav-li">
               <a
-                href="#how-it-works"
+                href="/#how-it-works"
                 class="footer__nav-link"
-                @click.prevent="scrollToAnchor('#how-it-works')"
+                @click="handleAnchorClick($event, '#how-it-works')"
                 >How it works</a
               >
             </li>
             <li class="footer__nav-li">
               <a
-                href="#trial"
+                href="/#trial"
                 class="footer__nav-link"
-                @click.prevent="scrollToAnchor('#trial')"
+                @click="handleAnchorClick($event, '#trial')"
                 >Trial</a
               >
             </li>
             <li class="footer__nav-li">
               <a
-                href="#faq"
+                href="/#faq"
                 class="footer__nav-link"
-                @click.prevent="scrollToAnchor('#faq')"
+                @click="handleAnchorClick($event, '#faq')"
                 >FAQ</a
               >
             </li>
           </ul>
+
+          <a href="mailto:contact@uncap11.com" class="footer__nav-btn"
+            >Contact us</a
+          >
         </nav>
       </div>
     </div>
@@ -97,7 +101,11 @@
 
         <div class="footer__down-right">
           <div class="footer__social-row">
-            <a href="" target="_blank" class="footer__social">
+            <a
+              href="https://www.linkedin.com/company/uncap11/"
+              target="_blank"
+              class="footer__social"
+            >
               <svg
                 width="32"
                 height="32"
@@ -112,7 +120,11 @@
               </svg>
             </a>
 
-            <a href="" target="_blank" class="footer__social">
+            <a
+              href="https://www.instagram.com/uncap.11/"
+              target="_blank"
+              class="footer__social"
+            >
               <svg
                 width="32"
                 height="32"
@@ -135,7 +147,11 @@
               </svg>
             </a>
 
-            <a href="" target="_blank" class="footer__social">
+            <a
+              href="https://x.com/UncapC2176"
+              target="_blank"
+              class="footer__social"
+            >
               <svg
                 width="32"
                 height="32"
@@ -151,9 +167,9 @@
             </a>
           </div>
           <a
-            href="#hero"
+            href="/#hero"
             class="footer__top-nav"
-            @click.prevent="scrollToAnchor('#hero')"
+            @click="handleAnchorClick($event, '#hero')"
           >
             <svg
               width="16"
@@ -175,12 +191,26 @@
 </template>
 
 <script setup>
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const SCROLL_ANCHOR_OFFSET = 100;
+
+function handleAnchorClick(e, hash) {
+  if (route.path === "/" || route.path === "") {
+    e.preventDefault();
+    scrollToAnchor(hash);
+  }
+}
+
 function scrollToAnchor(href) {
   if (!href || !href.startsWith("#")) return;
   const id = href.slice(1);
   const el = document.getElementById(id);
   if (el) {
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    const top =
+      el.getBoundingClientRect().top + window.scrollY - SCROLL_ANCHOR_OFFSET;
+    window.scrollTo({ top, behavior: "smooth" });
   }
 }
 </script>

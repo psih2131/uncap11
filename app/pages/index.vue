@@ -5,7 +5,11 @@
     <section class="banner-sec">
       <div class="container">
         <span class="banner-sec__offer">Limited offer</span>
-        <a href="#pricing" class="banner-sec__link" @click.prevent="scrollToAnchor('#pricing')">
+        <a
+          href="#pricing"
+          class="banner-sec__link"
+          @click.prevent="scrollToAnchor('#pricing')"
+        >
           <p class="banner-sec__text">
             Save 400$/year — Get Profile with Premium for <b>$29.99/month</b>.
             March 2026 only.
@@ -60,25 +64,33 @@
                   />
                 </svg>
               </span>
-              <span class="predistable-sec__btn-text">Request Access</span>
+              <span class="predistable-sec__btn-text">Get 62% Off Now</span>
             </NuxtLink>
 
-            <button class="hero-sec__trial-btn">
+            <button class="hero-sec__trial-btn" @click="payPageGo(1, 'trial')">
               <span class="hero-sec__trial-btn-text">
-                Try for 1 week for $14
+                Try for 1 week for $12.99
               </span>
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 21C13.78 21 15.5201 20.4722 17.0001 19.4832C18.4802 18.4943 19.6337 17.0887 20.3149 15.4442C20.9961 13.7996 21.1743 11.99 20.8271 10.2442C20.4798 8.49836 19.6226 6.89471 18.364 5.63604C17.1053 4.37737 15.5016 3.5202 13.7558 3.17294C12.01 2.82567 10.2004 3.0039 8.55585 3.68509C6.91131 4.36628 5.50571 5.51983 4.51677 6.99987C3.52784 8.47991 3 10.22 3 12C3.00258 14.3862 3.95162 16.6738 5.63889 18.3611C7.32616 20.0484 9.61384 20.9974 12 21ZM12 6.75C12.2225 6.75 12.44 6.81598 12.625 6.9396C12.81 7.06322 12.9542 7.23892 13.0394 7.44448C13.1245 7.65005 13.1468 7.87625 13.1034 8.09448C13.06 8.31271 12.9528 8.51316 12.7955 8.6705C12.6382 8.82783 12.4377 8.93498 12.2195 8.97839C12.0012 9.02179 11.775 8.99952 11.5695 8.91437C11.3639 8.82922 11.1882 8.68502 11.0646 8.50002C10.941 8.31501 10.875 8.09751 10.875 7.875C10.875 7.57663 10.9935 7.29049 11.2045 7.07951C11.4155 6.86853 11.7016 6.75 12 6.75ZM11.25 10.5H12C12.3978 10.5 12.7794 10.658 13.0607 10.9393C13.342 11.2206 13.5 11.6022 13.5 12V16.5C13.5 16.6989 13.421 16.8897 13.2803 17.0303C13.1397 17.171 12.9489 17.25 12.75 17.25C12.5511 17.25 12.3603 17.171 12.2197 17.0303C12.079 16.8897 12 16.6989 12 16.5V12H11.25C11.0511 12 10.8603 11.921 10.7197 11.7803C10.579 11.6397 10.5 11.4489 10.5 11.25C10.5 11.0511 10.579 10.8603 10.7197 10.7197C10.8603 10.579 11.0511 10.5 11.25 10.5Z"
-                  fill="#3F366C"
-                />
-              </svg>
+              <div class="plans-sec-v2__trial-title-info">
+                <div class="plans-sec-v2__trial-title-info-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 21C13.78 21 15.5201 20.4722 17.0001 19.4832C18.4802 18.4943 19.6337 17.0887 20.3149 15.4442C20.9961 13.7996 21.1743 11.99 20.8271 10.2442C20.4798 8.49836 19.6226 6.89471 18.364 5.63604C17.1053 4.37737 15.5016 3.5202 13.7558 3.17294C12.01 2.82567 10.2004 3.0039 8.55585 3.68509C6.91131 4.36628 5.50571 5.51983 4.51677 6.99987C3.52784 8.47991 3 10.22 3 12C3.00258 14.3862 3.95162 16.6738 5.63889 18.3611C7.32616 20.0484 9.61384 20.9974 12 21ZM12 6.75C12.2225 6.75 12.44 6.81598 12.625 6.9396C12.81 7.06322 12.9542 7.23892 13.0394 7.44448C13.1245 7.65005 13.1468 7.87625 13.1034 8.09448C13.06 8.31271 12.9528 8.51316 12.7955 8.6705C12.6382 8.82783 12.4377 8.93498 12.2195 8.97839C12.0012 9.02179 11.775 8.99952 11.5695 8.91437C11.3639 8.82922 11.1882 8.68502 11.0646 8.50002C10.941 8.31501 10.875 8.09751 10.875 7.875C10.875 7.57663 10.9935 7.29049 11.2045 7.07951C11.4155 6.86853 11.7016 6.75 12 6.75ZM11.25 10.5H12C12.3978 10.5 12.7794 10.658 13.0607 10.9393C13.342 11.2206 13.5 11.6022 13.5 12V16.5C13.5 16.6989 13.421 16.8897 13.2803 17.0303C13.1397 17.171 12.9489 17.25 12.75 17.25C12.5511 17.25 12.3603 17.171 12.2197 17.0303C12.079 16.8897 12 16.6989 12 16.5V12H11.25C11.0511 12 10.8603 11.921 10.7197 11.7803C10.579 11.6397 10.5 11.4489 10.5 11.25C10.5 11.0511 10.579 10.8603 10.7197 10.7197C10.8603 10.579 11.0511 10.5 11.25 10.5Z"
+                      fill="#3F366C"
+                    />
+                  </svg>
+                </div>
+                <div class="plans-sec-v2__trial-title-info-tooltip">
+                  Experience the full setup for one week and see how it performs
+                  for your outbound.
+                </div>
+              </div>
             </button>
           </div>
         </div>
@@ -111,7 +123,10 @@
               allocation only
             </h2>
 
-            <NuxtLink to="/docs/replacement-policy" class="predistable-sec__btn">
+            <NuxtLink
+              to="/docs/replacement-policy"
+              class="predistable-sec__btn"
+            >
               <span class="predistable-sec__btn-icon">
                 <svg
                   width="16"
@@ -184,9 +199,8 @@
                   </svg>
                 </div>
                 <div class="plans-sec-v2__trial-title-info-tooltip">
-                  You get an active Premium subscription connected to the
-                  profile — already included in the price. No separate Premium
-                  payments. No hidden upgrade costs.
+                  Exclusive founding pricing available through March 31 or until
+                  allocation is filled. Standard rates apply after March.
                 </div>
               </div>
             </h3>
@@ -253,12 +267,17 @@
                     </svg>
                   </div>
                   <div class="plans-sec-v2__trial-title-info-tooltip">
-                    You get an active Premium subscription connected to the profile — already included in the price. No separate Premium payments. No hidden upgrade costs.
+                    You get an active Premium subscription connected to the
+                    profile — already included in the price. No separate Premium
+                    payments. No hidden upgrade costs.
                   </div>
                 </div>
               </div>
               <div class="plans-sec-v2__price-main-info-btn-wrapper">
-                <NuxtLink to="/docs/replacement-policy" class="plans-sec-v2__btn-v1">
+                <NuxtLink
+                  to="/docs/replacement-policy"
+                  class="plans-sec-v2__btn-v1"
+                >
                   <span class="plans-sec-v2__btn-v1-text"
                     >Free replacement guarantee</span
                   >
@@ -1251,7 +1270,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
+import { useRoute } from "vue-router";
 import pred1 from "@/assets/images/pred1.png";
 import pred2 from "@/assets/images/pred2.png";
 import pred3 from "@/assets/images/pred3.png";
@@ -1281,6 +1301,7 @@ import componentFooter from "@/components/footer.vue";
 import { useCounterStore } from "@/stores/counter";
 
 const store = useCounterStore();
+const route = useRoute();
 
 const heroCards = [
   {
@@ -1331,9 +1352,24 @@ onMounted(() => {
   store.counterValue.count = 0;
   store.counterValue.type = null;
 
+  if (route.hash) {
+    nextTick(() => {
+      scrollToAnchor(route.hash);
+    });
+  }
+
   setTimeout(() => {
-    openPopup("home-sale");
-  }, 3000);
+    const alreadyShown =
+      typeof sessionStorage !== "undefined" &&
+      sessionStorage.getItem("uncap11_homeSaleModalShown") === "1";
+    if (!alreadyShown && !store.homeSaleModalShown) {
+      store.homeSaleModalShown = true;
+      if (typeof sessionStorage !== "undefined") {
+        sessionStorage.setItem("uncap11_homeSaleModalShown", "1");
+      }
+      openPopup("home-sale");
+    }
+  }, 2000);
 });
 
 onUnmounted(() => {
@@ -1605,12 +1641,16 @@ const faqItems = [
   },
 ];
 
+const SCROLL_ANCHOR_OFFSET = 100;
+
 function scrollToAnchor(href) {
   if (!href || !href.startsWith("#")) return;
   const id = href.slice(1);
   const el = document.getElementById(id);
   if (el) {
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    const top =
+      el.getBoundingClientRect().top + window.scrollY - SCROLL_ANCHOR_OFFSET;
+    window.scrollTo({ top, behavior: "smooth" });
   }
 }
 

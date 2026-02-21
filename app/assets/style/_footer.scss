@@ -40,6 +40,25 @@
     &:hover {
         color: $violet2;
         transition: all ease 0.3s;
+
+    }
+}
+
+.footer__nav-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #fff;
+    color: $blue1;
+    border-radius: 100px;
+    font-weight: 700;
+    transition: all ease 0.3s;
+    margin-left: 40px;
+
+    &:hover {
+        color: $blue1;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 16px rgba(86, 58, 227, 0.3);
+        transform: scale(1.03);
     }
 }
 
@@ -130,6 +149,12 @@
     }
 }
 
+.footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 @media only screen and (max-width: 1400px) {
     .footer {
         padding-top: 135px;
@@ -175,6 +200,10 @@
 
     .footer__nav-li {
         margin-left: 20px;
+    }
+
+    .footer__nav-btn {
+        margin-left: 25px;
     }
 }
 
@@ -232,5 +261,14 @@
 
     .footer__down-right {
         margin-top: 10px;
+    }
+
+    .footer__nav-btn {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .footer__nav {
+        justify-content: center;
     }
 }

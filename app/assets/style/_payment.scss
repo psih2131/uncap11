@@ -416,8 +416,33 @@
 
 .payment-sec__btn-row {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 16px;
     margin-top: 40px;
+}
+
+.payment-sec__btn-card {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 0 0 2px #563AE3;
+    color: #563AE3;
+
+    .header__btn-text {
+        color: #563AE3;
+    }
+    svg path {
+        stroke: #563AE3;
+    }
+    &:hover:not(:disabled) {
+        background: #563AE3;
+        box-shadow: inset 0 0 0 2px #563AE3;
+        .header__btn-text {
+            color: #fff;
+        }
+        svg path {
+            stroke: #fff;
+        }
+    }
 }
 
 @media only screen and (max-width: 1400px) {

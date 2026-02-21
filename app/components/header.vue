@@ -27,59 +27,59 @@
           </li> -->
           <li class="header__header-nav-element">
             <a
-              href="#pricing"
+              href="/#pricing"
               class="header__header-nav-link"
               :class="{
                 'header__header-nav-link--active': activeAnchor === 'pricing',
               }"
-              @click.prevent="scrollToAnchor('#pricing')"
+              @click="handleAnchorClick($event, '#pricing')"
               >Pricing</a
             >
           </li>
 
           <li class="header__header-nav-element">
             <a
-              href="#affiliatе"
+              href="/#affiliatе"
               class="header__header-nav-link"
               :class="{
                 'header__header-nav-link--active': activeAnchor === 'affiliatе',
               }"
-              @click.prevent="scrollToAnchor('#affiliatе')"
+              @click="handleAnchorClick($event, '#affiliatе')"
               >Affiliatе</a
             >
           </li>
 
           <li class="header__header-nav-element">
             <a
-              href="#how-it-works"
+              href="/#how-it-works"
               class="header__header-nav-link"
               :class="{
                 'header__header-nav-link--active':
                   activeAnchor === 'how-it-works',
               }"
-              @click.prevent="scrollToAnchor('#how-it-works')"
+              @click="handleAnchorClick($event, '#how-it-works')"
               >How it works</a
             >
           </li>
           <li class="header__header-nav-element">
             <a
-              href="#trial"
+              href="/#trial"
               class="header__header-nav-link"
               :class="{
                 'header__header-nav-link--active': activeAnchor === 'trial',
               }"
-              @click.prevent="scrollToAnchor('#trial')"
+              @click="handleAnchorClick($event, '#trial')"
               >Trial</a
             >
           </li>
           <li class="header__header-nav-element">
             <a
-              href="#faq"
+              href="/#faq"
               class="header__header-nav-link"
               :class="{
                 'header__header-nav-link--active': activeAnchor === 'faq',
               }"
-              @click.prevent="scrollToAnchor('#faq')"
+              @click="handleAnchorClick($event, '#faq')"
               >FAQ</a
             >
           </li>
@@ -138,58 +138,58 @@
           </li> -->
           <li class="header__header-nav-element">
             <a
-              href="#pricing"
+              href="/#pricing"
               class="header__header-nav-link"
               :class="{
                 'header__header-nav-link--active': activeAnchor === 'pricing',
               }"
-              @click.prevent="scrollToAnchor('#pricing')"
+              @click="handleAnchorClick($event, '#pricing')"
               >Pricing</a
             >
           </li>
           <li class="header__header-nav-element">
             <a
-              href="#affiliatе"
+              href="/#affiliatе"
               class="header__header-nav-link"
               :class="{
                 'header__header-nav-link--active': activeAnchor === 'affiliatе',
               }"
-              @click.prevent="scrollToAnchor('#pricing')"
+              @click="handleAnchorClick($event, '#affiliatе')"
               >Affiliatе</a
             >
           </li>
 
           <li class="header__header-nav-element">
             <a
-              href="#how-it-works"
+              href="/#how-it-works"
               class="header__header-nav-link"
               :class="{
                 'header__header-nav-link--active':
                   activeAnchor === 'how-it-works',
               }"
-              @click.prevent="scrollToAnchor('#how-it-works')"
+              @click="handleAnchorClick($event, '#how-it-works')"
               >How it works</a
             >
           </li>
           <li class="header__header-nav-element">
             <a
-              href="#trial"
+              href="/#trial"
               class="header__header-nav-link"
               :class="{
                 'header__header-nav-link--active': activeAnchor === 'trial',
               }"
-              @click.prevent="scrollToAnchor('#trial')"
+              @click="handleAnchorClick($event, '#trial')"
               >Trial</a
             >
           </li>
           <li class="header__header-nav-element">
             <a
-              href="#faq"
+              href="/#faq"
               class="header__header-nav-link"
               :class="{
                 'header__header-nav-link--active': activeAnchor === 'faq',
               }"
-              @click.prevent="scrollToAnchor('#faq')"
+              @click="handleAnchorClick($event, '#faq')"
               >FAQ</a
             >
           </li>
@@ -220,7 +220,9 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import { useRoute } from "vue-router";
 
+const route = useRoute();
 const activeAnchor = ref("");
 const activMobHeader = ref(false);
 const isHeaderHidden = ref(false);
@@ -292,6 +294,15 @@ function handleClickOutside(e) {
   activMobHeader.value = false;
 }
 
+const SCROLL_ANCHOR_OFFSET = 100;
+
+function handleAnchorClick(e, hash) {
+  if (route.path === "/" || route.path === "") {
+    e.preventDefault();
+    scrollToAnchor(hash);
+  }
+}
+
 function scrollToAnchor(href) {
   activMobHeader.value = false;
 
@@ -299,7 +310,8 @@ function scrollToAnchor(href) {
   const id = href.slice(1);
   const el = document.getElementById(id);
   if (el) {
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    const top = el.getBoundingClientRect().top + window.scrollY - SCROLL_ANCHOR_OFFSET;
+    window.scrollTo({ top, behavior: "smooth" });
   }
 }
 

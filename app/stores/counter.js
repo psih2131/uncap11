@@ -19,6 +19,11 @@ export const useCounterStore = defineStore('counter', () => {
         
     })
 
+    const homeSaleModalShown = ref(false)
+
+    const signUpFormDraft = ref(null)
+    const agencyBundleFormDraft = ref(null)
+
     // const changeOptionData = (newData) => {
     //     optionsData.value = newData
     //     console.log('new value store', optionsData.value)
@@ -28,7 +33,9 @@ export const useCounterStore = defineStore('counter', () => {
 
     return {
         counterValue,
-        modalController
-
+        modalController,
+        homeSaleModalShown,
+        signUpFormDraft,
+        agencyBundleFormDraft
     }
 })

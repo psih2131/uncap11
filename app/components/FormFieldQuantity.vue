@@ -7,6 +7,7 @@
       :value="displayValue"
       class="payment-form-field__input"
       :placeholder="placeholder"
+      :disabled="disabled"
       @input="onInput"
     />
     <span v-if="error" class="payment-form-field__error">{{ error }}</span>
@@ -21,6 +22,7 @@ const props = defineProps({
   placeholder: { type: String, default: '' },
   error: { type: String, default: '' },
   modelValue: { type: [String, Number], default: '' },
+  disabled: { type: Boolean, default: false },
 });
 const emit = defineEmits(['update:modelValue']);
 

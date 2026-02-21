@@ -1,6 +1,6 @@
 <template>
   <div class="modals__wrapper">
-    <div class="modals-bg"></div>
+    <div class="modals-bg" @click="closeModal"></div>
     <Transition name="modal-pay" appear>
       <modalConfirm v-if="store.modalController.name == 'pay-confirm'" />
     </Transition>
@@ -16,6 +16,12 @@
 
     <Transition name="modal-pay" appear>
       <modalHomeSale v-if="store.modalController.name == 'home-sale'" />
+    </Transition>
+
+    <Transition name="modal-pay" appear>
+      <modalPayComingSoon
+        v-if="store.modalController.name == 'pay-coming-soon'"
+      />
     </Transition>
   </div>
 </template>
@@ -34,4 +40,13 @@ import modalError from "@/components/modals/pay-error.vue";
 import modalRegistrConfirm from "@/components/modals/registr-confirm.vue";
 
 import modalHomeSale from "@/components/modals/home-sale.vue";
+
+import modalPayComingSoon from "@/components/modals/pay-coming-soon.vue";
+
+function closeModal() {
+  store.modalController.name = null;
+  setTimeout(() => {
+    store.modalController.status = false;
+  }, 300);
+}
 </script>
