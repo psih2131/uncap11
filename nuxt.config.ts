@@ -36,6 +36,9 @@ export default defineNuxtConfig({
     ipnCallbackBaseUrl: process.env.NUXT_IPN_CALLBACK_BASE_URL || '',
     sandboxMode: process.env.NUXT_SANDBOX_MODE ?? '',
 
+    ipnApiKeyDev: process.env.NUXT_IPN_API_KEY_DEV ?? '',
+    ipnApiKeyProd: process.env.NUXT_IPN_API_KEY_PROD ?? '',
+
     urlProdStatus: process.env.NUXT_URL_PROD_STATUS ?? '',
     
     siteUrlDev: process.env.NUXT_SITE_URL_DEV ?? '',
