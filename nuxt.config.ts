@@ -40,11 +40,14 @@ export default defineNuxtConfig({
     
     siteUrlDev: process.env.NUXT_SITE_URL_DEV ?? '',
     siteUrlProd: process.env.NUXT_SITE_URL_PROD ?? '',
-    
 
+    urlApiStrapiDev: process.env.NUXT_API_URL_DEV ?? '',
+    urlApiStrapiProd: process.env.NUXT_API_URL_PROD ?? '',
 
     public: {
-      // сюда только то, что можно показывать клиенту
+      urlProdStatus: process.env.NUXT_URL_PROD_STATUS ?? '',
+      urlApiStrapiDev: process.env.NUXT_API_URL_DEV ?? '',
+      urlApiStrapiProd: process.env.NUXT_API_URL_PROD ?? '',
     }
   }
 })

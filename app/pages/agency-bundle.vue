@@ -163,10 +163,56 @@ function validate() {
   return !hasErrors;
 }
 
+const config = useRuntimeConfig();
+
 function onSubmit() {
   if (!validate()) return;
-  store.agencyBundleFormDraft = null;
-  openPopup("registr-confirm");
+  serverRequest();
+}
+
+async function serverRequest() {
+  generalError.value = "";
+  const { public: publicConfig } = config;
+  const isProd =
+    publicConfig.urlProdStatus === true ||
+    publicConfig.urlProdStatus === "true";
+  const currentUrl = isProd
+    ? publicConfig.urlApiStrapiProd
+    : publicConfig.urlApiStrapiDev;
+
+  if (!currentUrl) {
+    generalError.value =
+      "API URL is not configured. Check NUXT_API_URL_DEV / NUXT_API_URL_PROD.";
+    return;
+  }
+
+  try {
+    const response = await fetch(`${currentUrl}/api/leads-agencies`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          agency_name: form.value.agencyName,
+          full_name: form.value.contactPerson,
+          user_email: form.value.workEmail,
+          website: form.value.agencyWebsite,
+          text_message: form.value.howUseAccounts,
+        },
+      }),
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      generalError.value = text || `Request failed (${response.status}).`;
+      return;
+    }
+    store.agencyBundleFormDraft = null;
+    openPopup("registr-confirm");
+  } catch (e) {
+    generalError.value = e?.message || "Network error. Please try again.";
+  }
 }
 
 const openPopup = (name) => {

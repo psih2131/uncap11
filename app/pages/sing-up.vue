@@ -244,10 +244,58 @@ function validate() {
   return !hasErrors;
 }
 
+const config = useRuntimeConfig();
+
 function onSubmit() {
   if (!validate()) return;
-  store.signUpFormDraft = null;
-  openPopup("registr-confirm");
+
+  serverRequest();
+  // store.signUpFormDraft = null;
+  // openPopup("registr-confirm");
+}
+
+async function serverRequest() {
+  generalError.value = "";
+  const { public: publicConfig } = config;
+  const isProd =
+    publicConfig.urlProdStatus === true ||
+    publicConfig.urlProdStatus === "true";
+  const currentUrl = isProd
+    ? publicConfig.urlApiStrapiProd
+    : publicConfig.urlApiStrapiDev;
+
+  if (!currentUrl) {
+    generalError.value =
+      "API URL is not configured. Check NUXT_API_URL_DEV / NUXT_API_URL_PROD.";
+    return;
+  }
+
+  try {
+    const response = await fetch(`${currentUrl}/api/leads-sing-ups`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          full_name: form.value.fullName,
+          user_email: form.value.email,
+          user_pass: form.value.password,
+        },
+      }),
+    });
+
+    // if (!response.ok) {
+    //   const text = await response.text();
+    //   generalError.value = text || `Request failed (${response.status}).`;
+    //   return;
+    // }
+    console.log("response", response);
+    // store.signUpFormDraft = null;
+    // openPopup("registr-confirm");
+  } catch (e) {
+    generalError.value = e?.message || "Network error. Please try again.";
+  }
 }
 
 const openPopup = (name) => {

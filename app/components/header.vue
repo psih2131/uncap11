@@ -61,7 +61,7 @@
               >How it works</a
             >
           </li>
-          <li class="header__header-nav-element">
+          <!-- <li class="header__header-nav-element">
             <a
               href="/#trial"
               class="header__header-nav-link"
@@ -71,7 +71,7 @@
               @click="handleAnchorClick($event, '#trial')"
               >Trial</a
             >
-          </li>
+          </li> -->
           <li class="header__header-nav-element">
             <a
               href="/#faq"
@@ -171,7 +171,7 @@
               >How it works</a
             >
           </li>
-          <li class="header__header-nav-element">
+          <!-- <li class="header__header-nav-element">
             <a
               href="/#trial"
               class="header__header-nav-link"
@@ -181,7 +181,7 @@
               @click="handleAnchorClick($event, '#trial')"
               >Trial</a
             >
-          </li>
+          </li> -->
           <li class="header__header-nav-element">
             <a
               href="/#faq"

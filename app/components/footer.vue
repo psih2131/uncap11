@@ -48,10 +48,10 @@
             </li>
             <li class="footer__nav-li">
               <a
-                href="/#trial"
+                href="/#affiliatе"
                 class="footer__nav-link"
-                @click="handleAnchorClick($event, '#trial')"
-                >Trial</a
+                @click="handleAnchorClick($event, '#affiliatе')"
+                >Affiliatе</a
               >
             </li>
             <li class="footer__nav-li">

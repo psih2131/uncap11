@@ -13,7 +13,7 @@
 
     let currentUrl
 
-    if(config.urlProdStatus){
+    if(config.urlProdStatus == 'true'){
         currentUrl = config.siteUrlProd
     } else {
         currentUrl = config.siteUrlDev
