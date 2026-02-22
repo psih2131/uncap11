@@ -291,8 +291,8 @@ async function serverRequest() {
     //   return;
     // }
     console.log("response", response);
-    // store.signUpFormDraft = null;
-    // openPopup("registr-confirm");
+    store.signUpFormDraft = null;
+    openPopup("registr-confirm");
   } catch (e) {
     generalError.value = e?.message || "Network error. Please try again.";
   }

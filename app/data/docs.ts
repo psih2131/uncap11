@@ -311,7 +311,7 @@ export const DOCS: Record<string, DocItem> = {
 <h2>9. Contact Information</h2>
 <p>For replacement requests, please contact:</p>
 <p><strong>Uncap11</strong></p>
-<p>Email: support@uncap11.com</p>
+<p>Email: <a href="mailto:contact@uncap11.com">contact@uncap11.com</a></p>
 `,
   },
 }

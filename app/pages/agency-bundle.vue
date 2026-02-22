@@ -209,7 +209,7 @@ async function serverRequest() {
       return;
     }
     store.agencyBundleFormDraft = null;
-    openPopup("registr-confirm");
+    openPopup("agency-confirm");
   } catch (e) {
     generalError.value = e?.message || "Network error. Please try again.";
   }

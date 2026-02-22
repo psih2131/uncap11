@@ -295,7 +295,7 @@ function handleClickOutside(e) {
 }
 
 const SCROLL_ANCHOR_OFFSET_DESKTOP = 100;
-const SCROLL_ANCHOR_OFFSET_MOBILE = 50;
+const SCROLL_ANCHOR_OFFSET_MOBILE = 110;
 const MOBILE_BREAKPOINT = 765;
 
 function handleAnchorClick(e, hash) {
