@@ -255,14 +255,19 @@ function onSubmit() {
 }
 
 async function serverRequest() {
+
+  console.log('urlProdStatus', config.public?.urlProdStatus);
+console.log('urlApiStrapiDev', config.public?.urlApiStrapiDev);
+console.log('urlApiStrapiProd', config.public?.urlApiStrapiProd);
   generalError.value = "";
   const { public: publicConfig } = config;
-  const isProd =
-    publicConfig.urlProdStatus === true ||
-    publicConfig.urlProdStatus === "true";
-  const currentUrl = isProd
-    ? publicConfig.urlApiStrapiProd
-    : publicConfig.urlApiStrapiDev;
+
+  let currentUrl;
+  if (publicConfig.urlProdStatus === true || publicConfig.urlProdStatus === "true") {
+    currentUrl = publicConfig.urlApiStrapiProd;
+  } else {
+    currentUrl = publicConfig.urlApiStrapiDev;
+  }
 
   if (!currentUrl) {
     generalError.value =

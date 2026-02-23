@@ -94,10 +94,10 @@
           Save $400+ a year
         </div>
       </div>
-      <NuxtLink
-        to="#pricing"
+      <a
+        href="#pricing"
         class="plans-sec-v2__btn-v2"
-        @click="closePopup()"
+        @click.prevent="goToPricing"
       >
         <svg
           width="24"
@@ -116,22 +116,43 @@
         </svg>
 
         <span class="plans-sec-v2__btn-v2-text">See Pricing</span>
-      </NuxtLink>
+      </a>
     </div>
   </div>
 </template>
 
 <script setup>
-import { reactive, computed, ref, onMounted } from "vue";
-
 import { useCounterStore } from "@/stores/counter";
 
 const store = useCounterStore();
 
-const closePopup = () => {
+const SCROLL_ANCHOR_OFFSET_DESKTOP = 100;
+const SCROLL_ANCHOR_OFFSET_MOBILE = 110;
+const MOBILE_BREAKPOINT = 765;
+
+function closePopup() {
   store.modalController.name = null;
   setTimeout(() => {
     store.modalController.status = false;
   }, 300);
-};
+}
+
+function scrollToAnchor(href) {
+  if (!href || !href.startsWith("#")) return;
+  const id = href.slice(1);
+  const el = document.getElementById(id);
+  if (el) {
+    const offset =
+      typeof window !== "undefined" && window.innerWidth <= MOBILE_BREAKPOINT
+        ? SCROLL_ANCHOR_OFFSET_MOBILE
+        : SCROLL_ANCHOR_OFFSET_DESKTOP;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+}
+
+function goToPricing() {
+  closePopup();
+  setTimeout(() => scrollToAnchor("#pricing"), 350);
+}
 </script>
