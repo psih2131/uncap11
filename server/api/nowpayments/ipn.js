@@ -15,11 +15,9 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
 
   let ipnSecret
-  if (config.sandboxMode === true || config.sandboxMode === 'true') {
-    ipnSecret = config.ipnApiKeyDev
-  } else {
-    ipnSecret = config.ipnApiKeyProd
-  }
+  if (config.nuxt_inp_api_key) {
+    ipnSecret = config.nuxt_inp_api_key
+  } 
   // const isSandbox = config.sandboxMode === true || config.sandboxMode === 'true'
   // const ipnSecret = isSandbox ? config.ipnApiKeyDev : config.ipnApiKeyProd
 
@@ -56,11 +54,9 @@ export default defineEventHandler(async (event) => {
   console.log('[NOWPayments IPN] payment_id:', paymentId, '| status:', status)
 
   let strapiUrl
-  if (config.urlProdStatus) {
-    strapiUrl = config.urlApiStrapiProd
-  } else {
-    strapiUrl = config.urlApiStrapiDev
-  }
+  if (config.nuxt_api_back_url) {
+    strapiUrl = config.nuxt_api_back_url
+  } 
 
 
   if (strapiUrl) {

@@ -1,7 +1,4 @@
-
-
-
-  export default defineEventHandler(async (event) => {
+ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
   
     const { orderId, gender, quantity, email, accountType, profileLocation, periodOfUse, otherDetails, amount, currency } = body
@@ -12,18 +9,17 @@
     const config = useRuntimeConfig()
 
     let currentUrl
-    if (config.urlProdStatus ) {
-      currentUrl = config.siteUrlProd
-    } else {
-      currentUrl = config.siteUrlDev
+
+    if(config.nuxt_site_url){
+      currentUrl = config.nuxt_site_url
     }
     
+    
+    
     var myHeaders = new Headers();
-    if(config.sandboxMode){
-        myHeaders.append("x-api-key", config.nowpaymentsApiKeyDev);
-    } else {
-        myHeaders.append("x-api-key", config.nowpaymentsApiKey);
-    }
+    if(config.nuxt_nopayments_api){
+        myHeaders.append("x-api-key", config.nuxt_nopayments_api);
+    } 
 
     myHeaders.append("Content-Type", "application/json");
     
@@ -48,11 +44,9 @@
 
     let baseUrl 
     
-    if(config.sandboxMode){
-        baseUrl = 'https://api-sandbox.nowpayments.io/v1/invoice'
-    } else {
-        baseUrl = 'https://api.nowpayments.io/v1/invoice'
-    }
+    if(config.nuxt_bace_api_url){
+        baseUrl = config.nuxt_bace_api_url
+    } 
 
     const response = await $fetch(baseUrl, requestOptions)
   
