@@ -1,4 +1,7 @@
- export default defineEventHandler(async (event) => {
+
+
+
+  export default defineEventHandler(async (event) => {
     const body = await readBody(event)
   
     const { orderId, gender, quantity, email, accountType, profileLocation, periodOfUse, otherDetails, amount, currency } = body
@@ -8,13 +11,16 @@
   
     const config = useRuntimeConfig()
 
-    let currentUrl
-
-    if(config.nuxt_site_url){
-      currentUrl = config.nuxt_site_url
+    let baseUrl;
+    if (config.nuxt_bace_api_url) {
+    baseUrl = config.nuxt_bace_api_url
     }
-    
-    
+
+
+    let currentUrl
+    if (config.nuxt_site_url ) {
+      currentUrl = config.nuxt_site_url
+    } 
     
     var myHeaders = new Headers();
     if(config.nuxt_nopayments_api){
@@ -42,11 +48,7 @@
       };
 
 
-    let baseUrl 
-    
-    if(config.nuxt_bace_api_url){
-        baseUrl = config.nuxt_bace_api_url
-    } 
+      
 
     const response = await $fetch(baseUrl, requestOptions)
   
