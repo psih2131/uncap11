@@ -43,8 +43,11 @@
       </svg>
     </div>
 
-    <p class="modal-pay__title">Payment successful!</p>
-    <p class="modal-pay__subtitle">Please check your email for confirmation.</p>
+    <p class="modal-pay__title">Thank you for your purchase.</p>
+    <p class="modal-pay__subtitle">Your payment has been successfully received and your order is now being processed.
+    <br>
+    <br>
+    Our team will contact you shortly with the next steps and access details.</p>
     <div class="modal-pay__btn-row">
       <NuxtLink to="/" class="modal-pay__bnt" @click="closePopup()">
         <svg

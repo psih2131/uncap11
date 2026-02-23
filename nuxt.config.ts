@@ -53,6 +53,12 @@ export default defineNuxtConfig({
     nuxt_inp_api_key: process.env.NUXT_IPN_API_KEY,
     nuxt_site_url: process.env.NUXT_SITE_URL,
     nuxt_api_back_url: process.env.NUXT_API_BACK_URL,
+
+    mailHost: process.env.NUXT_MAIL_HOST ?? '',
+    mailPort: process.env.NUXT_MAIL_PORT ?? '587',
+    mailUser: process.env.NUXT_MAIL_USER ?? '',
+    mailPass: process.env.NUXT_MAIL_PASS ?? '',
+    mailFrom: process.env.NUXT_MAIL_FROM ?? '',
     // public: {
     //   urlProdStatus: process.env.NUXT_URL_PROD_STATUS ?? '',
     //   urlApiStrapiDev: process.env.NUXT_API_URL_DEV ?? '',

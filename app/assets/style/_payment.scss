@@ -342,7 +342,7 @@
     transition: background 0.15s;
 }
 
-.signup-checkbox__input:checked + .signup-checkbox__box .signup-checkbox__mark {
+.signup-checkbox__input:checked+.signup-checkbox__box .signup-checkbox__mark {
     background: $blue1;
 }
 
@@ -353,6 +353,7 @@
 .signup-checkbox__link {
     color: $blue1;
     text-decoration: underline;
+
     &:hover {
         color: $violet1;
     }
@@ -432,11 +433,16 @@
     margin-top: 40px;
 }
 
+.payment-sec__btn-card {
+    cursor: default !important;
+}
+
 .payment-sec__btn-card-wrap {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .payment-sec__coming-soon-hint {
@@ -457,27 +463,58 @@
     pointer-events: none;
 }
 
+.asdsssasd {
+    position: absolute;
+    bottom: calc(100% + 4px);
+    color: $black1;
+    background: #ccc;
+    padding: 3px 7px;
+    border-radius: 100px;
+
+}
+
 .payment-sec__btn-card {
     background: rgba(255, 255, 255, 0.9);
     box-shadow: inset 0 0 0 2px #563AE3;
     color: #563AE3;
+    opacity: 0.7;
+    position: relative;
+    justify-content: center;
 
     .header__btn-text {
         color: #563AE3;
     }
+
     svg path {
         stroke: #563AE3;
     }
-    &:hover:not(:disabled) {
-        background: #563AE3;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.9);
         box-shadow: inset 0 0 0 2px #563AE3;
+        color: #563AE3;
+
         .header__btn-text {
-            color: #fff;
+            color: #563AE3;
         }
+
         svg path {
-            stroke: #fff;
+            stroke: #563AE3;
         }
     }
+
+    // &:hover:not(:disabled) {
+    //     background: #563AE3;
+    //     box-shadow: inset 0 0 0 2px #563AE3;
+
+    //     .header__btn-text {
+    //         color: #fff;
+    //     }
+
+    //     svg path {
+    //         stroke: #fff;
+    //     }
+    // }
 }
 
 @media only screen and (max-width: 1400px) {

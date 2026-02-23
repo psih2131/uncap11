@@ -1319,8 +1319,8 @@ const heroCards = [
   },
   {
     icon: heroIc3,
-    title: "730 ready",
-    subtitle: "Profiles available for assignment",
+    title: "250 profiles",
+    subtitle: "Allocated in March",
   },
   {
     icon: heroIc4,

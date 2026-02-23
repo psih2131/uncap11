@@ -110,19 +110,18 @@
               </svg>
             </button>
             <div class="payment-sec__btn-card-wrap">
-              <p
+              <!-- <p
                 v-show="showComingSoonHint"
                 class="payment-sec__coming-soon-hint"
               >
                 Coming soon
-              </p>
-              <button
-                type="button"
-                class="header__btn payment-sec__btn-card"
-                :disabled="paymentLoading"
-                @click="onPayByCard"
-              >
+              </p> -->
+              <button type="button" class="header__btn payment-sec__btn-card">
+                <!-- :disabled="paymentLoading"
+                @click="onPayByCard" -->
                 <span class="header__btn-text">Pay by card</span>
+
+                <span class="asdsssasd">Coming soon</span>
                 <svg
                   width="24"
                   height="24"
@@ -146,7 +145,7 @@
             {{ generalError }}
           </p>
 
-          <div class="payment-sec__form-data">
+          <!-- <div class="payment-sec__form-data">
             <span class="payment-sec__form-data-label"
               >Form data (object):</span
             >
@@ -161,7 +160,7 @@
                 JSON.stringify(lastPayment, null, 2)
               }}</pre>
             </template>
-          </div>
+          </div> -->
         </form>
       </div>
     </div>

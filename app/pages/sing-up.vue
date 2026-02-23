@@ -157,12 +157,12 @@
             {{ generalError }}
           </p>
 
-          <div class="payment-sec__form-data">
+          <!-- <div class="payment-sec__form-data">
             <span class="payment-sec__form-data-label">
               Form data (object):
             </span>
             <pre class="payment-sec__form-data-json">{{ formJson }}</pre>
-          </div>
+          </div> -->
         </form>
       </div>
     </div>
@@ -253,16 +253,14 @@ function onSubmit() {
 }
 
 async function serverRequest() {
-
-
   let currentUrl;
 
-  if(store.devMode) {
+  if (store.devMode) {
     currentUrl = store.urlApiStrapiDev;
   } else {
     currentUrl = store.urlApiStrapiProd;
   }
-  console.log('currentUrl', currentUrl);
+  console.log("currentUrl", currentUrl);
 
   if (!currentUrl) {
     generalError.value =
