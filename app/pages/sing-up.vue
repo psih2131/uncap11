@@ -249,6 +249,7 @@ const config = useRuntimeConfig();
 function onSubmit() {
   if (!validate()) return;
 
+  console.log('config', config.public);
   serverRequest();
   // store.signUpFormDraft = null;
   // openPopup("registr-confirm");
@@ -256,11 +257,11 @@ function onSubmit() {
 
 async function serverRequest() {
 
-  console.log('urlProdStatus', config.public?.urlProdStatus);
-console.log('urlApiStrapiDev', config.public?.urlApiStrapiDev);
-console.log('urlApiStrapiProd', config.public?.urlApiStrapiProd);
+
   generalError.value = "";
   const { public: publicConfig } = config;
+
+  
 
   let currentUrl;
   if (publicConfig.urlProdStatus === true || publicConfig.urlProdStatus === "true") {
