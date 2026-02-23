@@ -249,26 +249,20 @@ const config = useRuntimeConfig();
 function onSubmit() {
   if (!validate()) return;
 
-  console.log('config', config.public);
   serverRequest();
-  // store.signUpFormDraft = null;
-  // openPopup("registr-confirm");
 }
 
 async function serverRequest() {
 
 
-  generalError.value = "";
-  const { public: publicConfig } = config;
-
-  
-
   let currentUrl;
-  if (publicConfig.urlProdStatus === true || publicConfig.urlProdStatus === "true") {
-    currentUrl = publicConfig.urlApiStrapiProd;
+
+  if(store.devMode) {
+    currentUrl = store.urlApiStrapiDev;
   } else {
-    currentUrl = publicConfig.urlApiStrapiDev;
+    currentUrl = store.urlApiStrapiProd;
   }
+  console.log('currentUrl', currentUrl);
 
   if (!currentUrl) {
     generalError.value =

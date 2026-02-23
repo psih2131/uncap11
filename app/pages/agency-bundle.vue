@@ -171,15 +171,15 @@ function onSubmit() {
 }
 
 async function serverRequest() {
-  generalError.value = "";
-  const { public: publicConfig } = config;
-  const isProd =
-    publicConfig.urlProdStatus === true ||
-    publicConfig.urlProdStatus === "true";
-  const currentUrl = isProd
-    ? publicConfig.urlApiStrapiProd
-    : publicConfig.urlApiStrapiDev;
+  let currentUrl;
 
+  if(store.devMode) {
+    currentUrl = store.urlApiStrapiDev;
+  } else {
+    currentUrl = store.urlApiStrapiProd;
+  }
+  console.log('currentUrl', currentUrl);
+  
   if (!currentUrl) {
     generalError.value =
       "API URL is not configured. Check NUXT_API_URL_DEV / NUXT_API_URL_PROD.";

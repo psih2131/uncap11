@@ -24,6 +24,14 @@ export const useCounterStore = defineStore('counter', () => {
     const signUpFormDraft = ref(null)
     const agencyBundleFormDraft = ref(null)
 
+    const devMode = ref(false)
+    const urlApiStrapiDev = ref('http://localhost:1337')
+    const urlApiStrapiProd = ref('https://growing-card-f69db5823c.strapiapp.com')
+
+
+
+
+
     // const changeOptionData = (newData) => {
     //     optionsData.value = newData
     //     console.log('new value store', optionsData.value)
@@ -36,6 +44,10 @@ export const useCounterStore = defineStore('counter', () => {
         modalController,
         homeSaleModalShown,
         signUpFormDraft,
-        agencyBundleFormDraft
+        agencyBundleFormDraft,
+
+        devMode,
+        urlApiStrapiDev,
+        urlApiStrapiProd,
     }
 })
