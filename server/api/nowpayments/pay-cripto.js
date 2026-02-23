@@ -12,11 +12,10 @@
     const config = useRuntimeConfig()
 
     let currentUrl
-
-    if(config.urlProdStatus == 'true'){
-        currentUrl = config.siteUrlProd
+    if (config.urlProdStatus === true || config.urlProdStatus === 'true') {
+      currentUrl = config.siteUrlProd
     } else {
-        currentUrl = config.siteUrlDev
+      currentUrl = config.siteUrlDev
     }
     
     var myHeaders = new Headers();

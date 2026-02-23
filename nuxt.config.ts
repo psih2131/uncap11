@@ -47,10 +47,10 @@ export default defineNuxtConfig({
     urlApiStrapiDev: process.env.NUXT_API_URL_DEV ?? '',
     urlApiStrapiProd: process.env.NUXT_API_URL_PROD ?? '',
 
-    public: {
-      urlProdStatus: process.env.NUXT_URL_PROD_STATUS ?? '',
-      urlApiStrapiDev: process.env.NUXT_API_URL_DEV ?? '',
-      urlApiStrapiProd: process.env.NUXT_API_URL_PROD ?? '',
-    }
+    // public: {
+    //   urlProdStatus: process.env.NUXT_URL_PROD_STATUS ?? '',
+    //   urlApiStrapiDev: process.env.NUXT_API_URL_DEV ?? '',
+    //   urlApiStrapiProd: process.env.NUXT_API_URL_PROD ?? '',
+    // }
   }
 })

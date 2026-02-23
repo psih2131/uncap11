@@ -65,7 +65,7 @@
 
           <div class="payment-sec__btn-row">
             <button type="submit" class="header__btn">
-              <span class="header__btn-text">Get 5 Free Accounts</span>
+              <span class="header__btn-text">Get 10 Free Accounts</span>
               <svg
                 width="24"
                 height="24"
@@ -173,13 +173,13 @@ function onSubmit() {
 async function serverRequest() {
   let currentUrl;
 
-  if(store.devMode) {
+  if (store.devMode) {
     currentUrl = store.urlApiStrapiDev;
   } else {
     currentUrl = store.urlApiStrapiProd;
   }
-  console.log('currentUrl', currentUrl);
-  
+  console.log("currentUrl", currentUrl);
+
   if (!currentUrl) {
     generalError.value =
       "API URL is not configured. Check NUXT_API_URL_DEV / NUXT_API_URL_PROD.";
@@ -221,7 +221,10 @@ const openPopup = (name) => {
 };
 
 onMounted(() => {
-  if (store.agencyBundleFormDraft && typeof store.agencyBundleFormDraft === "object") {
+  if (
+    store.agencyBundleFormDraft &&
+    typeof store.agencyBundleFormDraft === "object"
+  ) {
     Object.assign(form.value, store.agencyBundleFormDraft);
   }
 });

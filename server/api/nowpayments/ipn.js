@@ -48,8 +48,12 @@ export default defineEventHandler(async (event) => {
   const status = body.payment_status ?? '—'
   console.log('[NOWPayments IPN] payment_id:', paymentId, '| status:', status)
 
-  const isProd = config.urlProdStatus === true || config.urlProdStatus === 'true'
-  const strapiUrl = isProd ? config.urlApiStrapiProd : config.urlApiStrapiDev
+  let strapiUrl
+  if (config.urlProdStatus === true || config.urlProdStatus === 'true') {
+    strapiUrl = config.urlApiStrapiProd
+  } else {
+    strapiUrl = config.urlApiStrapiDev
+  }
 
   if (strapiUrl) {
     const paymentIdStr = String(paymentId)

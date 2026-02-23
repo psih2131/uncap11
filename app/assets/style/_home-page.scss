@@ -2057,6 +2057,7 @@
 .plans-sec-v2__price-main-info-old-price-row {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .plans-sec-v2__price-main-info-old-price {
@@ -2497,6 +2498,12 @@
   right: calc(50% + 250px);
 }
 
+.plans-sec-v2__price-main-info-old-price-period {
+  font-size: 16px;
+  color: #E7DFFB;
+  font-weight: 600;
+  margin-left: 5px;
+}
 
 
 
@@ -2838,7 +2845,7 @@
     font-size: 38px;
   }
 
-  .bandle-sec__img--2{
+  .bandle-sec__img--2 {
     right: calc(50% + 150px);
   }
 }
@@ -3881,7 +3888,12 @@
     //   }
     // }
   }
-  .own-sec__img-wrapper{
+
+  .own-sec__img-wrapper {
     display: none;
+  }
+
+  .plans-sec-v2__price-main-info-old-price-period {
+    font-size: 14px;
   }
 }

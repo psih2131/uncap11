@@ -296,7 +296,6 @@ const accountTypeOptions = [
 const profileLocationOptions = [
   { value: "us", label: "United States" },
   { value: "eu", label: "Europe" },
-  { value: "ua", label: "Ukraine" },
 ];
 
 const periodOfUseOptionsPremium = [
@@ -306,6 +305,7 @@ const periodOfUseOptionsPremium = [
   { value: "4m", label: "4 month" },
   { value: "5m", label: "5 month" },
   { value: "6m", label: "6 months" },
+  { value: "12m", label: "12 months" },
 ];
 
 const periodOfUseOptionsTrial = [{ value: "1w", label: "1 week" }];
@@ -344,7 +344,7 @@ watch(
     } else if (type === "premium" && form.value.periodOfUse === "1w") {
       form.value.periodOfUse = "1m";
     }
-  }
+  },
 );
 
 onMounted(() => {

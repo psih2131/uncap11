@@ -71,10 +71,7 @@
               <span class="hero-sec__trial-btn-text">
                 Try for 1 week for $12.99
               </span>
-              <div
-                class="plans-sec-v2__trial-title-info"
-                @click.stop
-              >
+              <div class="plans-sec-v2__trial-title-info" @click.stop>
                 <div class="plans-sec-v2__trial-title-info-icon">
                   <svg
                     width="24"
@@ -240,6 +237,9 @@
               </p>
               <div class="plans-sec-v2__price-main-info-old-price-row">
                 <p class="plans-sec-v2__price-main-info-old-price">$79</p>
+                <span class="plans-sec-v2__price-main-info-old-price-period"
+                  >/month</span
+                >
               </div>
 
               <p class="plans-sec-v2__price-main-info-new-price">
@@ -713,10 +713,10 @@
       <div class="container">
         <div class="bandle-sec__wrapper">
           <h2 class="bandle-sec__title">
-            <b>Agency Bundle —</b> 5 Accounts Free for 1 Month
+            <b>Agency Bundle —</b> 10 Accounts Free for 1 Month
           </h2>
           <div class="bandle-sec__text-banner">
-            Apply to receive 5 LinkedIn accounts free for 30 days (worth $400)
+            Apply to receive 5 LinkedIn accounts free for 30 days (worth $300)
             in exchange for a short video testimonial and honest feedback about
             our service.
           </div>
@@ -856,8 +856,8 @@
 
           <div class="referal-sec__banner">
             <p class="referal-sec__banner-text">
-              For example — if you refer 50 users on a $29/month plan, you earn
-              $435 every month, as long as they stay active.
+              For example — if you refer 50 users on a 29.99/month plan, you
+              earn 180$ every month, as long as they stay active.
             </p>
           </div>
         </div>
@@ -1168,7 +1168,7 @@
       </div>
     </section>
 
-    <section class="why-sec">
+    <!-- <section class="why-sec">
       <div class="container">
         <div class="why-sec__wrapper">
           <div class="why-sec__info">
@@ -1196,7 +1196,7 @@
           />
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="faq-sec" id="faq">
       <div class="container">
@@ -1657,8 +1657,7 @@ function scrollToAnchor(href) {
       typeof window !== "undefined" && window.innerWidth <= MOBILE_BREAKPOINT
         ? SCROLL_ANCHOR_OFFSET_MOBILE
         : SCROLL_ANCHOR_OFFSET_DESKTOP;
-    const top =
-      el.getBoundingClientRect().top + window.scrollY - offset;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: "smooth" });
   }
 }
