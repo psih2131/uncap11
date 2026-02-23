@@ -101,7 +101,7 @@ export default defineEventHandler(async (event) => {
           method: 'POST',
           body: { data: payload },
         })
-        console.log('[NOWPayments IPN] Strapi created')
+        console.log('[NOWPayments IPN] Strapi created', strapiUrl, payload)
       }
     } catch (e) {
       console.log('[NOWPayments IPN] Strapi error:', e?.message || e)
