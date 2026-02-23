@@ -12,7 +12,7 @@
     const config = useRuntimeConfig()
 
     let currentUrl
-    if (config.urlProdStatus === true || config.urlProdStatus === 'true') {
+    if (config.urlProdStatus ) {
       currentUrl = config.siteUrlProd
     } else {
       currentUrl = config.siteUrlDev

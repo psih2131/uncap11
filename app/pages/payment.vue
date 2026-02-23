@@ -109,29 +109,37 @@
                 />
               </svg>
             </button>
-            <button
-              type="button"
-              class="header__btn payment-sec__btn-card"
-              :disabled="paymentLoading"
-              @click="onPayByCard"
-            >
-              <span class="header__btn-text">Pay by card</span>
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            <div class="payment-sec__btn-card-wrap">
+              <p
+                v-show="showComingSoonHint"
+                class="payment-sec__coming-soon-hint"
               >
-                <path
-                  d="M10 8L14.6569 12.6569L10 17.3137"
-                  stroke="#0D0D0D"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
+                Coming soon
+              </p>
+              <button
+                type="button"
+                class="header__btn payment-sec__btn-card"
+                :disabled="paymentLoading"
+                @click="onPayByCard"
+              >
+                <span class="header__btn-text">Pay by card</span>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 8L14.6569 12.6569L10 17.3137"
+                    stroke="#0D0D0D"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
 
           <p v-if="generalError" class="payment-sec__form-general-error">
@@ -193,6 +201,7 @@ const errors = ref({
 const generalError = ref("");
 const paymentLoading = ref(false);
 const lastPayment = ref(null);
+const showComingSoonHint = ref(false);
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -236,7 +245,10 @@ function onSubmit() {
 }
 
 function onPayByCard() {
-  openPopup("pay-coming-soon");
+  showComingSoonHint.value = true;
+  setTimeout(() => {
+    showComingSoonHint.value = false;
+  }, 2500);
 }
 
 async function paymentRequest() {
@@ -301,11 +313,11 @@ const profileLocationOptions = [
 const periodOfUseOptionsPremium = [
   { value: "1m", label: "1 month" },
   { value: "2m", label: "2 month" },
-  { value: "3m", label: "3 months" },
+  { value: "3m", label: "3 months", discount: 15 },
   { value: "4m", label: "4 month" },
   { value: "5m", label: "5 month" },
-  { value: "6m", label: "6 months" },
-  { value: "12m", label: "12 months" },
+  { value: "6m", label: "6 months", discount: 25 },
+  { value: "12m", label: "12 months", discount: 35 },
 ];
 
 const periodOfUseOptionsTrial = [{ value: "1w", label: "1 week" }];

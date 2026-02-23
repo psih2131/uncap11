@@ -261,7 +261,9 @@
     }
 
     &__select-option {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         width: 100%;
         padding: 12px 18px;
         text-align: left;
@@ -279,6 +281,13 @@
             background: rgba(86, 58, 227, 0.12);
             color: $blue1;
         }
+    }
+
+    &__select-option-sale {
+        font-size: 12px;
+        font-weight: 600;
+        color: #e33a3a;
+        margin-left: 8px;
     }
 }
 
@@ -418,8 +427,34 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-end;
     gap: 16px;
     margin-top: 40px;
+}
+
+.payment-sec__btn-card-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-sec__coming-soon-hint {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #563AE3;
+    background: #fff;
+    border: 1px solid #563AE3;
+    border-radius: 6px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(86, 58, 227, 0.2);
+    pointer-events: none;
 }
 
 .payment-sec__btn-card {

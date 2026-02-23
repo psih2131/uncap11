@@ -13,8 +13,15 @@ export default defineEventHandler(async (event) => {
   }
 
   const config = useRuntimeConfig()
-  const isSandbox = config.sandboxMode === true || config.sandboxMode === 'true'
-  const ipnSecret = isSandbox ? config.ipnApiKeyDev : config.ipnApiKeyProd
+
+  let ipnSecret
+  if (config.sandboxMode === true || config.sandboxMode === 'true') {
+    ipnSecret = config.ipnApiKeyDev
+  } else {
+    ipnSecret = config.ipnApiKeyProd
+  }
+  // const isSandbox = config.sandboxMode === true || config.sandboxMode === 'true'
+  // const ipnSecret = isSandbox ? config.ipnApiKeyDev : config.ipnApiKeyProd
 
   if (ipnSecret) {
     const receivedSig = (getHeader(event, 'x-nowpayments-sig') || '').trim()
@@ -49,11 +56,12 @@ export default defineEventHandler(async (event) => {
   console.log('[NOWPayments IPN] payment_id:', paymentId, '| status:', status)
 
   let strapiUrl
-  if (config.urlProdStatus === true || config.urlProdStatus === 'true') {
+  if (config.urlProdStatus) {
     strapiUrl = config.urlApiStrapiProd
   } else {
     strapiUrl = config.urlApiStrapiDev
   }
+
 
   if (strapiUrl) {
     const paymentIdStr = String(paymentId)

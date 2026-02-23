@@ -24,7 +24,7 @@ export const useCounterStore = defineStore('counter', () => {
     const signUpFormDraft = ref(null)
     const agencyBundleFormDraft = ref(null)
 
-    const devMode = ref(false)
+    const devMode = ref(true)
     const urlApiStrapiDev = ref('http://localhost:1337')
     const urlApiStrapiProd = ref('https://growing-card-f69db5823c.strapiapp.com')
 

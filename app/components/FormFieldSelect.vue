@@ -24,7 +24,10 @@
           :class="{ 'payment-form-field__select-option--active': modelValue === opt.value }"
           @mousedown.prevent="select(opt)"
         >
-          {{ opt.label }}
+          <span>{{ opt.label }}</span>
+          <span v-if="opt.discount != null" class="payment-form-field__select-option-sale">
+            Sale {{ opt.discount }}%
+          </span>
         </button>
       </div>
     </div>
