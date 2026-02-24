@@ -28,7 +28,12 @@ export default defineNuxtConfig({
   },
   modules: [
     '@pinia/nuxt',
+    'nuxt-gtag',
   ],
+
+  gtag: {
+    id: 'G-W5Q0K4R5CX',
+  },
 
   runtimeConfig: {
     // nowpaymentsApiKey: process.env.NUXT_NOWPAYMENTS_API_KEY,

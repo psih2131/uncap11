@@ -10,9 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "nodemailer": "^6.9.16",
     "@pinia/nuxt": "^0.5.5",
+    "nodemailer": "^6.9.16",
     "nuxt": "^4.3.1",
+    "nuxt-gtag": "^4.1.0",
     "pinia": "^3.0.4",
     "vue": "^3.5.28",
     "vue-router": "^4.6.4"
