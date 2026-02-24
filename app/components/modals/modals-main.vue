@@ -27,6 +27,14 @@
     <Transition name="modal-pay" appear>
       <modalAgencyConfirm v-if="store.modalController.name == 'agency-confirm'" />
     </Transition>
+
+    <Transition name="modal-pay" appear>
+      <modalFormConfirm v-if="store.modalController.name == 'form-confirm-success'" />
+    </Transition>
+
+    <Transition name="modal-pay" appear>
+      <modalFormError v-if="store.modalController.name == 'form-error'" />
+    </Transition>
   </div>
 </template>
 
@@ -48,6 +56,12 @@ import modalHomeSale from "@/components/modals/home-sale.vue";
 import modalPayComingSoon from "@/components/modals/pay-coming-soon.vue";
 
 import modalAgencyConfirm from "@/components/modals/agency-confirm.vue";
+
+
+import modalFormConfirm from "@/components/modals/form-confirm.vue";
+
+import modalFormError from "@/components/modals/form-error.vue";
+
 
 function closeModal() {
   store.modalController.name = null;

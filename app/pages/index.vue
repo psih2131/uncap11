@@ -205,7 +205,7 @@
               </div>
             </h3>
             <div class="plans-sec-v2__btn-wrapper">
-              <NuxtLink to="/payment" class="plans-sec-v2__btn-v1">
+              <NuxtLink to="/profile-access-allocation" class="plans-sec-v2__btn-v1">
                 <span class="plans-sec-v2__btn-v1-text"
                   >Lock In Founding Pricing</span
                 >
