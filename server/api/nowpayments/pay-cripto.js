@@ -10,21 +10,20 @@
 
   
     const config = useRuntimeConfig()
+    const baseUrl = config.nuxt_bace_api_url || process.env.NUXT_BASE_API_URL
+    const currentUrl = config.nuxt_site_url || process.env.NUXT_SITE_URL
+    const apiKey = config.nuxt_nopayments_api || process.env.NUXT_NOWPAYMENTS_API
 
-    let baseUrl;
-    if (config.nuxt_bace_api_url) {
-    baseUrl = config.nuxt_bace_api_url
+    if (!baseUrl) {
+      throw createError({ statusCode: 500, statusMessage: 'NUXT_BASE_API_URL is not set' })
+    }
+    if (!currentUrl) {
+      throw createError({ statusCode: 500, statusMessage: 'NUXT_SITE_URL is not set' })
     }
 
-
-    let currentUrl
-    if (config.nuxt_site_url ) {
-      currentUrl = config.nuxt_site_url
-    } 
-    
     var myHeaders = new Headers();
-    if(config.nuxt_nopayments_api){
-        myHeaders.append("x-api-key", config.nuxt_nopayments_api);
+    if (apiKey) {
+      myHeaders.append("x-api-key", apiKey);
     } 
 
     myHeaders.append("Content-Type", "application/json");
