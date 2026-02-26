@@ -49,8 +49,13 @@ export default defineEventHandler(async (event) => {
   const status = body.payment_status ?? '—'
   console.log('[NOWPayments IPN] payment_id:', paymentId, '| status:', status)
 
-  const strapiUrl = config.nuxt_api_back_url || process.env.NUXT_API_BACK_URL 
+  const strapiUrl = config.nuxt_api_back_url || process.env.NUXT_API_BACK_URL
 
+  const isFinished = String(body.payment_status || '').toLowerCase() === 'finished'
+  if (!isFinished) {
+    console.log('[NOWPayments IPN] skip Strapi/email: status is not finished', status)
+    return { received: true }
+  }
 
   if (strapiUrl) {
     const paymentIdStr = String(paymentId)
