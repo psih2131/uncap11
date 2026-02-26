@@ -120,7 +120,7 @@
               </svg>
             </a>
 
-            <a
+            <!-- <a
               href="https://www.instagram.com/uncap.11/"
               target="_blank"
               class="footer__social"
@@ -145,7 +145,7 @@
                   fill="#9192BC"
                 />
               </svg>
-            </a>
+            </a> -->
 
             <a
               href="https://x.com/UncapC2176"
@@ -214,8 +214,7 @@ function scrollToAnchor(href) {
       typeof window !== "undefined" && window.innerWidth <= MOBILE_BREAKPOINT
         ? SCROLL_ANCHOR_OFFSET_MOBILE
         : SCROLL_ANCHOR_OFFSET_DESKTOP;
-    const top =
-      el.getBoundingClientRect().top + window.scrollY - offset;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: "smooth" });
   }
 }

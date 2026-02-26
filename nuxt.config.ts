@@ -36,22 +36,6 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    // nowpaymentsApiKey: process.env.NUXT_NOWPAYMENTS_API_KEY,
-    // nowpaymentsApiKeyDev: process.env.NUXT_NOWPAYMENTS_API_KEY_DEV,
-    // ipnCallbackBaseUrl: process.env.NUXT_IPN_CALLBACK_BASE_URL || '',
-    // sandboxMode: process.env.NUXT_SANDBOX_MODE ?? '',
-
-    // ipnApiKeyDev: process.env.NUXT_IPN_API_KEY_DEV ?? '',
-    // ipnApiKeyProd: process.env.NUXT_IPN_API_KEY_PROD ?? '',
-
-    // urlProdStatus: process.env.NUXT_URL_PROD_STATUS ?? '',
-    
-    // siteUrlDev: process.env.NUXT_SITE_URL_DEV ?? '',
-    // siteUrlProd: process.env.NUXT_SITE_URL_PROD ?? '',
-
-    // urlApiStrapiDev: process.env.NUXT_API_URL_DEV ?? '',
-    // urlApiStrapiProd: process.env.NUXT_API_URL_PROD ?? '',
-
 
     nuxt_bace_api_url: process.env.NUXT_BASE_API_URL,
     nuxt_nopayments_api: process.env.NUXT_NOWPAYMENTS_API,
@@ -64,10 +48,6 @@ export default defineNuxtConfig({
     mailUser: process.env.NUXT_MAIL_USER ?? '',
     mailPass: process.env.NUXT_MAIL_PASS ?? '',
     mailFrom: process.env.NUXT_MAIL_FROM ?? '',
-    // public: {
-    //   urlProdStatus: process.env.NUXT_URL_PROD_STATUS ?? '',
-    //   urlApiStrapiDev: process.env.NUXT_API_URL_DEV ?? '',
-    //   urlApiStrapiProd: process.env.NUXT_API_URL_PROD ?? '',
-    // }
+
   }
 })
