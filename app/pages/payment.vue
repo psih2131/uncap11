@@ -301,7 +301,7 @@ const genderOptions = [
 
 const accountTypeOptions = [
   { value: "premium", label: "Premium LinkedIn Profile", price: "26" },
-  { value: "trial", label: "Trial Profile", price: "12" },
+  // { value: "trial", label: "Trial Profile", price: "12" },
 ];
 
 const profileLocationOptions = [
