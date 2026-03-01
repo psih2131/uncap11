@@ -11,7 +11,7 @@
           @click.prevent="scrollToAnchor('#pricing')"
         >
           <p class="banner-sec__text">
-            Save 400$/year — Get Profile with Premium for <b>$29.99/month</b>.
+            Save 400$/year — Get Profile with Premium for <b>$49.99/month</b>.
             March 2026 only.
           </p>
 
@@ -38,7 +38,7 @@
         <div class="hero-sec__header">
           <h1 class="hero-sec__title">
             <b>Get LinkedIn profiles</b> <span><br /></span>
-            at $29.99/month
+            at $49.99/month
           </h1>
           <div class="hero-sec__teg">
             Year of free LinkedIn Premium included
@@ -64,12 +64,12 @@
                   />
                 </svg>
               </span>
-              <span class="predistable-sec__btn-text">Get 62% Off Now</span>
+              <span class="predistable-sec__btn-text">Get 37% Off Now</span>
             </NuxtLink>
 
-            <button class="hero-sec__trial-btn" @click="payPageGo(1, 'trial')">
+            <button class="hero-sec__trial-btn" @click="payPageGoTrial()">
               <span class="hero-sec__trial-btn-text">
-                Try for 1 week for $12.99
+                Get Free Trial
               </span>
               <div class="plans-sec-v2__trial-title-info" @click.stop>
                 <div class="plans-sec-v2__trial-title-info-icon">
@@ -182,7 +182,7 @@
               March Launch Window
             </p>
             <h3 class="plans-sec-v2__trial-title">
-              First 250 Profiles at Founding Rates — 62% Off
+              First 250 Profiles at Founding Rates — 37% Off
               <div class="plans-sec-v2__trial-title-info">
                 <div class="plans-sec-v2__trial-title-info-icon">
                   <svg
@@ -244,7 +244,7 @@
 
               <p class="plans-sec-v2__price-main-info-new-price">
                 <span class="plans-sec-v2__price-main-info-new-price-value"
-                  >$29.99</span
+                  >$49.99</span
                 >
                 <span class="plans-sec-v2__price-main-info-new-price-period"
                   >/month</span
@@ -318,7 +318,7 @@
                     />
                   </svg>
 
-                  <span class="plans-sec-v2__btn-v2-text">Get 62% Off Now</span>
+                  <span class="plans-sec-v2__btn-v2-text">Get 37% Off Now</span>
                 </NuxtLink>
               </div>
             </div>
@@ -856,7 +856,7 @@
 
           <div class="referal-sec__banner">
             <p class="referal-sec__banner-text">
-              For example — if you refer 50 users on a 29.99/month plan, you
+              For example — if you refer 50 users on a 49.99/month plan, you
               earn 180$ every month, as long as they stay active.
             </p>
           </div>
@@ -1667,6 +1667,10 @@ const payPageGo = (count, id) => {
   store.counterValue.type = id;
   console.log(store.counterValue);
   navigateTo("/payment");
+};
+
+const payPageGoTrial = () => {
+  navigateTo("/get-free-trial-form");
 };
 
 const requestURL = useRequestURL();

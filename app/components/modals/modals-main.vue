@@ -35,6 +35,10 @@
     <Transition name="modal-pay" appear>
       <modalFormError v-if="store.modalController.name == 'form-error'" />
     </Transition>
+
+    <Transition name="modal-pay" appear>
+      <modalTrialRequestConfirm v-if="store.modalController.name == 'trial-request-confirm'" />
+    </Transition>
   </div>
 </template>
 
@@ -62,6 +66,7 @@ import modalFormConfirm from "@/components/modals/form-confirm.vue";
 
 import modalFormError from "@/components/modals/form-error.vue";
 
+import modalTrialRequestConfirm from "@/components/modals/trial-request-confirm.vue";
 
 function closeModal() {
   store.modalController.name = null;
