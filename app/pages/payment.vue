@@ -52,6 +52,7 @@
             placeholder="Select Type"
             :options="accountTypeOptions"
             :error="errors.accountType"
+            custom-class="hide-arrow"
           />
           <FormFieldSelect
             v-model="form.profileLocation"
@@ -310,13 +311,13 @@ const profileLocationOptions = [
 ];
 
 const periodOfUseOptionsPremium = [
-  { value: "1m", label: "1 month" },
-  { value: "2m", label: "2 month" },
-  { value: "3m", label: "3 months", discount: 15 },
-  { value: "4m", label: "4 month" },
-  { value: "5m", label: "5 month" },
-  { value: "6m", label: "6 months", discount: 25 },
-  { value: "12m", label: "12 months", discount: 35 },
+  { value: "1m", label: "1 month", value_num: 1 },
+  { value: "2m", label: "2 month", value_num: 2 },
+  { value: "3m", label: "3 months", value_num: 3, discount: 15 },
+  { value: "4m", label: "4 month", value_num: 4, discount: 15 },
+  { value: "5m", label: "5 month", value_num: 5, discount: 15 },
+  { value: "6m", label: "6 months", value_num: 6, discount: 25 },
+  { value: "12m", label: "12 months", value_num: 12, discount: 35 },
 ];
 
 const periodOfUseOptionsTrial = [{ value: "1w", label: "1 week" }];
@@ -335,7 +336,16 @@ const accountsAmount = computed(() => {
 
 const totalFixed = computed(() => {
   if (form.value.accountType === "trial") return "12.99";
-  const amount = accountsAmount.value * +currentOneAccountPtice.value;
+  const selectedPeriod = periodOfUseOptionsPremium.find(
+    (o) => o.value === form.value.periodOfUse
+  );
+  const months = selectedPeriod?.value_num ?? 1;
+  const discount = selectedPeriod?.discount ?? 0;
+  let amount =
+    accountsAmount.value * +currentOneAccountPtice.value * months;
+  if (discount > 0) {
+    amount = amount * (1 - discount / 100);
+  }
   return amount.toFixed(2);
 });
 
@@ -372,6 +382,7 @@ onMounted(() => {
     const count = store?.counterValue?.count;
     form.value.quantity =
       count != null && Number(count) >= 1 ? Number(count) : 1;
+    form.value.periodOfUse = form.value.periodOfUse || "1m";
   }
 
   if (route.query.success) {

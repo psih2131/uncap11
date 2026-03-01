@@ -1,7 +1,10 @@
 <template>
   <div
     class="payment-form-field"
-    :class="{ 'payment-form-field--error': error }"
+    :class="[
+      { 'payment-form-field--error': error },
+      customClass || undefined,
+    ]"
   >
     <span class="payment-form-field__label">{{ label }}</span>
     <div
@@ -58,6 +61,7 @@ const props = defineProps({
     default: () => [],
   },
   modelValue: { type: [String, Number], default: "" },
+  customClass: { type: String, default: "" },
 });
 const emit = defineEmits(["update:modelValue"]);
 
@@ -73,3 +77,9 @@ function select(opt) {
   isOpen.value = false;
 }
 </script>
+
+<style scoped>
+.payment-form-field.hide-arrow :deep(.payment-form-field__select-chevron) {
+  display: none;
+}
+</style>
