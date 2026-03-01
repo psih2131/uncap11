@@ -27,7 +27,9 @@
           <h1 class="payment-sec__title">Get Free Trial</h1>
         </div>
         <p class="payment-sec__subtitle payment-sec__subtitle--desc">
-          Get 1 free LinkedIn account for 2 weeks and test Uncap11 in a structured, safe way. Submit your details — we'll review and confirm access.
+          Get 1 free LinkedIn account for 2 weeks and test Uncap11 in a
+          structured, safe way. Submit your details — we'll review and confirm
+          access.
         </p>
 
         <form class="payment-sec__form" @submit.prevent="onSubmit">
@@ -46,7 +48,7 @@
           <FormFieldText
             v-model="form.website"
             label="Website / LinkedIn company page"
-            placeholder="https://..."
+            placeholder="https://uncap11.com"
             :error="errors.website"
           />
           <FormFieldSelect
@@ -80,11 +82,7 @@
           </div>
 
           <div class="payment-sec__btn-row">
-            <button
-              type="submit"
-              class="header__btn"
-              :disabled="submitLoading"
-            >
+            <button type="submit" class="header__btn" :disabled="submitLoading">
               <span class="header__btn-text">
                 {{ submitLoading ? "Submitting…" : "Request Trial" }}
               </span>
@@ -143,7 +141,7 @@ const submitLoading = ref(false);
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const roleOptions = [
-  { value: "founder_owner", label: "Founder / Owner" },
+  { value: "founder_owner", label: "Founder / Сeo" },
   { value: "sales_sdr", label: "Sales / SDR" },
   { value: "recruiter", label: "Recruiter" },
   { value: "agency_manager", label: "Agency Manager" },
@@ -169,9 +167,7 @@ function validate() {
       ? "Field is required"
       : "";
   errors.value.role = !form.value.role ? "Select your role" : "";
-  errors.value.testimonialAgree = form.value.testimonialAgree
-    ? ""
-    : "Required";
+  errors.value.testimonialAgree = form.value.testimonialAgree ? "" : "Required";
 
   const hasErrors = Object.values(errors.value).some(Boolean);
   if (hasErrors) {
@@ -234,6 +230,4 @@ async function serverRequest() {
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

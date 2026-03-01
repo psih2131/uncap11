@@ -45,7 +45,7 @@
           </div>
           <p class="hero-sec__subtitle">
             Scale outbound volume, lower per-profile costs, and generate more
-            leads — with LinkedIn profiles at 62% off, including a full year of
+            leads — with LinkedIn profiles at 37% off, including a full year of
             LinkedIn Premium.
           </p>
           <div class="hero-sec__btn-row">
@@ -68,9 +68,7 @@
             </NuxtLink>
 
             <button class="hero-sec__trial-btn" @click="payPageGoTrial()">
-              <span class="hero-sec__trial-btn-text">
-                Get Free Trial
-              </span>
+              <span class="hero-sec__trial-btn-text"> Get Free Trial </span>
               <div class="plans-sec-v2__trial-title-info" @click.stop>
                 <div class="plans-sec-v2__trial-title-info-icon">
                   <svg
@@ -205,7 +203,10 @@
               </div>
             </h3>
             <div class="plans-sec-v2__btn-wrapper">
-              <NuxtLink to="/profile-access-allocation" class="plans-sec-v2__btn-v1">
+              <NuxtLink
+                to="/profile-access-allocation"
+                class="plans-sec-v2__btn-v1"
+              >
                 <span class="plans-sec-v2__btn-v1-text"
                   >Lock In Founding Pricing</span
                 >
@@ -716,7 +717,7 @@
             <b>Agency Bundle —</b> 10 Accounts Free for 1 Month
           </h2>
           <div class="bandle-sec__text-banner">
-            Apply to receive 5 LinkedIn accounts free for 30 days (worth $300)
+            Apply to receive 10 LinkedIn accounts free for 30 days (worth $500)
             in exchange for a short video testimonial and honest feedback about
             our service.
           </div>

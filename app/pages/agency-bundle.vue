@@ -57,7 +57,7 @@
 
           <FormFieldTextarea
             v-model="form.howUseAccounts"
-            label="How will you use the 5 accounts?"
+            label="How will you use the 10 accounts?"
             placeholder="Briefly describe how you plan to use the accounts"
             :rows="3"
             :error="errors.howUseAccounts"
