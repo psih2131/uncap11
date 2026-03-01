@@ -53,7 +53,7 @@
     </div>
 
     <p class="modal-pay__title">
-      Launch offer:<br />Account with Premium Access for $29.99
+      Launch offer:<br />Account with Premium Access for $49.99
     </p>
     <p class="modal-pay__subtitle">
       Stop paying separately for LinkedIn Premium. Already connected for a year
