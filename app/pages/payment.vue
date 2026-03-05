@@ -140,6 +140,32 @@
                 </svg>
               </button>
             </div>
+
+            <button
+              type="button"
+              class="header__btn payment-sec__btn-invoice"
+              :disabled="invoiceLoading"
+              @click="onRequestInvoice"
+            >
+              <span class="header__btn-text">
+                {{ invoiceLoading ? "Sending…" : "Request an invoice" }}
+              </span>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 8L14.6569 12.6569L10 17.3137"
+                  stroke="#0D0D0D"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
 
           <p v-if="generalError" class="payment-sec__form-general-error">
@@ -200,6 +226,7 @@ const errors = ref({
 
 const generalError = ref("");
 const paymentLoading = ref(false);
+const invoiceLoading = ref(false);
 const lastPayment = ref(null);
 const showComingSoonHint = ref(false);
 
@@ -242,6 +269,11 @@ function validate() {
 function onSubmit() {
   if (!validate()) return;
   paymentRequest();
+}
+
+function onRequestInvoice() {
+  if (!validate()) return;
+  invoiceRequest();
 }
 
 function onPayByCard() {
@@ -292,6 +324,74 @@ async function paymentRequest() {
       e?.data?.message || e?.message || "Payment request failed.";
   } finally {
     paymentLoading.value = false;
+  }
+}
+
+async function invoiceRequest() {
+  invoiceLoading.value = true;
+  generalError.value = "";
+
+  const currentUrl = store.devMode
+    ? store.urlApiStrapiDev
+    : store.urlApiStrapiProd;
+
+  if (!currentUrl) {
+    generalError.value =
+      "API URL is not configured. Check urlApiStrapiDev / urlApiStrapiProd in store.";
+    invoiceLoading.value = false;
+    return;
+  }
+
+  try {
+    const body = {
+      data: {
+        payment_id: "",
+        quantity: Number(form.value.quantity) || 0,
+        user_email: String(form.value.email || "").trim(),
+        account_type: form.value.accountType,
+        profile_location: form.value.profileLocation,
+        period_of_use: form.value.periodOfUse,
+        text_message: form.value.otherDetails,
+        total_price: String(totalFixed.value),
+      },
+    };
+
+    const response = await fetch(`${currentUrl}/api/leads-pay-requests`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (response.ok) {
+      form.value = {
+        gender: "",
+        quantity: 1,
+        email: "",
+        accountType: "premium",
+        profileLocation: "",
+        periodOfUse: "1m",
+        otherDetails: "",
+      };
+      errors.value = {
+        gender: "",
+        quantity: "",
+        email: "",
+        accountType: "",
+        profileLocation: "",
+        periodOfUse: "",
+      };
+      openPopup("invoice-request-confirm");
+    } else {
+      openPopup("invoice-request-error");
+      generalError.value = "Invoice request failed. Please try again.";
+    }
+  } catch (e) {
+    openPopup("invoice-request-error");
+    generalError.value = e?.message || "Network error. Please try again.";
+  } finally {
+    invoiceLoading.value = false;
   }
 }
 

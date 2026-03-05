@@ -517,6 +517,33 @@
     // }
 }
 
+.payment-sec__btn-invoice {
+    background: #ffffff;
+    box-shadow: inset 0 0 0 2px #5a6370;
+    color: #5a6370;
+
+    .header__btn-text {
+        color: #5a6370;
+    }
+
+    svg path {
+        stroke: #5a6370;
+    }
+
+    &:hover:not(:disabled) {
+        background: #5a6370;
+        box-shadow: inset 0 0 0 2px #5a6370;
+
+        .header__btn-text {
+            color: #ffffff;
+        }
+
+        svg path {
+            stroke: #ffffff;
+        }
+    }
+}
+
 
 .payment-sec__subtitle--desc {
     margin-top: -0.5rem;
