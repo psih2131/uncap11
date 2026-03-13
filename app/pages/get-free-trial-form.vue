@@ -27,7 +27,7 @@
           <h1 class="payment-sec__title">Get Free Trial</h1>
         </div>
         <p class="payment-sec__subtitle payment-sec__subtitle--desc">
-          Get 1 free LinkedIn account for 2 weeks and test Uncap11 in a
+          Get 1 free LinkedIn account for 1 weeks and test Uncap11 in a
           structured, safe way. Submit your details — we'll review and confirm
           access.
         </p>
