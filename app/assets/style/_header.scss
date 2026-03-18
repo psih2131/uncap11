@@ -110,6 +110,36 @@
     }
 }
 
+.header__btn--book {
+    background: #ffffff;
+    box-shadow: inset 0px 0px 8.7px rgba(86, 58, 227, 0.18);
+    margin-right: 10px;
+
+    .header__btn-text {
+        color: $blue1;
+    }
+
+    svg {
+        path {
+            stroke: $blue1;
+        }
+    }
+
+    &:hover {
+        background: rgba(86, 58, 227, 0.08);
+
+        .header__btn-text {
+            color: $blue1;
+        }
+
+        svg {
+            path {
+                stroke: $blue1;
+            }
+        }
+    }
+}
+
 .header__btn-text {
     margin-right: 4px;
     font-size: 18px;
@@ -250,6 +280,9 @@
             opacity: 1;
         }
 
+    }
+    .header__btn--book{
+        margin-right: 0;
     }
 }
 

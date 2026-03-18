@@ -87,6 +87,29 @@
       </nav>
 
       <div class="header__right">
+        <a
+          href="https://calendly.com/yuriy-uncap11/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="header__btn header__btn--book"
+        >
+          <span class="header__btn-text"> Book a Call </span>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 8L14.6569 12.6569L10 17.3137"
+              stroke="#0D0D0D"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
         <NuxtLink to="/sing-up" class="header__btn">
           <span class="header__btn-text"> Get started </span>
           <svg
@@ -196,6 +219,29 @@
         </ul>
       </nav>
 
+      <a
+        href="https://calendly.com/yuriy-uncap11/30min"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="header__btn header__btn--book"
+      >
+        <span class="header__btn-text"> Book a Call </span>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 8L14.6569 12.6569L10 17.3137"
+            stroke="#0D0D0D"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
       <NuxtLink to="/sing-up" class="header__btn">
         <span class="header__btn-text"> Get started </span>
         <svg
