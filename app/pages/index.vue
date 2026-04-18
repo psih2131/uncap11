@@ -11,7 +11,7 @@
           @click.prevent="scrollToAnchor('#pricing')"
         >
           <p class="banner-sec__text">
-            Save 400$/year — Get Profile with Premium for <b>$49.99/month</b>.
+            Save 400$/year — Get Profile with Premium for <b>$99.99/month</b>.
             March 2026 only.
           </p>
 
@@ -38,7 +38,7 @@
         <div class="hero-sec__header">
           <h1 class="hero-sec__title">
             <b>Get LinkedIn profiles</b> <span><br /></span>
-            at $49.99/month
+            at $99.99/month
           </h1>
           <div class="hero-sec__teg">
             Year of free LinkedIn Premium included
@@ -173,7 +173,7 @@
 
     <section class="plans-sec-v2">
       <div class="container">
-        <div class="plans-sec-v2__trial-banner" id="trial">
+        <!-- <div class="plans-sec-v2__trial-banner" id="trial">
           <div class="plans-sec-v2__trial-banner-wrapper">
             <p class="plans-sec-v2__subtitle">
               <span class="plans-sec-v2__subtitle-dot"></span>
@@ -228,7 +228,7 @@
               </NuxtLink>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="plans-sec-v2__price-wrapper" id="pricing">
           <div class="plans-sec-v2__price-main-info">
@@ -237,7 +237,7 @@
                 Premium LinkedIn Profile Access
               </p>
               <div class="plans-sec-v2__price-main-info-old-price-row">
-                <p class="plans-sec-v2__price-main-info-old-price">$79</p>
+                <p class="plans-sec-v2__price-main-info-old-price">$149</p>
                 <span class="plans-sec-v2__price-main-info-old-price-period"
                   >/month</span
                 >
@@ -245,7 +245,7 @@
 
               <p class="plans-sec-v2__price-main-info-new-price">
                 <span class="plans-sec-v2__price-main-info-new-price-value"
-                  >$49.99</span
+                  >$99.99</span
                 >
                 <span class="plans-sec-v2__price-main-info-new-price-period"
                   >/month</span
@@ -717,7 +717,7 @@
             <b>Agency Bundle —</b> 10 Accounts Free for 1 Month
           </h2>
           <div class="bandle-sec__text-banner">
-            Apply to receive 10 LinkedIn accounts free for 30 days (worth $500)
+            Apply to receive 10 LinkedIn accounts free for 30 days (worth $990)
             in exchange for a short video testimonial and honest feedback about
             our service.
           </div>
@@ -857,8 +857,8 @@
 
           <div class="referal-sec__banner">
             <p class="referal-sec__banner-text">
-              For example — if you refer 50 users on a 49.99/month plan, you
-              earn 180$ every month, as long as they stay active.
+              For example — if you refer 50 users on a 99.99/month plan, you
+              earn 600$ every month, as long as they stay active.
             </p>
           </div>
         </div>

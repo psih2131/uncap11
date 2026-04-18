@@ -203,7 +203,7 @@ import { useCounterStore } from "@/stores/counter";
 
 const store = useCounterStore();
 
-const currentOneAccountPtice = ref(49.99);
+const currentOneAccountPtice = ref(99.99);
 
 const form = ref({
   gender: "",
